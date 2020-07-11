@@ -1,0 +1,100 @@
+
+ul, ol {
+  list-style: none
+}
+
+* {
+  font-family: 'Nunito', sans-serif !important;
+}
+
+a {
+  text-decoration: none
+}
+
+a:hover {
+  text-decoration: none !important
+}
+
+img {
+  object-fit: cover;
+  width: 100%;
+}
+
+.active-link {
+  color: #F8C563 !important;
+}
+
+@import "components/header";
+@import "components/card";
+@import "components/category";
+@import "components/company";
+@import "components/post";
+@import "components/spinner";
+@import "components/map";
+
+.overlaySearch {
+  width: 100%;
+  height: 350px;
+  background-image: url('/images/bg.png');
+  background-size: cover;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.overlaySearch::after {
+  content: '';
+  position: absolute;
+  background-color: rgba(21, 22, 26, 0.7);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.overlay-search {
+  z-index: 999;
+  position: relative;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  width: fit-content;
+  flex-direction: column;
+
+  .basic-single {
+    width: 250px;
+    margin: 10px 5px;
+  }
+
+  &-title {
+    font-weight: bold;
+    font-size: 26px;
+    line-height: 35px;
+    color: #fff;
+
+    b {
+      color: #FF8A00
+    }
+  }
+}
+
+.footer {
+  width: 100%;
+  height: 47px;
+  background: #043C6B;
+}
+
+#nprogress .bar {
+  background: #F8C563 !important;
+}
+
+#nprogress .peg {
+  box-shadow: 0 0 10px #F8C563 !important;
+}
+
+#nprogress .spinner-icon {
+  border-top-color: #F8C563 !important;
+  border-left-color: #F8C563 !important;
+}
+

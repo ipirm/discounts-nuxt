@@ -1,0 +1,131 @@
+.post-back-button {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  svg {
+    margin-right: 10px;
+  }
+
+  span {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 33px;
+    color: #F8C563;
+  }
+}
+.post-text{
+  max-width: 345px;
+  margin-right: 30px;
+}
+.post-container{
+  .d-flex{
+    display: flex;
+    justify-content: center;
+  }
+}
+.post-container {
+  .row {
+    justify-content: center;
+  }
+
+  .post-image {
+    width: 360px;
+    height: 336px;
+    border-radius: 5px;
+    object-fit: cover
+  }
+
+  .post-title {
+    font-size: 32px;
+    line-height: 35px;
+    color: #434343;
+    margin-bottom: 10px;
+  }
+
+  .post-tags {
+    display: flex;
+    margin-top: 0px;
+
+    &-item {
+      padding: 5px 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #E8E8E8;
+      border-radius: 150px;
+      margin: 0 4px;
+    }
+
+    &-item:first-of-type {
+      background: #F8C563;
+      margin-left: 0;
+    }
+  }
+
+  .post-description {
+    margin-top: 22px;
+    font-size: 16px;
+    line-height: 22px;
+    color: #424242;
+    max-width: 345px;
+  }
+
+  .post-time {
+    margin-top: 10px;
+    font-size: 12px;
+    line-height: 16px;
+    color: #434343;
+  }
+
+  .post-underline {
+    margin: 20px 0;
+    width: 90%;
+    height: 1px;
+    background: #DBDBDB;
+  }
+
+  .post-information {
+
+    font-size: 14px;
+    line-height: 16px;
+    color: #434343;
+
+    p {
+      margin-bottom: 5px;
+    }
+
+    &-time {
+      margin-top: 5px;
+    }
+  }
+}
+
+.post-shop {
+  margin: 36px 0 60px 0;
+  font-size: 16px;
+  line-height: 14px;
+  color: #737373;
+  text-align: center;
+
+  span {
+    b {
+      color: red;
+      font-weight: normal
+    }
+  }
+}
+.post-swiper{
+  margin-top: 100px;
+  .swiper-controls-title{
+    color: #434343;
+  }
+  .overlay-card{
+    margin: 0 !important;
+    height: 417px;
+  }
+}
+.post-next-button svg{
+  margin-left: 10px;
+  transform: rotate(180deg);
+}

@@ -1,0 +1,99 @@
+.overlay-card {
+  max-width: 300px;
+  width: 100%;
+  height: 385px;
+  border-radius: 2px;
+  position: relative;
+  border: 1px solid #E5E5E5;
+  margin: 0 25px 45px 25px;
+  cursor: pointer;
+
+  &-desc {
+    position: absolute;
+    top: 91%;
+    left: 20px;
+    right: 0;
+    bottom: 62px;
+  }
+
+  img {
+    height: 200px
+  }
+
+  .overlay-date {
+    display: flex;
+
+    &-now {
+      font-size: 12px;
+      line-height: 12px;
+      color: #979797;
+      margin-right: 5px
+    }
+
+    &-type {
+      font-size: 12px;
+      line-height: 12px;
+      color: #979797;
+    }
+  }
+
+  &-underline {
+    width: 191.07px;
+    height: 1px;
+    background: #E5E5E5;
+    margin-bottom: 10px
+  }
+
+  &-text {
+    margin-top: 25px;
+    padding: 0 20px;
+
+    span {
+      font-size: 22px;
+      line-height: 27px;
+      color: #434343;
+      display: -webkit-box;
+      height: 54px;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
+      -webkit-box-orient: vertical;
+    }
+
+    p {
+      margin-top: 4px;
+      font-size: 14px;
+      line-height: 16px;
+      color: #424242;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      overflow: hidden;
+      -webkit-box-orient: vertical;
+    }
+  }
+
+  &-item {
+    position: absolute;
+    padding: 0px 5px;
+    height: 30px;
+    background-color: #1EDA31;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+
+    span {
+      font-weight: bold;
+      font-size: 18px;
+      line-height: 23px;
+      color: #FFFFFF;
+    }
+  }
+}
+.overlay-card:hover {
+  border: 1px solid #F8C563;
+}
