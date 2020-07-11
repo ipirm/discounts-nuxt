@@ -1,48 +1,56 @@
-import {CustomSelect} from '../../elements/CustomSelect'
-import {useSelector} from "react-redux";
-import Router, {useRouter} from 'next/router'
-import {useEffect, useState} from 'react'
+<!--import {CustomSelect} from '../../elements/CustomSelect'-->
+<!--import {useSelector} from "react-redux";-->
+<!--import Router, {useRouter} from 'next/router'-->
+<!--import {useEffect, useState} from 'react'-->
 
-export const SearchPanel = () => {
+<!--export const SearchPanel = () => {-->
 
-    const companies = useSelector(state => state.post.companies)
-    const cats = useSelector(state => state.post.cats)
+<!--    const companies = useSelector(state => state.post.companies)-->
+<!--    const cats = useSelector(state => state.post.cats)-->
 
-    const router = useRouter()
-
-
-    const [companyQuery, setCompanyQuery] = useState(null);
-    const [catsQuery, setCatsQuery] = useState(null);
+<!--    const router = useRouter()-->
 
 
-    useEffect(() => {
-        // if (Object.entries(router.query).length !== 0) {
-        //     for (const [key, value] of Object.entries(router.query)) {
-        //         if (key === 'company') {
-        //             const seletedONE = companies.find(v => v.slug === value)
-        //             console.log(seletedONE)
-        //         } else if (key === 'cats') {
-        //             const seletedONE = cats.find(v => v.slug === value)
-        //             console.log(seletedONE)
-        //         }
-        //     }
-        // }
-    }, [companyQuery, catsQuery]);
-    return (
-        <div className="overlaySearch">
-            <div className="overlay-search">
-                <div className="overlay-search-title">
+<!--    const [companyQuery, setCompanyQuery] = useState(null);-->
+<!--    const [catsQuery, setCatsQuery] = useState(null);-->
+
+
+<!--    useEffect(() => {-->
+<!--        // if (Object.entries(router.query).length !== 0) {-->
+<!--        //     for (const [key, value] of Object.entries(router.query)) {-->
+<!--        //         if (key === 'company') {-->
+<!--        //             const seletedONE = companies.find(v => v.slug === value)-->
+<!--        //             console.log(seletedONE)-->
+<!--        //         } else if (key === 'cats') {-->
+<!--        //             const seletedONE = cats.find(v => v.slug === value)-->
+<!--        //             console.log(seletedONE)-->
+<!--        //         }-->
+<!--        //     }-->
+<!--        // }-->
+<!--    }, [companyQuery, catsQuery]);-->
+    <template>
+        <div class="overlaySearch">
+            <div class="overlay-search">
+                <div class="overlay-search-title">
                     <span>
                         Скидки
-                        <b> в магазинах Баку </b>
+                        <b> в магазинах Баку</b>
                     </span>
                 </div>
-                <div className="d-flex">
-                    <CustomSelect type={'company'} items={companies}
-                                  placeHolder="Выбрать магазин..."/>
-                    <CustomSelect  type={'cats'} items={cats} placeHolder="Выбрать категорию..."/>
+                <div class="d-flex">
+                    <CustomSelect :data="cats" type="cats" placeHolder="Выбрать категорию..." />
+                    <CustomSelect  :data="companies" type="company" placeHolder="Выбрать магазин..." />
                 </div>
             </div>
         </div>
-    )
-}
+    </template>
+
+<script>
+    import CustomSelect from "../../elements/CustomSelect";
+    export default {
+        props: ['cats','companies'],
+        name: 'SearchPanel',
+        components: {CustomSelect},
+
+    }
+</script>

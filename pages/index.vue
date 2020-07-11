@@ -1,72 +1,83 @@
 <template>
-  <div class="container">
     <div>
-      <logo />
-      <h1 class="title">
-        Discounts
-      </h1>
-      <h2 class="subtitle">
-        Discounts
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
+        <SearchPanel :cats="cats" :companies="companies"/>
+        <div class="container" :style="{marginTop: 50 + 'px'}">
+            <div class="row" :style="{margin: 'auto'}">
+                <Card
+                        v-if="posts"
+                        v-for="(item, index) in posts"
+                        :key="index"
+                        :post="item"
+                        :cat="cats.find(i => i.slug === item.cat)"
+                        :company="companies.find(i => i.slug === item.company)"/>
+            </div>
+        </div>
+        <client-only>
+            <infinite-loading @infinite="infiniteScroll">
+                <div slot="spinner"><Spinner /></div>
+                <div slot="no-more"></div>
+                <div slot="no-results"></div>
+            </infinite-loading>
+        </client-only>
     </div>
-  </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
 
-export default {
-  components: {
-    Logo
-  }
-}
+    import {mapState, mapActions, mapMutations} from 'vuex'
+    import SearchPanel from "~/components/pages/index/SearchPanel";
+    import Card from "~/components/elements/Card";
+    import Spinner from "../components/elements/Spinner";
+
+
+    export default {
+        components: {Spinner, Card, SearchPanel},
+        async fetch({store, route}) {
+            await store.dispatch('post/getPosts', route.fullPath).then(async () => {
+                await store.dispatch('company/getCompanies');
+                await store.dispatch('category/getCats');
+            });
+        },
+        head() {
+            return {
+                title: `Акции, скидки, каталоги магазинов Москвы - Tviser.io`,
+                // meta: [
+                //     { name: 'description', content: `${this.$t('metaDescription')}` || '' },
+                //     { property: 'og:title', content: `${this.$t('MetaTitle')}` || '' } ,
+                //     { property: 'og:description', content: `${this.$t('metaDescription')}` || '' } ,
+                //     { property: 'og:image', content: '/images/main-page/slide1.png' || '' } ,
+                //     { property: 'og:url', content: `https://covid.az/${this.$route.fullPath}` || '' } ,
+                //     { property: 'twitter:card', content: '/images/main-page/slide1.png' || '' } ,
+                //     { name: 'keywords', content: `${this.$t('keywords')}` || '' },
+                // ]
+            }
+        },
+        methods: {
+            ...mapActions('company', ['getCompanies']),
+            ...mapActions('category', ['getCats']),
+            ...mapActions('post', ['getPosts']),
+            ...mapMutations('post', ['SET_PAGE']),
+
+            infiniteScroll($state) {
+                if (this.posts.length < parseInt(this.total)) {
+                    this.SET_PAGE(this.page + 1)
+                    this.getPosts().then(() => {
+                        $state.loaded()
+                    })
+                } else {
+                    $state.complete()
+                }
+            },
+        },
+        watchQuery(newQuery, oldQuery) {
+            return newQuery && oldQuery
+        },
+
+        computed: {
+            ...mapState('company', ['companies']),
+            ...mapState('category', ['cats']),
+            ...mapState('post', ['posts', 'total', 'page']),
+        }
+    }
 </script>
 
-<style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
-</style>

@@ -1,5 +1,22 @@
 <template>
-    $END$
+    <div class="spinner-overlay">
+        <div class="loadingio-spinner-spinner-7q8cjtbddry">
+            <div class="ldio-aett1mzhctr">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>

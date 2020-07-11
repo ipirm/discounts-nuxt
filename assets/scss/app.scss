@@ -20,10 +20,11 @@ img {
   width: 100%;
 }
 
-.active-link {
+.nuxt-link-exact-active{
   color: #F8C563 !important;
 }
 
+@import "global/swiper";
 @import "components/header";
 @import "components/card";
 @import "components/category";
@@ -31,6 +32,7 @@ img {
 @import "components/post";
 @import "components/spinner";
 @import "components/map";
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
 
 .overlaySearch {
   width: 100%;
@@ -65,6 +67,7 @@ img {
   .basic-single {
     width: 250px;
     margin: 10px 5px;
+    background-color: #fff;
   }
 
   &-title {
@@ -85,16 +88,16 @@ img {
   background: #043C6B;
 }
 
-#nprogress .bar {
-  background: #F8C563 !important;
-}
 
-#nprogress .peg {
-  box-shadow: 0 0 10px #F8C563 !important;
+.page-enter-active, .page-leave-active {
+  transition-duration: 0.5s;
+  transition-property: height, opacity, transform;
+  transition-timing-function: cubic-bezier(0.55, 0, 0.1, 1);
+  overflow: hidden;
+  opacity: 0;
+  transform: translate(2em, 0);
 }
-
-#nprogress .spinner-icon {
-  border-top-color: #F8C563 !important;
-  border-left-color: #F8C563 !important;
+.page-enter, .page-leave-active {
+  opacity: 0;
+  transform: translate(-2em, 0);
 }
-

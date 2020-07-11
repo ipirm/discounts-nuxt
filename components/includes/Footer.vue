@@ -1,7 +1,11 @@
-export const Footer = () => {
-    return (
-        <footer className="footer">
+<template>
+    <footer class="footer">
 
-        </footer>
-    )
-}
+    </footer>
+</template>
+
+<script>
+    export default {
+        name: 'Footer'
+    }
+</script>
