@@ -8,7 +8,7 @@
                 id="1"
                 instanceId="1"
                 inputId="1"
-                :clearable="false"
+                :clearable="true"
                 v-model="selected"
                 :options="data"
                 label="name"
@@ -41,15 +41,22 @@
                 }
             }
         },
+
         mounted(){
             if(this.$route.query[this.type]){
                 this.selected = this.data.find(i => i.slug === this.$route.query[this.type])
             }
         },
-        watchQuery(newQuery, oldQuery) {
-            return newQuery && oldQuery
+        watch: {
+          selected(){
+              if(this.selected === null){
+                  this.$router.push({
+                      path: this.$route.path,
+                      query: {...this.$route.query,  ...{[this.type]: ''}}
+                  })
+              }
+          }
         },
-        computed: {}
     }
 </script>
 
