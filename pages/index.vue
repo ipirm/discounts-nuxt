@@ -61,7 +61,7 @@
             infiniteScroll($state) {
                 if (this.posts.length < parseInt(this.total)) {
                     this.SET_PAGE(this.page + 1)
-                    this.getPosts().then(() => {
+                    this.getPosts(this.$route.fullPath).then(() => {
                         $state.loaded()
                     })
                 } else {
