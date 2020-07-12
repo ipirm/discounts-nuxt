@@ -22,7 +22,8 @@
     "vue-awesome-swiper": "^4.1.1",
     "vue-infinite-loading": "^2.4.5",
     "vue-scrollto": "^2.18.1",
-    "vue-select": "^3.10.7"
+    "vue-select": "^3.10.7",
+    "vue2-google-maps": "^0.10.7"
   },
   "devDependencies": {
     "eslint": "^5.16.0",

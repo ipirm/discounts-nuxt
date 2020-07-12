@@ -84,12 +84,12 @@
                                     <div class="post-information-time">Часы работы: 10:00 - 22:00</div>
                                 </div>
                             </div>
-                            <img class="post-image" :src="activeCompany.image_url"/>
+                            <img class="post-image" :src="postActive.image_url"/>
                         </div>
                     </div>
                 </div>
             </div>
-            <PostSwiper :slides="activeCat.filter(i => i.id !== this.postActive.id)" :companies="companies" :cats="cats"/>
+            <PostSwiper :slides="activeCat.filter(i => i.id !== this.postActive.id)"  :cats="cats"/>
         </div>
     </div>
 </template>
@@ -104,7 +104,6 @@
             await store.dispatch('post/getActivePost', route.params.slug).then(async () => {
                 await store.dispatch('company/getCompany', store.state.post.postActive.company)
                 await store.dispatch('category/getSameCats', route.params.slug)
-                await store.dispatch('company/getCompanies')
                 await store.dispatch('category/getCats')
                 await store.dispatch('category/getCat',store.state.post.postActive.cat)
             })
@@ -125,7 +124,7 @@
         },
         computed: {
             ...mapState('post', ['postActive']),
-            ...mapState('company', ['activeCompany', 'companies']),
+            ...mapState('company', ['activeCompany']),
             ...mapState('category', ['activeCat', 'cats','catPost']),
         }
     }

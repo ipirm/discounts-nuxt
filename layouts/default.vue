@@ -1,7 +1,7 @@
 <template>
     <div>
         <div v-show="!pageReady" class="page-loading">
-            <Spinner />
+            <Spinner/>
         </div>
         <div v-show="pageReady">
             <Header/>
@@ -17,6 +17,11 @@
 
     export default {
         components: {Spinner, Footer, Header},
+        head() {
+            return {
+                title: `Акции, скидки, каталоги магазинов Москвы - Tviser.io`,
+            }
+        },
         data() {
             return {
                 pageReady: false
@@ -33,7 +38,7 @@
     }
 </script>
 <style scoped>
-    .page-loading{
+    .page-loading {
         display: flex;
         justify-content: center;
         align-items: center;

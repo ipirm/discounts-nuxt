@@ -9,7 +9,7 @@
                         :key="index"
                         :post="item"
                         :cat="cats.find(i => i.slug === item.cat)"
-                        :company="companies.find(i => i.slug === item.company)"/>
+                />
             </div>
         </div>
         <client-only>

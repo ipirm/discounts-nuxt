@@ -3,12 +3,9 @@
         <div v-if="parseInt(post.ended) === 1" class="overlay-card-item" :style="{backgroundColor: 'rgb(255, 0, 0)'}">
             <span>Просрочено</span>
         </div>
-        <div v-else class="overlay-card-item" :style="{backgroundColor: post.color}"><span>{{post.color_text}}</span>
-        </div>
-
-        <img v-if="post.image === null" :src="company.image_url"/>
-        <img v-else :src="post.image_url"/>
-
+        <div v-else-if="post.color !== '-' && parseInt(post.ended) === 0" class="overlay-card-item" :style="{ backgroundColor: post.color}"><span>{{post.color_text}}</span></div>
+        <div v-else-if="post.color === '-' && parseInt(post.ended) === 0" class="overlay-card-item" :style="{ backgroundColor: 'rgb(0, 255, 0)'}"><span>{{post.color_text}}</span></div>
+        <img  :src="post.image_url"/>
         <div class="overlay-card-text">
             <span>{{post.title}}</span>
             <p>{{post.description}}</p>

@@ -41,16 +41,15 @@
                                 </div>
                             </div>
         </div>
-        <div class="row" v-if="companies && cats">
+        <div class="row" v-if="cats">
             <div class="col-12">
                 <div v-swiper:mySwiper="swiperOption" class="swiper-container">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide" v-for="item in slides" :key="item.id" style="display: flex">
                             <Card
-                                    v-if="slides && cats && companies"
+                                    v-if="slides"
                                     :post="item"
-                                    :cat="cats.find(i => i.slug === item.cat)"
-                                    :company="companies.find(i => i.slug === item.company)"/>
+                                    :cat="cats.find(i => i.slug === item.cat)"/>
                         </div>
                     </div>
                 </div>
@@ -66,7 +65,7 @@
     export default {
         name: 'PostSwiper',
         components: {Card},
-        props: ['slides', 'cat', 'company','companies','cats'],
+        props: ['slides', 'cat','cats'],
         data() {
             return {
                 swiperOption: {

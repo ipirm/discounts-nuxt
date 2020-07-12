@@ -41,12 +41,14 @@
                                 </div>
                                 <div class="post-information">
                                     <p>Адреса магазинов:</p>
-                                    <span>{{activeCompany.address}}</span>
-                                    <div class="post-information-time">Часы работы: {{activeCompany.time}}</div>
+                                    <div v-for="item in activeCompany.address" :key="item.id">
+                                    <span>{{item.address}}</span>
+                                    <div class="post-information-time">Часы работы: {{item.time}}</div>
+                                    </div>
                                 </div>
                                 <div class="post-information">
                                     <p>Телефоны:</p>
-                                    <div class="post-information-time">{{activeCompany.number}}</div>
+                                    <div class="post-information-time" v-for="item in activeCompany.numbers" :key="item.id">{{item.number}}</div>
                                 </div>
                             </div>
                             <img class="post-image" :src="activeCompany.image_url"/>
