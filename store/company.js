@@ -104,7 +104,8 @@ export const state = () => ({
             active: false
         }
     ],
-    companyLetters: []
+    companyLetters: [],
+    companiesSame: []
 })
 
 
@@ -121,18 +122,21 @@ export const mutations = {
             return 0;
         });
     },
-    SET_ACTIVE_COMPANY: (state, payload) =>{
-        state.activeCompany  = payload
+    SET_ACTIVE_COMPANY: (state, payload) => {
+        state.activeCompany = payload
     },
-    SET_COMPANY_LETTERS: (state,payload)=>{
+    SET_COMPANY_LETTERS: (state, payload) => {
         state.companyLetters = payload
     },
-    SET_COMPANY_ACTIVE_LETTERS: (state,payload)=>{
+    SET_COMPANY_ACTIVE_LETTERS: (state, payload) => {
         state.letters.forEach(function (item) {
             item.active = false
         })
         state.letters.find(i => i.name.toLowerCase() === payload.toLowerCase()).active = true
     },
+    SET_SAME_COMPANY: (state, payload) => {
+        state.companiesSame = payload
+    }
 }
 
 
@@ -142,12 +146,16 @@ export const actions = {
         const data = await apiRequest.get('posts-company');
         commit('SET_COMPANY', data.data.posts.data);
     },
-    async getCompany({commit},slug){
+    async getCompany({commit}, slug) {
         const data = await apiRequest.get(`posts-company/${slug}`)
         commit('SET_ACTIVE_COMPANY', data.data.post);
     },
-    async getCompanyByLetter({commit}){
+    async getCompanyByLetter({commit}) {
         const data = await apiRequest.get('posts-company-letter')
         commit('SET_COMPANY_LETTERS', data.data.posts2);
+    },
+    async getCompanySane({commit}, slug) {
+        const data = await apiRequest.get(`posts-company-same/${slug}`)
+        commit('SET_SAME_COMPANY', data.data.posts);
     }
 }

@@ -39,6 +39,7 @@ export default {
         {src: '~plugins/vue-select', ssr: false},
         {src: '~plugins/infinity-scroll', ssr: false},
         {src: '~plugins/swiper', ssr: false},
+        {src: '~plugins/map', ssr: true},
         {src: '~plugins/vue-scrollto'},
     ],
     /*
@@ -84,7 +85,7 @@ export default {
                 })
             }
         },
-        // transpile: [/^vue2-google-maps($|\/)/, /^vue2-gmap-custom-marker($|\/)/],
+        transpile: [/^vue2-google-maps($|\/)/, /^vue2-gmap-custom-marker($|\/)/],
         extractCSS: true,
         optimization: {
             splitChunks: {
