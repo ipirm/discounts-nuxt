@@ -33,13 +33,13 @@
             <div class="overlay-search">
                 <div class="overlay-search-title">
                     <span>
-                        Скидки
-                        <b> в магазинах Баку</b>
+                        {{ $t('searchPanel.title') }}
+                        <b>{{ $t('searchPanel.subtitle') }}</b>
                     </span>
                 </div>
                 <div class="d-flex">
-                    <CustomSelect :data="cats" type="cats" placeHolder="Выбрать категорию..." />
-                    <CustomSelect  :data="companies" type="company" placeHolder="Выбрать магазин..." />
+                    <CustomSelect :data="cats" type="cats" :placeHolder="$t('searchPanel.selectCategory')" />
+                    <CustomSelect  :data="companies" type="company" :placeHolder="$t('searchPanel.selectCompany')" />
                 </div>
             </div>
         </div>

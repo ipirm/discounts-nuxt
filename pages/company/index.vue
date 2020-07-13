@@ -2,7 +2,7 @@
     <div class="company-section">
         <div class="container-fluid swiper-fluid">
             <div class="row company-section-title">
-                <div class="col-12 swiper-col">Компании</div>
+                <div class="col-12 swiper-col">{{ $t('menu.company') }}</div>
             </div>
             <div class="company-section-letters">
                 <a
@@ -23,9 +23,9 @@
                         </span>
                     </div>
                     <div class="company-section-item-elements">
-                        <nuxt-link class="company-section-item-left" v-for="item in value" :key="item.id" :to="{name:'company-slug', params:{slug: item.slug}}">
+                        <Clink class="company-section-item-left" v-for="item in value" :key="item.id" :to="{name:'company-slug', params:{slug: item.slug}}">
                             {{item.name }}
-                        </nuxt-link>
+                        </Clink>
                     </div>
                 </div>
             </div>
@@ -35,9 +35,11 @@
 
 <script>
     import {mapState, mapMutations} from 'vuex'
+    import Clink from "../../components/elements/Link";
 
     export default {
         name: "Company",
+        components: {Clink},
         async fetch({store}) {
             await store.dispatch('company/getCompanyByLetter');
         },

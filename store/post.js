@@ -4,7 +4,8 @@ export const state = () => ({
     posts: [],
     total: 0,
     page: 1,
-    postActive: {}
+    postActive: {},
+    infinityRender: 0
 })
 
 
@@ -28,7 +29,10 @@ export const mutations = {
     },
     SET_ACTIVE_POST: (state, payload) => {
         state.postActive = payload
-    }
+    },
+    SET_INFINITY_RENDER: (state, payload) => {
+        state.infinityRender += 1
+    },
 }
 
 export const actions = {

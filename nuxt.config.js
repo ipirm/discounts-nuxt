@@ -48,10 +48,31 @@ export default {
     /*
     ** Nuxt.js modules
     */
-    modules: [],
+    modules: [
+        [
+            'nuxt-i18n',
+            {
+                noPrefixDefaultLocale: true,
+                locales: [
+                    {code: 'az', iso: 'az-AZ', file: 'az.json'},
+                    {code: 'ru', iso: 'ru-RU', file: 'ru.json'}
+                ],
+                defaultLocale: 'ru',
+                vueI18n: {
+                    fallbackLocale: 'ru'
+                },
+                lazy: true,
+                langDir: 'locales/'
+            }
+        ],
+        '@nuxtjs/svg-sprite',
+    ],
     /*
     ** Build configuration
     */
+    svgSprite: {
+        input: '~/assets/svg/'
+    },
     build: {
         extend(config, {isDev, isClient}) {
             if (isDev && isClient) {

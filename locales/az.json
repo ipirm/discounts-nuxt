@@ -1,0 +1,32 @@
+{
+  "menu": {
+    "main": "Esas",
+    "category": "Категории",
+    "company": "Компании",
+    "popular": "Популярное"
+  },
+  "searchPanel": {
+    "title": "Скидки",
+    "subtitle": "в магазинах Баку",
+    "selectCompany": "Выбрать магазин...",
+    "selectCategory": "Выбрать категорию..."
+  },
+  "card": {
+    "overdue": "Просроченно"
+  },
+  "navigation": {
+    "prev": "Назад",
+    "next": "Вперед"
+  },
+  "companyInformation": {
+    "time": "Часы работы: ",
+    "number": "Телефоны: ",
+    "address": "Адреса магазинов: "
+  },
+  "post": {
+    "shop": "Магазин:"
+  },
+  "postSwiper": {
+    "label": "Похожие категории:"
+  }
+}

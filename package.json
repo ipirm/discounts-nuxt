@@ -14,9 +14,11 @@
     "node": "v13.11.0"
   },
   "dependencies": {
+    "@nuxtjs/svg-sprite": "^0.4.11",
     "axios": "^0.19.2",
     "bootstrap-vue": "^2.15.0",
     "nuxt": "^2.0.0",
+    "nuxt-i18n": "^6.13.1",
     "nuxt-webfontloader": "^1.1.0",
     "swiper": "^6.0.2",
     "vue-awesome-swiper": "^4.1.1",

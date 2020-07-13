@@ -5,18 +5,22 @@
                 <div class="col-12">
                     <ul class="header-menu">
                         <li>
-                            <nuxt-link :to="{name:'index'}">Главная</nuxt-link>
+                            <Clink :to="{name:'index'}">{{ $t('menu.main') }}</Clink>
                         </li>
                         <li>
-                            <nuxt-link :to="{name:'category'}">Категории</nuxt-link>
+                            <Clink :to="{name:'category'}">{{ $t('menu.category') }}</Clink>
                         </li>
                         <li>
-                            <nuxt-link :to="{name:'company'}">Компании</nuxt-link>
+                            <Clink :to="{name:'company'}">{{ $t('menu.company') }}</Clink>
                         </li>
                         <li>
-                            <nuxt-link :to="{name:'saved'}">Популярное</nuxt-link>
+                            <Clink :to="{name:'saved'}">{{ $t('menu.popular') }}</Clink>
                         </li>
                     </ul>
+                    <div class="header-locales">
+                        <nuxt-link :to="switchLocalePath('az')">AZ</nuxt-link>
+                        <nuxt-link :to="switchLocalePath('ru')">RU</nuxt-link>
+                    </div>
                 </div>
             </div>
         </div>
@@ -24,8 +28,9 @@
 </template>
 
 <script>
+    import Clink from "../elements/Link";
     export default {
         name: 'Header',
-        components: {}
+        components: {Clink}
     }
 </script>

@@ -1,6 +1,8 @@
 
 ul, ol {
-  list-style: none
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 * {
@@ -20,7 +22,8 @@ img {
   width: 100%;
 }
 
-.nuxt-link-exact-active{
+
+.nuxt-link-exact-active {
   color: #F8C563 !important;
 }
 
@@ -96,6 +99,7 @@ img {
   overflow: hidden;
   opacity: 0;
 }
+
 .page-enter, .page-leave-active {
   opacity: 0;
 }

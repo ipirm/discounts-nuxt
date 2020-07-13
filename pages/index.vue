@@ -8,13 +8,14 @@
                         v-for="(item, index) in posts"
                         :key="index"
                         :post="item"
-                        :cat="cats.find(i => i.slug === item.cat)"
                 />
             </div>
         </div>
         <client-only>
-            <infinite-loading @infinite="infiniteScroll">
-                <div slot="spinner"><Spinner /></div>
+            <infinite-loading ref="InfiniteLoading" @infinite="infiniteScroll" :key="componentKey">
+                <div slot="spinner">
+                    <Spinner/>
+                </div>
                 <div slot="no-more"></div>
                 <div slot="no-results"></div>
             </infinite-loading>
@@ -38,6 +39,11 @@
                 await store.dispatch('category/getCats');
             });
         },
+        data(){
+            return{
+                componentKey: 0
+            }
+        },
         head() {
             return {
                 title: `Акции, скидки, каталоги магазинов Москвы - Tviser.io`,
@@ -57,7 +63,6 @@
             ...mapActions('category', ['getCats']),
             ...mapActions('post', ['getPosts']),
             ...mapMutations('post', ['SET_PAGE']),
-
             infiniteScroll($state) {
                 if (this.posts.length < parseInt(this.total)) {
                     this.SET_PAGE(this.page + 1)
@@ -70,6 +75,7 @@
             },
         },
         watchQuery(newQuery, oldQuery) {
+                this.componentKey += 1;
             return newQuery && oldQuery
         },
 
