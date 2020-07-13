@@ -31,7 +31,7 @@ export const mutations = {
         state.postActive = payload
     },
     SET_INFINITY_RENDER: (state, payload) => {
-        state.infinityRender += 1
+        state.infinityRender += 1;
     },
 }
 

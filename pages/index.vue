@@ -12,7 +12,7 @@
             </div>
         </div>
         <client-only>
-            <infinite-loading ref="InfiniteLoading" @infinite="infiniteScroll" :key="componentKey">
+            <infinite-loading ref="InfiniteLoading" @infinite="infiniteScroll" :key="infinityRender">
                 <div slot="spinner">
                     <Spinner/>
                 </div>
@@ -34,15 +34,11 @@
     export default {
         components: {Spinner, Card, SearchPanel},
         async fetch({store, route}) {
+            store.commit('post/SET_INFINITY_RENDER')
             await store.dispatch('post/getPosts', route.fullPath).then(async () => {
                 await store.dispatch('company/getCompanies');
                 await store.dispatch('category/getCats');
             });
-        },
-        data(){
-            return{
-                componentKey: 0
-            }
         },
         head() {
             return {
@@ -75,14 +71,13 @@
             },
         },
         watchQuery(newQuery, oldQuery) {
-                this.componentKey += 1;
             return newQuery && oldQuery
         },
 
         computed: {
             ...mapState('company', ['companies']),
             ...mapState('category', ['cats']),
-            ...mapState('post', ['posts', 'total', 'page']),
+            ...mapState('post', ['posts', 'total', 'page','infinityRender']),
         }
     }
 </script>

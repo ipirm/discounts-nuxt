@@ -11,8 +11,8 @@
                     inputId="1"
                     :clearable="true"
                     v-model="selected"
-                    :options="data"
                     label="name"
+                    :options="options"
                     @input="findPosts"
             />
             <v-select
@@ -49,18 +49,28 @@
             findPosts() {
                 if (this.selected) {
                     this.SET_PAGE(1)
-                    this.$router.push({
-                        path: this.$route.path,
-                        query: {...this.$route.query, ...{[this.type]: this.selected.id}}
-                    })
-
+                    if (this.type === 'cats') {
+                        let url = this.data.find((i) => i.name[this.$i18n.locale] === this.selected);
+                        this.$router.push({
+                            path: this.$route.path,
+                            query: {...this.$route.query, ...{[this.type]: url.id}}
+                        })
+                    } else {
+                        this.$router.push({
+                            path: this.$route.path,
+                            query: {...this.$route.query, ...{[this.type]: this.selected.id}}
+                        })
+                    }
                 }
             }
         },
-
         mounted() {
-            if (this.$route.query[this.type]) {
+            if (this.$route.query[this.type] && this.type !== 'cats') {
                 this.selected = this.data.find(i => parseInt(i.id) === parseInt(this.$route.query[this.type]))
+            } else {
+                    let url = this.data.find((i) => i.id === parseInt(this.$route.query[this.type]));
+                    if(url)
+                        this.selected = url.name[this.$i18n.locale]
             }
         },
         watch: {
@@ -74,8 +84,16 @@
             }
         },
         computed: {
+            options() {
+                let arrayOptions = []
+                if (this.data && this.type === 'cats') {
+                    arrayOptions = this.data.map((item) => {
+                        return item.name[this.$i18n.locale]
+                    })
+                }
+                return arrayOptions
+            }
         }
-
     }
 </script>
 
