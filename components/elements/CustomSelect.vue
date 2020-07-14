@@ -1,34 +1,40 @@
 <template>
     <div>
         <client-only>
-            <v-select
-                    v-if="type === 'cats' && data"
-                    class="basic-single"
-                    :placeholder="placeHolder"
-                    defaultValue="10"
-                    id="1"
-                    instanceId="1"
-                    inputId="1"
-                    :clearable="true"
-                    v-model="selected"
-                    label="name"
-                    :options="options"
-                    @input="findPosts"
-            />
-            <v-select
-                    v-else
-                    class="basic-single"
-                    :placeholder="placeHolder"
-                    defaultValue="10"
-                    id="2"
-                    instanceId="2"
-                    inputId="2"
-                    :clearable="true"
-                    v-model="selected"
-                    :options="data"
-                    label="name"
-                    @input="findPosts"
-            />
+            <div class="overlay-search-select cat-select"  v-if="type === 'cats' && data" @click="handleClick(1)">
+                <div class="overlay-search-label"><span>КАТЕГОРИИ</span></div>
+                <v-select
+                        class="basic-single"
+                        :placeholder="placeHolder"
+                        defaultValue="10"
+                        id="a1"
+                        instanceId="1"
+                        inputId="1"
+                        :clearable="true"
+                        v-model="selected"
+                        label="name"
+                        :options="options"
+                        @input="findPosts"
+                        ref="select1"
+                />
+            </div>
+            <div class="overlay-search-select" v-else  @click="handleClick(2)">
+                <div class="overlay-search-label"><span>КОМПАНИЯ</span></div>
+                <v-select
+                        class="basic-single"
+                        :placeholder="placeHolder"
+                        defaultValue="10"
+                        id="a2"
+                        instanceId="2"
+                        inputId="2"
+                        :clearable="true"
+                        v-model="selected"
+                        :options="data"
+                        label="name"
+                        @input="findPosts"
+                        ref="select2"
+                />
+            </div>
         </client-only>
     </div>
 </template>
@@ -46,6 +52,13 @@
         },
         methods: {
             ...mapMutations('post', ['SET_PAGE']),
+            handleClick(id){
+                if(id === 1){
+                   // this.$refs.select1.open = !this.$refs.select1.open
+                }else{
+                    // this.$refs.select2.open = !this.$refs.select1.open
+                }
+            },
             findPosts() {
                 if (this.selected) {
                     this.SET_PAGE(1)
@@ -68,9 +81,9 @@
             if (this.$route.query[this.type] && this.type !== 'cats') {
                 this.selected = this.data.find(i => parseInt(i.id) === parseInt(this.$route.query[this.type]))
             } else {
-                    let url = this.data.find((i) => i.id === parseInt(this.$route.query[this.type]));
-                    if(url)
-                        this.selected = url.name[this.$i18n.locale]
+                let url = this.data.find((i) => i.id === parseInt(this.$route.query[this.type]));
+                if (url)
+                    this.selected = url.name[this.$i18n.locale]
             }
         },
         watch: {

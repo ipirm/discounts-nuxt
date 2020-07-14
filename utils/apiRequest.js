@@ -8,6 +8,7 @@ function headers() {
         }
     }
 }
+
 function headersFormData() {
     return {
         headers: {
@@ -15,6 +16,7 @@ function headersFormData() {
         }
     }
 }
+
 const request = (callback) => {
     return new Promise((resolve, reject) => {
         callback
@@ -33,10 +35,10 @@ const handleError = (e) => {
 }
 
 export default class apiRequest {
-
     static get(path) {
-        return request(axios.get(`${API_URI}/${path}`,headers()));
+        return request(axios.get(`${API_URI}/${path}`, headers()));
     }
+
     static getPublic(path) {
         return request(axios.get(`${API_URI}/${path}`));
     }
@@ -52,13 +54,16 @@ export default class apiRequest {
     static delete(path) {
         return request(axios.delete(`${API_URI}/${path}`, headers()));
     }
-    static put(path,data) {
-        return request(axios.put(`${API_URI}/${path}`,data));
+
+    static put(path, data) {
+        return request(axios.put(`${API_URI}/${path}`, data));
     }
-    static postFormData(path,data) {
-        return request(axios.post(`${API_URI}/${path}`,data));
+
+    static postFormData(path, data) {
+        return request(axios.post(`${API_URI}/${path}`, data));
     }
-    static putJson(path,data) {
-        return request(axios.put(`${API_URI}/${path}`,data,headers()));
+
+    static putJson(path, data) {
+        return request(axios.put(`${API_URI}/${path}`, data, headers()));
     }
 }

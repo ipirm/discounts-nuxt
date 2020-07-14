@@ -1,13 +1,9 @@
 <template>
-    <div>
-        <div v-show="!pageReady" class="page-loading">
-            <Spinner/>
-        </div>
-        <div v-show="pageReady">
-            <Header/>
-            <nuxt/>
-            <Footer/>
-        </div>
+    <Spinner v-if="!pageReady"/>
+    <div v-else>
+        <Header/>
+        <nuxt/>
+        <Footer/>
     </div>
 </template>
 <script>
@@ -34,7 +30,7 @@
                     this.pageReady = !this.pageReady;
                 })
             }
-        }
+        },
     }
 </script>
 <style scoped>

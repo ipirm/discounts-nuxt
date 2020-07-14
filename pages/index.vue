@@ -32,6 +32,7 @@
 
 
     export default {
+
         components: {Spinner, Card, SearchPanel},
         async fetch({store, route}) {
             store.commit('post/SET_INFINITY_RENDER')
@@ -42,16 +43,7 @@
         },
         head() {
             return {
-                title: `Акции, скидки, каталоги магазинов Москвы - Tviser.io`,
-                // meta: [
-                //     { name: 'description', content: `${this.$t('metaDescription')}` || '' },
-                //     { property: 'og:title', content: `${this.$t('MetaTitle')}` || '' } ,
-                //     { property: 'og:description', content: `${this.$t('metaDescription')}` || '' } ,
-                //     { property: 'og:image', content: '/images/main-page/slide1.png' || '' } ,
-                //     { property: 'og:url', content: `https://covid.az/${this.$route.fullPath}` || '' } ,
-                //     { property: 'twitter:card', content: '/images/main-page/slide1.png' || '' } ,
-                //     { name: 'keywords', content: `${this.$t('keywords')}` || '' },
-                // ]
+                title: `Акции, скидки, каталоги магазинов Москвы - Tviser.io`
             }
         },
         methods: {
