@@ -58,3 +58,17 @@ img {
 .page-enter, .page-leave-active {
   opacity: 0;
 }
+.save-button{
+  cursor: pointer;
+}
+.hide-props{
+  margin-top: 10px;
+  display: flex;
+  font-size: 16px;
+  line-height: 18px;
+  color: #043C6B !important;
+  cursor: pointer;
+}
+.hide-props:hover{
+  opacity: 0.8;
+}

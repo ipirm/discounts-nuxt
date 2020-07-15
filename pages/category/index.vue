@@ -7,7 +7,13 @@
                 </div>
             </div>
         </div>
-        <CategorySwiper v-for="(item,index) in catsGroup" :key="index" :slides="item" :label="labels[index-1]"  />
+        <CategorySwiper
+                v-if="labels && catsGroup"
+                v-for="(item,key) in catsGroup"
+                :key="key"
+                :slides="item"
+                :label="labels.find(i => parseInt(key) === parseInt(i.id))"
+        />
     </div>
 </template>
 

@@ -69,6 +69,7 @@ export default {
             }
         ],
         '@nuxtjs/svg-sprite',
+        'cookie-universal-nuxt'
     ],
     /*
     ** Build configuration

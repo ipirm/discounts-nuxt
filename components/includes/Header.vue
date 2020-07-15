@@ -14,7 +14,7 @@
                             <Clink :to="{name:'company'}">{{ $t('menu.company') }}</Clink>
                         </li>
                         <li>
-                            <Clink :to="{name:'saved'}">{{ $t('menu.popular') }}</Clink>
+                            <Clink :to="{name:'favorite'}">{{ $t('menu.popular') }}</Clink>
                         </li>
                     </ul>
                     <div class="header-locales">

@@ -34,31 +34,36 @@
                             <div class="post-text">
                                 <div class="post-information-tabs">
                                     <a :class="[activeTab === 1 ? 'post-information-tabs-active' : '', 'post-information-tabs-btn']"
-                                       @click="changeTab(1)"><span>Телефоны</span></a>
+                                       @click="changeTab(1)"><span>Адреса</span></a>
                                     <a :class="[activeTab === 2 ? 'post-information-tabs-active' : '', 'post-information-tabs-btn']"
-                                       @click="changeTab(2)"><span>Адреса</span></a>
+                                       @click="changeTab(2)"><span>Телефоны</span></a>
                                     <a :class="[activeTab === 3 ? 'post-information-tabs-active' : '', 'post-information-tabs-btn']"
                                        @click="changeTab(3)"><span>На карте</span></a>
                                 </div>
-                                <div class="post-information" v-show="activeTab === 2">
+                                <div class="post-information" v-show="activeTab === 1">
                                     <p style="margin-bottom: 10px">{{ $t('companyInformation.address') }}</p>
-                                    <div v-for="item in activeCompany.address" :key="item.id"
+                                    <div v-for="item in activeCompany.address.slice(0,this.addressCount)" :key="item.id"
                                          style="margin-bottom: 10px">
                                         <span>{{item.address}}</span>
                                         <div class="post-information-time">{{ $t('companyInformation.time') }}
                                             {{item.time}}
                                         </div>
                                     </div>
+                                    <a v-if="addressCount === 4 && activeCompany.address.length >4" class="hide-props" @click="sliceAddresCountHandler(100)">Показать все</a>
+                                    <a v-if="addressCount !== 4 && activeCompany.address.length >4" class="hide-props" @click="sliceAddresCountHandler(4)">Скрыть</a>
                                 </div>
-                                <div class="post-information" v-show="activeTab === 1">
+                                <div class="post-information" v-show="activeTab === 2">
                                     <p style="margin-bottom: 10px">{{ $t('companyInformation.number') }}</p>
-                                    <div class="post-information-time" v-for="item in activeCompany.numbers"
+                                    <div class="post-information-time" v-for="item in activeCompany.numbers.slice(0,this.sliceCount)"
                                          :key="item.id">{{item.number}}
                                     </div>
+                                    <a v-if="sliceCount === 6 && activeCompany.numbers.length >6" class="hide-props" @click="sliceCountHandler(100)">Показать все</a>
+                                    <a v-if="sliceCount !== 6 && activeCompany.numbers.length >6" class="hide-props" @click="sliceCountHandler(6)">Скрыть</a>
                                 </div>
                                 <div class="post-information" v-show="activeTab === 3">
+                                    <p style="margin-bottom: 10px">{{activeCompany.name }} на карте</p>
                                     <div class="post-information-time">
-                                        Я карта карта
+                                        Нажмите на карту для того, чтобы<br>  просмотретьв полноэкранном режиме
                                     </div>
                                 </div>
                             </div>
@@ -99,12 +104,20 @@
         },
         data() {
             return {
-                activeTab: 1
+                activeTab: 1,
+                sliceCount: 6,
+                addressCount: 4
             }
         },
         methods: {
             changeTab(item) {
                 this.activeTab = item
+            },
+            sliceCountHandler(item){
+                this.sliceCount = item
+            },
+            sliceAddresCountHandler(item){
+                this.addressCount = item
             }
         },
         computed: {
