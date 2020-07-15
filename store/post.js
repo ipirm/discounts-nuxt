@@ -4,6 +4,7 @@ export const state = () => ({
     posts: [],
     total: 0,
     page: 1,
+    typesPost: [],
     postActive: {},
     infinityRender: 0
 })
@@ -33,6 +34,9 @@ export const mutations = {
     SET_INFINITY_RENDER: (state, payload) => {
         state.infinityRender += 1;
     },
+    SET_TYPES_TO_POSTS: (state, payload) =>{
+          state.typesPost = payload
+    }
 }
 
 export const actions = {
@@ -49,5 +53,9 @@ export const actions = {
     async getActivePost({commit}, url) {
         const data = await apiRequest.get(`posts/${url}`);
         commit('SET_ACTIVE_POST', data.data.post);
-    }
+    },
+    async getPostsType({commit}) {
+        const data = await apiRequest.get(`posts-type`);
+        commit('SET_TYPES_TO_POSTS', data.data.posts.data);
+    },
 }

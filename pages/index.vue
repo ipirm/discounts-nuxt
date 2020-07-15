@@ -1,6 +1,6 @@
 <template>
     <div>
-        <SearchPanel :cats="cats" :companies="companies"/>
+        <SearchPanel :cats="cats" :companies="companies" :typesPost="typesPost" />
         <div class="container" :style="{marginTop: 50 + 'px'}">
             <div class="row" :style="{margin: 'auto'}">
                 <Card
@@ -39,6 +39,7 @@
             await store.dispatch('post/getPosts', route.fullPath).then(async () => {
                 await store.dispatch('company/getCompanies');
                 await store.dispatch('category/getCats');
+                await store.dispatch('post/getPostsType');
             });
         },
         head() {
@@ -69,7 +70,7 @@
         computed: {
             ...mapState('company', ['companies']),
             ...mapState('category', ['cats']),
-            ...mapState('post', ['posts', 'total', 'page','infinityRender']),
+            ...mapState('post', ['posts', 'total', 'page','infinityRender','typesPost']),
         }
     }
 </script>

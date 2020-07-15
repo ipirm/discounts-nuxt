@@ -8,11 +8,12 @@
                     </span>
                 </div>
                 <div class="overlay-search-subtitle">
-                    <span>Уникальный проект, который собирает все акции и скидки в городе Баку</span>
+                    <span>{{ $t('searchPanel.aboutUS') }}</span>
                 </div>
                 <div class="d-flex">
                     <CustomSelect :data="cats" type="cats" :placeHolder="$t('searchPanel.selectCategory')" />
                     <CustomSelect  :data="companies" type="company" :placeHolder="$t('searchPanel.selectCompany')" />
+                    <CustomSelect  :data="typesPost" type="type" :placeHolder="$t('searchPanel.selectType')" />
                 </div>
             </div>
         </div>
@@ -21,7 +22,7 @@
 <script>
     import CustomSelect from "../../elements/CustomSelect";
     export default {
-        props: ['cats','companies'],
+        props: ['cats','companies','typesPost'],
         name: 'SearchPanel',
         components: {CustomSelect},
 

@@ -14,16 +14,31 @@
                     <div class="col-12">
                         <div class="post-title"><span>{{ activeCompany.name }}</span></div>
                         <div class="d-flex">
-                            <img class="post-image" :src="activeCompany.image_url"/>
+                            <img v-if="activeTab !== 3" class="post-image" :src="activeCompany.image_url"/>
+                            <div v-else>
+                                <client-only>
+                                    <GmapMap ref="mapRef"
+                                             :center="{lat: parseFloat(activeCompany.address[0].lng), lng: parseFloat(activeCompany.address[0].ltg)}"
+                                             :zoom="16" :options="options"
+                                             style="width: 360px;height: 330px">
+                                        <gmap-custom-marker
+                                                v-for="item in activeCompany.address"
+                                                :key="item.id"
+                                                :marker="{ lat: parseFloat(item.lng), lng: parseFloat(item.ltg) }"
+                                        >
+                                            <div style="width: 20px;height: 20px;background-color: #F8C563;border-radius: 50%"></div>
+                                        </gmap-custom-marker>
+                                    </GmapMap>
+                                </client-only>
+                            </div>
                             <div class="post-text">
-                                <!--                                <div class="post-description">-->
-                                <!--                                    {{activeCompany.text}}-->
-                                <!--                                </div>-->
                                 <div class="post-information-tabs">
                                     <a :class="[activeTab === 1 ? 'post-information-tabs-active' : '', 'post-information-tabs-btn']"
-                                       @click="changeTab"><span>Телефоны</span></a>
+                                       @click="changeTab(1)"><span>Телефоны</span></a>
                                     <a :class="[activeTab === 2 ? 'post-information-tabs-active' : '', 'post-information-tabs-btn']"
-                                       @click="changeTab"><span>Адреса</span></a>
+                                       @click="changeTab(2)"><span>Адреса</span></a>
+                                    <a :class="[activeTab === 3 ? 'post-information-tabs-active' : '', 'post-information-tabs-btn']"
+                                       @click="changeTab(3)"><span>На карте</span></a>
                                 </div>
                                 <div class="post-information" v-show="activeTab === 2">
                                     <p style="margin-bottom: 10px">{{ $t('companyInformation.address') }}</p>
@@ -41,23 +56,13 @@
                                          :key="item.id">{{item.number}}
                                     </div>
                                 </div>
+                                <div class="post-information" v-show="activeTab === 3">
+                                    <div class="post-information-time">
+                                        Я карта карта
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <client-only>
-                            <GmapMap ref="mapRef"
-                                     :center="{lat: parseFloat(activeCompany.address[0].lng), lng: parseFloat(activeCompany.address[0].ltg)}"
-                                     :zoom="16" :options="options"
-                                     style="width: 684px;height: 461px;margin-top: 70px">
-                                <gmap-custom-marker
-                                        v-for="item in activeCompany.address"
-                                        :key="item.id"
-                                        :marker="{ lat: parseFloat(item.lng), lng: parseFloat(item.ltg) }"
-                                >
-                                    <div style="width: 20px;height: 20px;background-color: #F8C563;border-radius: 50%"></div>
-                                </gmap-custom-marker>
-                            </GmapMap>
-                        </client-only>
-
                     </div>
                 </div>
             </div>
@@ -98,8 +103,8 @@
             }
         },
         methods: {
-            changeTab() {
-                this.activeTab === 1 ? this.activeTab = 2 : this.activeTab = 1;
+            changeTab(item) {
+                this.activeTab = item
             }
         },
         computed: {

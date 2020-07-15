@@ -78,7 +78,10 @@
       display: flex;
       flex-wrap: wrap;
       flex-direction: column;
-      width: 100%;
+      height: 140px;
+      justify-content: center;
+      align-items: flex-start;
+      width: fit-content;
     }
   }
 
