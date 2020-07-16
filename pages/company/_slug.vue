@@ -9,7 +9,7 @@
                     </a>
                 </div>
             </div>
-            <div class="container post-container company-container">
+            <div class="container post-container company-container company-item-page">
                 <div class="row">
                     <div class="col-12">
                         <div class="post-title"><span>{{ activeCompany.name }}</span></div>

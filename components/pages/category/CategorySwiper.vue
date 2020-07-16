@@ -17,12 +17,13 @@
             <div class="col-12">
                 <div v-swiper:mySwiper="swiperOption" class="swiper-container">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide" style="display: flex" v-for="item in slides" :key="item.index">
+                        <div class="swiper-slide slide-width" style="display: flex" v-for="item in slides"
+                             :key="item.index">
                             <Clink :to="{name:'index', query:{cats: item.id}}">
-                                    <div class="category-element">
-                                        <img :src="item.image_url"/>
-                                    </div>
-                                    <p>{{ item.name[$i18n.locale] }}</p>
+                                <div class="category-element">
+                                    <img :src="item.image_url"/>
+                                </div>
+                                <p>{{ item.name[$i18n.locale] }}</p>
                             </Clink>
                         </div>
                     </div>
@@ -34,19 +35,35 @@
 
 <script>
     import Clink from "../../elements/Link";
+
     export default {
         name: "CategorySwiper",
         components: {Clink},
-        props: ['label','slides'],
-        data(){
-            return {
-                swiperOption: {
-                    spaceBetween: 16,
-                    slidesPerView: 4,
-                    observer: true,
-                    observeParents: true
+        props: ['label', 'slides'],
+        computed: {
+            swiperOption() {
+                if (process.client) {
+                    let width = window.innerWidth;
+                    let obg = {}
+                    if (width  < 500) {
+                        obg = {
+                            spaceBetween: 16,
+                            slidesPerView: 1,
+                            observer: true,
+                            observeParents: true
+                        }
+                    } else {
+                        obg = {
+                            spaceBetween: 16,
+                            slidesPerView: 4,
+                            observer: true,
+                            observeParents: true
+                        }
+                    }
+                    return obg
                 }
             }
+
         }
     }
 </script>

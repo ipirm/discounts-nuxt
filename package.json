@@ -20,6 +20,7 @@
     "cookie-universal-nuxt": "^2.1.4",
     "nuxt": "^2.0.0",
     "nuxt-i18n": "^6.13.1",
+    "nuxt-mq": "^2.0.1",
     "nuxt-webfontloader": "^1.1.0",
     "swiper": "^6.0.2",
     "vue-awesome-swiper": "^4.1.1",

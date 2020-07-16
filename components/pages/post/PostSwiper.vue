@@ -17,7 +17,7 @@
             <div class="col-12">
                 <div v-swiper:mySwiper="swiperOption" class="swiper-container">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide" v-for="item in slides" :key="item.id" style="display: flex">
+                        <div class="swiper-slide post-swiper-slide" v-for="item in slides" :key="item.id" style="display: flex">
                             <Card
                                     :post="item"
                             />
@@ -37,15 +37,30 @@
         name: 'PostSwiper',
         components: {Card},
         props: ['slides'],
-        data() {
-            return {
-                swiperOption: {
-                    spaceBetween: 16,
-                    slidesPerView: 5,
-                    observer: true,
-                    observeParents: true
+        computed: {
+            swiperOption() {
+                if (process.client) {
+                    let width = window.innerWidth;
+                    let obg = {}
+                    if (width  < 500) {
+                        obg = {
+                            spaceBetween: 16,
+                            slidesPerView: 1,
+                            observer: true,
+                            observeParents: true
+                        }
+                    } else {
+                        obg = {
+                            spaceBetween: 16,
+                            slidesPerView: 5,
+                            observer: true,
+                            observeParents: true
+                        }
+                    }
+                    return obg
                 }
             }
+
         }
     }
 </script>

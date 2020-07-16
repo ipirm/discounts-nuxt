@@ -1,0 +1,152 @@
+@import "burger";
+
+.overlayHeader {
+  .col-12 {
+    padding: 0 15px !important;
+  }
+
+  .hamburger {
+    padding: 0 !important;
+    margin-top: 5px;
+  }
+
+  .hamburger:focus {
+    outline: none !important;
+  }
+
+  .hamburger-inner, .hamburger-inner:after, .hamburger-inner:before {
+    background: #F8C563 !important;
+    height: 2px !important;
+  }
+
+  .header-menu {
+    li {
+      margin: 10px 29px;
+    }
+
+    flex-direction: column;
+    z-index: 1000;
+    width: 100%;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    background-color: #fff;
+    align-items: center;
+  }
+
+  .header-menu li:first-of-type {
+    margin-left: 29px;
+  }
+
+  .header-menu {
+    display: none;
+  }
+
+  .is-active-menu {
+    display: flex;
+  }
+
+  .header-locales {
+    margin-left: auto;
+    margin-right: 15px;
+  }
+}
+
+.overlaySearch {
+  height: 250px;
+
+  .d-flex {
+    display: none !important;
+  }
+}
+
+.footer {
+  height: 100%;
+}
+
+.footer .row .footer-col {
+  margin-top: 15px;
+  max-width: none;
+  width: 100%;
+  padding: 0 15px;
+}
+
+.footer-row {
+  padding: 0 15px;
+  margin-top: 35px;
+}
+
+.overlay-card {
+  max-width: none;
+}
+
+.swiper-fluid {
+  padding: 0 15px !important;
+}
+
+.slide-width {
+  width: 100% !important;
+}
+
+.post-container .d-flex {
+  flex-wrap: wrap-reverse;
+}
+
+.post-shop {
+  margin: 20px 0;
+}
+
+.post-container .post-title {
+  font-size: 23px;
+  margin-top: 20px;
+}
+
+.company-section {
+  margin-top: 0;
+}
+
+.post-text {
+  width: 100%;
+  max-width: none;
+}
+
+.post-back-button span {
+  font-size: 14px;
+}
+
+.post-swiper-slide {
+  width: 90% !important;
+  margin: auto !important;
+}
+
+.swiper-title {
+  margin: auto;
+  margin-bottom: 20px;
+  width: 96%;
+}
+
+.company-section-item {
+  height: 100%;
+}
+
+.company-section-item-elements {
+  height: 100%;
+}
+
+.company-section-letters a:first-of-type {
+  margin-left: 5px;
+}
+
+.company-item-page {
+  .d-flex {
+    flex-wrap: wrap !important;
+
+   .post-text{
+     margin: 20px 0 0 0 !important;
+   }
+    img{
+      width: 100%;
+      height: auto;
+    }
+  }
+}

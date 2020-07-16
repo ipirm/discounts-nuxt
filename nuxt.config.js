@@ -69,13 +69,25 @@ export default {
             }
         ],
         '@nuxtjs/svg-sprite',
-        'cookie-universal-nuxt'
+        'cookie-universal-nuxt',
+        'nuxt-mq'
+
     ],
     /*
     ** Build configuration
     */
     svgSprite: {
         input: '~/assets/svg/'
+    },
+    mq: {
+        defaultBreakpoint: "desktop",
+        breakpoints: {
+            mobile: 500,
+            tablet: 1024,
+            desktop: 1400,
+            desktopWide: 2000,
+            desktopUltraWide: Infinity
+        }
     },
     build: {
         extend(config, {isDev, isClient}) {

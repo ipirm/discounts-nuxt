@@ -1,9 +1,11 @@
 <template>
-    <Spinner v-if="!pageReady"/>
-    <div v-else>
-        <Header/>
-        <nuxt/>
-        <Footer/>
+    <div>
+        <Spinner v-show="!pageReady"/>
+        <div v-show="pageReady">
+            <Header/>
+            <nuxt/>
+            <Footer/>
+        </div>
     </div>
 </template>
 <script>
