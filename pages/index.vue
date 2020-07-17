@@ -2,7 +2,7 @@
     <div>
         <SearchPanel :cats="cats" :companies="companies" :typesPost="typesPost" />
         <div class="container" :style="{marginTop: 50 + 'px'}">
-            <div class="row" :style="{margin: 'auto'}">
+            <div class="row post-row" :style="{margin: 'auto'}">
                 <Card
                         v-if="posts"
                         v-for="(item, index) in posts"

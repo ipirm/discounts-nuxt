@@ -39,6 +39,9 @@ img {
 @import "components/map";
 @import "components/searchPanel";
 @import "components/footer";
+@media(max-width: 1200px) {
+  @import "medeioLandscope/media";
+}
 @media(max-width: 500px) {
   @import "media/media";
 }

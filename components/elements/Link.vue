@@ -1,14 +1,12 @@
 <template>
     <nuxt-link :href="localePath(to)" :to="localePath(to)">
-        <slot />
+        <slot/>
     </nuxt-link>
 </template>
 
 <script>
     export default {
-        props:{
-          to: Object
-        },
+        props: ['to'],
         name: "clink"
     }
 </script>

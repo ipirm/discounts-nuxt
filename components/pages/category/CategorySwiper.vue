@@ -45,10 +45,17 @@
                 if (process.client) {
                     let width = window.innerWidth;
                     let obg = {}
-                    if (width  < 500) {
+                    if (width <= 500) {
                         obg = {
                             spaceBetween: 16,
                             slidesPerView: 1,
+                            observer: true,
+                            observeParents: true
+                        }
+                    }else if (width  >= 500 && width  <= 1200) {
+                        obg = {
+                            spaceBetween: 16,
+                            slidesPerView: 3,
                             observer: true,
                             observeParents: true
                         }
