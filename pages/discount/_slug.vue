@@ -44,8 +44,8 @@
                                 </div>
                                 <div class="post-tags">
                              <clink :to="{name:'index', query:{cats: postActive.pcat.id}}" class="post-tags-item"><span>{{ postActive.pcat.name[$i18n.locale] }}</span></clink>
-                                    <div class="post-tags-item" v-if="parseInt(postActive.ended) === 1">
-                                        <span>{{ $t('card.overdue') }}</span></div>
+                                    <a class="post-tags-item" v-if="parseInt(postActive.ended) === 1">
+                                        <span>{{ $t('card.overdue') }}</span></a>
                                 </div>
                                 <div class="post-description">
                                     {{postActive.description[$i18n.locale]}}

@@ -26,7 +26,11 @@ img {
 .nuxt-link-exact-active {
   color: #F8C563 !important;
 }
-.hamburger{
+
+.hamburger {
+  display: none;
+}
+.swiper-controls-mobile {
   display: none;
 }
 @import "global/swiper";
@@ -42,6 +46,7 @@ img {
 @media(max-width: 1200px) {
   @import "medeioLandscope/media";
 }
+
 @media(max-width: 500px) {
   @import "media/media";
 }
@@ -77,3 +82,5 @@ img {
 .hide-props:hover {
   opacity: 0.8;
 }
+
+
