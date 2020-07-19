@@ -42,11 +42,6 @@
     export default {
 
         components: {Spinner, Card},
-        head() {
-            return {
-                title: `Акции, скидки, каталоги магазинов Москвы - Tviser.io`
-            }
-        },
         created(){
             if (this.$cookies.get('savedItems')) {
                 if (String(this.$cookies.get('savedItems')).includes('a')) {

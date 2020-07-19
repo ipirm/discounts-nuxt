@@ -1,5 +1,5 @@
 <template>
-    <div class="company-section">
+    <div class="company-section post-page-image">
         <div class="container-fluid swiper-fluid">
             <div class="row" :style="{justifyContent: 'space-between', alignItems: 'center'}">
                 <div class="col-auto">
@@ -43,7 +43,9 @@
                                     </a>
                                 </div>
                                 <div class="post-tags">
-                             <clink :to="{name:'index', query:{cats: postActive.pcat.id}}" class="post-tags-item"><span>{{ postActive.pcat.name[$i18n.locale] }}</span></clink>
+                                    <clink :to="{name:'index', query:{cats: postActive.pcat.id}}"
+                                           class="post-tags-item"><span>{{ postActive.pcat.name[$i18n.locale] }}</span>
+                                    </clink>
                                     <a class="post-tags-item" v-if="parseInt(postActive.ended) === 1">
                                         <span>{{ $t('card.overdue') }}</span></a>
                                 </div>
@@ -54,16 +56,30 @@
                                     {{postActive.duration[$i18n.locale]}}
                                 </div>
                                 <div class="post-underline"></div>
-                                <div class="post-information" v-for="item in activePostCompany.address.slice(0,1)" :key="item.id">
+                                <div class="post-information" v-for="item in activePostCompany.address.slice(0,1)"
+                                     :key="item.id">
                                     <p>{{ $t('companyInformation.address') }}</p>
                                     <span>{{ item.address}}</span>
                                     <div class="post-information-time">{{ $t('companyInformation.time') }}
                                         {{ item.time}}
                                     </div>
                                 </div>
-                                <clink class="hide-props" :to="`/company/${activePostCompany.slug}`" >Показать еще </clink>
+                                <clink class="hide-props" :to="`/company/${activePostCompany.slug}`">Показать еще
+                                </clink>
                             </div>
-                            <img class="post-image" :src="postActive.image_url"/>
+                            <div>
+                                <img class="post-image" :src="postActive.image_url"/>
+                                <client-only>
+                                    <div class="overlay-social">
+                                        <p class="overlay-social-text">{{$t('meta.share') }}</p>
+                                        <facebook :url="url" scale="1"/>
+                                        <twitter :url="url" :title="postActive.title[$i18n.locale]" scale="1"/>
+                                        <linkedin :url="url" scale="1"/>
+                                        <telegram :url="url" scale="1"/>
+                                        <whats-app :url="url" :title="postActive.title[$i18n.locale]" scale="1"/>
+                                    </div>
+                                </client-only>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -89,17 +105,32 @@
         created() {
             if (this.$cookies.get('savedItems')) {
                 if (String(this.$cookies.get('savedItems')).includes('a')) {
-                   let items = this.$cookies.get('savedItems').split('a')
-                    if (items.find(i => parseInt(i) === parseInt(this.postActive.id))){
+                    let items = this.$cookies.get('savedItems').split('a')
+                    if (items.find(i => parseInt(i) === parseInt(this.postActive.id))) {
                         this.saved = !this.saved
                     }
                 }
             }
             this.SET_PAGE(1)
         },
-        data(){
+        head() {
             return {
-                saved: false
+                title: this.postActive.title[this.$i18n.locale],
+                meta: [
+                    {property: 'og:title', content: this.postActive.title[this.$i18n.locale] || ''},
+                    {property: 'og:description', content: this.postActive.description[this.$i18n.locale] || ''},
+                    {name: 'description', content: this.postActive.description[this.$i18n.locale] || ''},
+                    {property: 'og:image', content: this.postActive.image_url || ''},
+                    {property: 'og:url', content: `https://discount-nuxt.herokuapp.com/${this.$route.fullPath}` || ''},
+                    {name: 'keywords', content: `${this.$t('keywords')}` || ''},
+                    {property: 'twitter:card', content: this.postActive.image_url || ''},
+                ]
+            }
+        },
+        data() {
+            return {
+                saved: false,
+                url: `https://discount-nuxt.herokuapp.com${this.$route.fullPath}`
             }
         },
         methods: {
@@ -135,7 +166,7 @@
             }
         },
         computed: {
-            ...mapState('post', ['postActive','activePostCompany']),
+            ...mapState('post', ['postActive', 'activePostCompany']),
             ...mapState('category', ['activeCat']),
         }
     }

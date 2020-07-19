@@ -42,11 +42,6 @@
                 await store.dispatch('post/getPostsType');
             });
         },
-        head() {
-            return {
-                title: `Акции, скидки, каталоги магазинов Москвы - Tviser.io`
-            }
-        },
         methods: {
             ...mapActions('company', ['getCompanies']),
             ...mapActions('category', ['getCats']),

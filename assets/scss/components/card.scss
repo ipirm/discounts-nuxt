@@ -7,6 +7,7 @@
   border: 1px solid #E5E5E5;
   margin: 0 25px 45px 25px;
   cursor: pointer;
+  background: rgba(255, 255, 255, 0.5);
 
   &-desc {
     position: absolute;
@@ -94,9 +95,11 @@
     }
   }
 }
+
 .overlay-card:hover {
   border: 1px solid #F8C563;
 }
-.swiper-controls-prev, .swiper-controls-next{
+
+.swiper-controls-prev, .swiper-controls-next {
   cursor: pointer;
 }

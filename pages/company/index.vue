@@ -23,7 +23,8 @@
                         </span>
                     </div>
                     <div class="company-section-item-elements">
-                        <Clink class="company-section-item-left" v-for="item in value" :key="item.id" :to="{name:'company-slug', params:{slug: item.slug}}">
+                        <Clink class="company-section-item-left" v-for="item in value" :key="item.id"
+                               :to="{name:'company-slug', params:{slug: item.slug}}">
                             {{item.name }}
                         </Clink>
                     </div>

@@ -15,11 +15,6 @@
 
     export default {
         components: {Spinner, Footer, Header},
-        head() {
-            return {
-                title: `Акции, скидки, каталоги магазинов Москвы - Tviser.io`,
-            }
-        },
         data() {
             return {
                 pageReady: false
