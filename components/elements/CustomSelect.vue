@@ -88,6 +88,7 @@
             },
             findPosts() {
                 if (this.selected) {
+                  this.$store.commit('post/SET_INFINITY_RENDER')
                     this.SET_PAGE(1)
                     if (this.type === 'cats' || this.type === 'type') {
                         let url = this.data.find((i) => i.name[this.$i18n.locale] === this.selected);
@@ -96,6 +97,8 @@
                             query: {...this.$route.query, ...{[this.type]: url.id}}
                         })
                     } else {
+                      this.$store.commit('post/SET_INFINITY_RENDER')
+                      this.SET_PAGE(1)
                         this.$router.push({
                             path: this.$route.path,
                             query: {...this.$route.query, ...{[this.type]: this.selected.id}}

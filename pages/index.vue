@@ -1,72 +1,80 @@
 <template>
-    <div>
-        <SearchPanel :cats="cats" :companies="companies" :typesPost="typesPost" />
-        <div class="container" :style="{marginTop: 50 + 'px'}">
-            <div class="row post-row" :style="{margin: 'auto'}">
-                <Card
-                        v-if="posts"
-                        v-for="(item, index) in posts"
-                        :key="index"
-                        :post="item"
-                />
-            </div>
-        </div>
-        <client-only>
-            <infinite-loading ref="InfiniteLoading" @infinite="infiniteScroll" :key="infinityRender">
-                <div slot="spinner">
-                    <Spinner/>
-                </div>
-                <div slot="no-more"></div>
-                <div slot="no-results"></div>
-            </infinite-loading>
-        </client-only>
+  <div>
+    <SearchPanel :cats="cats" :companies="companies" :typesPost="typesPost"/>
+    <div class="container" :style="{marginTop: 50 + 'px'}">
+      <div class="row post-row" :style="{margin: 'auto'}">
+        <Card
+          v-if="posts"
+          v-for="(item, index) in posts"
+          :key="index"
+          :post="item"
+        />
+      </div>
     </div>
+    <client-only>
+      <infinite-loading ref="InfiniteLoading" @infinite="infiniteScroll" :key="infinityItem">
+        <div slot="spinner">
+          <Spinner/>
+        </div>
+        <div slot="no-more"></div>
+        <div slot="no-results"></div>
+      </infinite-loading>
+    </client-only>
+  </div>
 </template>
 
 <script>
 
-    import {mapState, mapActions, mapMutations} from 'vuex'
-    import SearchPanel from "~/components/pages/index/SearchPanel";
-    import Card from "~/components/elements/Card";
-    import Spinner from "../components/elements/Spinner";
+  import {mapState, mapActions, mapMutations} from 'vuex'
+  import SearchPanel from "~/components/pages/index/SearchPanel";
+  import Card from "~/components/elements/Card";
+  import Spinner from "../components/elements/Spinner";
 
 
-    export default {
+  export default {
 
-        components: {Spinner, Card, SearchPanel},
-        async fetch({store, route}) {
-            store.commit('post/SET_INFINITY_RENDER')
-            await store.dispatch('post/getPosts', route.fullPath).then(async () => {
-                await store.dispatch('company/getCompanies');
-                await store.dispatch('category/getCats');
-                await store.dispatch('post/getPostsType');
-            });
-        },
-        methods: {
-            ...mapActions('company', ['getCompanies']),
-            ...mapActions('category', ['getCats']),
-            ...mapActions('post', ['getPosts']),
-            ...mapMutations('post', ['SET_PAGE']),
-            infiniteScroll($state) {
-                if (this.posts.length < parseInt(this.total)) {
-                    this.SET_PAGE(this.page + 1)
-                    this.getPosts(this.$route.fullPath).then(() => {
-                        $state.loaded()
-                    })
-                } else {
-                    $state.complete()
-                }
-            },
-        },
-        watchQuery(newQuery, oldQuery) {
-            return newQuery && oldQuery
-        },
+    components: {Spinner, Card, SearchPanel},
+    async fetch({store, route}) {
 
-        computed: {
-            ...mapState('company', ['companies']),
-            ...mapState('category', ['cats']),
-            ...mapState('post', ['posts', 'total', 'page','infinityRender','typesPost']),
+      await store.dispatch('post/getPosts', route.fullPath).then(async () => {
+        await store.dispatch('company/getCompanies');
+        await store.dispatch('category/getCats');
+        await store.dispatch('post/getPostsType');
+      });
+    },
+    data() {
+      return {
+        infinityItem: 0
+      }
+    },
+    methods: {
+      ...mapActions('company', ['getCompanies']),
+      ...mapActions('category', ['getCats']),
+      ...mapActions('post', ['getPosts']),
+      ...mapMutations('post', ['SET_PAGE']),
+      infiniteScroll($state) {
+        if (this.posts.length < parseInt(this.total)) {
+          this.SET_PAGE(this.page + 1)
+          this.getPosts(this.$route.fullPath).then(() => {
+            $state.loaded()
+          })
+        } else {
+          $state.complete()
         }
+      },
+    },
+    watchQuery(newQuery, oldQuery) {
+      if(this.infinityItem !== undefined) {
+        this.infinityItem = this.infinityItem + 1
+      }
+      return newQuery && oldQuery
+    },
+
+    computed: {
+      ...mapState('company', ['companies']),
+      ...mapState('category', ['cats']),
+      ...mapState('post', ['posts', 'total', 'page', 'infinityRender', 'typesPost']),
     }
+  }
 </script>
 
