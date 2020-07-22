@@ -1,7 +1,7 @@
 <template>
   <div>
     <SearchPanel :cats="cats" :companies="companies" :typesPost="typesPost"/>
-    <div v-if="mobile" :class="[activeSearch ? 'navigation-search-active' : '' ,'navigation-search']"
+    <div  :class="[activeSearch ? 'navigation-search-active' : '' ,'navigation-search']"
          @click="activeSearch = true">
       <svg-icon name="mobile/prev" style="width: 52px;height: 90px" v-if="!activeSearch" />
       <svg-icon name="mobile/next" style="width: 52px;height: 90px" @click.stop="activeSearch = false" v-if="activeSearch" />
