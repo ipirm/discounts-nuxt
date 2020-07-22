@@ -1,11 +1,11 @@
 <template>
     <div>
-        <Spinner v-show="!pageReady"/>
-        <div v-show="pageReady">
+<!--        <Spinner v-show="!pageReady"/>-->
+<!--        <div v-show="pageReady">-->
             <Header/>
             <nuxt/>
             <Footer/>
-        </div>
+<!--        </div>-->
     </div>
 </template>
 <script>
