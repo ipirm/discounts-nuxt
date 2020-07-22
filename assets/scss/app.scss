@@ -86,23 +86,6 @@ img {
 }
 
 
-.navigation-search-active {
-  display: flex;
-  position: fixed;
-  flex-direction: column;
-  left: auto;
-  right: 0;
-  width: 100%;
-  height: 100vh;
-  top: 0;
-  z-index: 1000;
-  background-color: rgba(248,197,99,1);
-  svg{
-    margin-left: auto;
-    margin-right: 30px;
-  }
-}
-
 .navigation-search {
   display: none;
   z-index: 999999;
@@ -131,4 +114,20 @@ img {
     }
   }
 
+}
+.navigation-search-active {
+  display: flex;
+  position: fixed;
+  flex-direction: column;
+  left: auto;
+  right: 0;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  z-index: 1000;
+  background-color: rgba(248,197,99,1);
+  svg{
+    margin-left: auto;
+    margin-right: 30px;
+  }
 }
