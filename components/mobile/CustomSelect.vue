@@ -27,6 +27,7 @@
     methods: {
       ...mapMutations('post', ['SET_PAGE']),
       findPosts() {
+        this.$nuxt.$emit('open-contact-form');
         if (this.selected && this.selected !== 'empty') {
           this.$store.commit('post/SET_INFINITY_RENDER')
           this.SET_PAGE(1)
@@ -59,6 +60,7 @@
     watch: {
       selected() {
         if (this.selected === 'empty') {
+          this.$nuxt.$emit('open-contact-form');
           this.SET_PAGE(1)
           let query = Object.assign({}, this.$route.query);
           delete query[this.type];

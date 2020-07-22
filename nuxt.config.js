@@ -44,6 +44,7 @@ export default {
         {src: '~plugins/map', ssr: true},
         {src: '~plugins/vue-scrollto'},
         {src: '~plugins/social.js', ssr: false},
+        {src: '~plugins/event-bus'},
     ],
     /*
     ** Nuxt.js dev-modules

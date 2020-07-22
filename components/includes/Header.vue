@@ -3,7 +3,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-12">
-          <ul :class="[isActive ? 'is-active-menu' : '' ,'header-menu']" v-if="mobile">
+          <ul :class="[isActive ? 'is-active-menu' : '' ,'header-menu']" v-if="$mq === 'mobile'">
             <li>
               <Clink :to="{name:'index'}"><span>{{ $t('menu.main') }} </span></Clink>
             </li>

@@ -56,6 +56,9 @@
       });
     },
     created() {
+      this.$nuxt.$on('open-contact-form', () => {
+        this.renderItemKey();
+      })
       this.renderItemKey();
     },
     data() {
@@ -84,7 +87,6 @@
       }
     },
     watchQuery(newQuery, oldQuery) {
-      this.renderItemKey();
       return newQuery && oldQuery
     },
 
