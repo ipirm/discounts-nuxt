@@ -76,7 +76,7 @@ img {
 .hide-props {
   margin-top: 10px;
   display: flex;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 18px;
   color: #043C6B !important;
   cursor: pointer;
@@ -209,13 +209,14 @@ img {
     background: linear-gradient(110.68deg, #FBD16D 6.65%, #D9952E 51.73%, #FF8A00 91.54%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-size: 30px;
+    font-size: 15px;
+    margin-bottom: 30px;
 
     span {
       background: linear-gradient(110.68deg, #FBD16D 6.65%, #D9952E 51.73%, #FF8A00 91.54%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      font-size: 30px;
+      font-size: 15px;
       opacity: 0;
       animation: opacityText 4s linear forwards;
       animation-iteration-count: infinite !important;
@@ -223,9 +224,10 @@ img {
   }
 
   svg {
-    width: 100%;
+    width: 5%;
     height: auto;
-    max-height: 600px;
+    position: relative;
+    right: 10px;
   }
 
 }
@@ -267,7 +269,7 @@ img {
 
   .heart-icon-active {
     animation: saveIcon 2s linear forwards;
-    animation-iteration-count: 3 !important;
+    animation-iteration-count: 1 !important;
 
     path {
       fill: red !important;
@@ -284,6 +286,3 @@ img {
   }
 }
 
-body {
-  margin-top: 40px;
-}

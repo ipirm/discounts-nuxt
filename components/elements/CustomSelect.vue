@@ -7,9 +7,9 @@
         v-if="type === 'cats' && data"
         @click="handleClick(1)"
       >
-        <div class="overlay-search-label"><span>КАТЕГОРИИ</span></div>
+        <div class="overlay-search-label"><span>{{ $t('menu.category') }}</span></div>
         <v-select
-          class="basic-single"
+          class="basic-single vs--open "
           :placeholder="placeHolder"
           defaultValue="10"
           id="a1"
@@ -24,7 +24,7 @@
         />
       </div>
       <div class="overlay-search-select cat-select" v-if="type === 'company' && data" @click="handleClick(2)">
-        <div class="overlay-search-label"><span>КОМПАНИЯ</span></div>
+        <div class="overlay-search-label"><span>{{ $t('menu.company') }}</span></div>
         <v-select
           class="basic-single"
           :placeholder="placeHolder"

@@ -26,6 +26,7 @@
       if (process.browser) {
         window.onNuxtReady((app) => {
           this.pageReady = !this.pageReady;
+          document.body.style.marginTop = 40 + "px"
         })
       }
     },
