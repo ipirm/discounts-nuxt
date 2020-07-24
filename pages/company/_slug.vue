@@ -13,6 +13,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="post-title"><span>{{ activeCompany.name }}</span></div>
+                      {{ parseFloat(activeCompany.address[0].lng) - 0.01 }}
                         <div class="d-flex">
                             <div>
                                 <img v-if="activeTab !== 3" class="post-image" :src="activeCompany.image_url"/>
@@ -27,7 +28,9 @@
                                                     :key="item.id"
                                                     :marker="{ lat: parseFloat(item.lng), lng: parseFloat(item.ltg) }"
                                             >
-                                                <div style="width: 20px;height: 20px;background-color: #F8C563;border-radius: 50%"></div>
+                                              <svg width="32" height="31" viewBox="0 0 32 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M15.9998 0C9.60952 0 4.41064 5.03641 4.41064 11.227C4.41064 18.9096 14.7818 30.1882 15.2234 30.6646C15.6381 31.1121 16.3623 31.1113 16.7763 30.6646C17.2178 30.1882 27.589 18.9096 27.589 11.227C27.5889 5.03641 22.3901 0 15.9998 0ZM15.9998 16.8756C12.7847 16.8756 10.1691 14.3416 10.1691 11.227C10.1691 8.11231 12.7848 5.57843 15.9998 5.57843C19.2149 5.57843 21.8305 8.11237 21.8305 11.227C21.8305 14.3417 19.2149 16.8756 15.9998 16.8756Z" fill="#F8C563"/>
+                                              </svg>
                                             </gmap-custom-marker>
                                         </GmapMap>
                                     </client-only>

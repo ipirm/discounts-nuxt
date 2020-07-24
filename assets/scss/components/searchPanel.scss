@@ -92,11 +92,13 @@
   .vs__open-indicator {
     display: none !important;
   }
+
   .vs__clear {
     position: relative;
     top: -15px;
     left: -15px;
   }
+
   .vs__dropdown-toggle {
     border: none;
     padding: 0;
@@ -109,7 +111,9 @@
     color: #fff;
 
     b {
-      color: #F8C563
+      color: #F8C563;
+      font-weight: bold;
+
     }
   }
 }
