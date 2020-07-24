@@ -1,7 +1,7 @@
 .overlay-card {
   max-width: 300px;
   width: 100%;
-  height: 385px;
+  height: 445px;
   border-radius: 2px;
   position: relative;
   border: 1px solid #E5E5E5;
@@ -23,6 +23,8 @@
 
   .overlay-date {
     display: flex;
+    flex-wrap: wrap;
+    margin: 10px 0;
 
     &-now {
       font-size: 12px;

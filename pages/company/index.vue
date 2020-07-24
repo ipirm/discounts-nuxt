@@ -16,7 +16,7 @@
                 </a>
             </div>
             <div class="company-section-items" id="company-container">
-                <div class="company-section-item" v-for="(value,key) in companyLetters" :key="key" :id="key">
+                <div class="company-section-item" v-for="(value,key) in companyLetters" :key="key" :id="key" :class="[value.length > 15 ? 'big-section' : '','company-section-item']">
                     <div class="company-section-item-right">
                         <span :class="[letters.find(i => i.active === true && i.name.toLowerCase() === key.toLowerCase()) ? 'active-letter' : '', 'letters-items']">
                             {{ key}}

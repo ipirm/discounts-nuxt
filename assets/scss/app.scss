@@ -45,6 +45,7 @@ img {
 @import "components/map";
 @import "components/searchPanel";
 @import "components/footer";
+@import "components/about";
 @media(max-width: 1200px) {
   @import "medeioLandscope/media";
 }
@@ -92,13 +93,63 @@ img {
   position: fixed;
   top: 50%;
   left: auto;
-  right: 0;
+  right: 7px;
+  width: fit-content;
+
+  &-header {
+    width: 100%;
+    background-color: #FAFAFA;
+    height: 70px;
+    display: flex;
+    align-items: center;
+
+    span {
+      margin: auto;
+    }
+
+    svg {
+      margin-left: 15px !important;
+      margin-right: 0 !important;
+    }
+  }
+
   &-items {
     display: flex;
-    justify-content: center;
     align-items: center;
     flex-direction: column;
     height: 100%;
+  }
+
+  &-selectedItems {
+    font-weight: 500;
+    font-size: 9px;
+    line-height: 12px;
+    display: flex;
+    align-items: center;
+    margin-top: 23px;
+    color: #434343;
+
+    span {
+      color: #DA1E1E !important;
+    }
+  }
+
+  &-btn {
+    background: #F8C563;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    width: 121.24px;
+    height: 31.5px;
+    border-radius: 3px;
+
+    span {
+      color: #434343;
+      font-weight: 900;
+      font-size: 10px;
+      line-height: 14px;
+    }
   }
 
   &-item {
@@ -107,14 +158,27 @@ img {
     height: fit-content;
 
     select {
-      width: 220px;
-      height: 50px;
+      width: 278px;
+      height: 44px;
       font-size: 14px;
       line-height: 16px;
+      background-color: #FFFFFF;
+      border: 0.5px solid #ECDFDF;
+      box-sizing: border-box;
+      border-radius: 3px;
+      margin: 8px 0;
+      -webkit-appearance: none;
+      appearance: none;
+      background-image: url("/images/select-arrow.svg");
+      background-size: 15px 16px;
+      background-position: 94% 50%;
+      background-repeat: no-repeat;
+      padding: 0 15px;
     }
   }
 
 }
+
 .navigation-search-active {
   display: flex;
   position: fixed;
@@ -124,10 +188,102 @@ img {
   width: 100%;
   height: 100vh;
   top: 0;
-  z-index: 1000;
-  background-color: rgba(248,197,99,1);
-  svg{
+  z-index: 999999;
+  background-color: #fff;
+
+  svg {
     margin-left: auto;
     margin-right: 30px;
   }
+}
+
+.overlay-logo {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .text {
+    background: linear-gradient(110.68deg, #FBD16D 6.65%, #D9952E 51.73%, #FF8A00 91.54%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 30px;
+
+    span {
+      background: linear-gradient(110.68deg, #FBD16D 6.65%, #D9952E 51.73%, #FF8A00 91.54%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: 30px;
+      opacity: 0;
+      animation: opacityText 4s linear forwards;
+      animation-iteration-count: infinite !important;
+    }
+  }
+
+  svg {
+    width: 100%;
+    height: auto;
+    max-height: 600px;
+  }
+
+}
+
+.logo-anim {
+  fill: transparent;
+  stroke-dasharray: 4000;
+  stroke-dashoffset: 4000;
+  animation: dash 4s linear forwards;
+  animation-iteration-count: infinite !important;
+}
+
+@keyframes dash {
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes opacityText {
+  to {
+    opacity: 1;
+  }
+}
+
+.save-button {
+  svg {
+    width: 41px;
+    height: 37px;
+
+    path {
+      transition: all linear 1s;
+    }
+
+    .heart-icon {
+      fill: transparent;
+    }
+  }
+
+  .heart-icon-active {
+    animation: saveIcon 2s linear forwards;
+    animation-iteration-count: 3 !important;
+
+    path {
+      fill: red !important;
+    }
+  }
+}
+
+@keyframes saveIcon {
+  from {
+    transform: scale(1.2);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+body {
+  margin-top: 40px;
 }

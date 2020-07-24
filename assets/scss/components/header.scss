@@ -1,7 +1,9 @@
 .overlayHeader {
   width: 100%;
   background-color: #fff;
-
+  position: fixed;
+  z-index: 999;
+  top: 0;
   .row {
     height: 50px;
   }

@@ -10,9 +10,9 @@
   }
 
   &-letters {
-    padding: 42px 0;
+    padding: 25px 0;
     position: sticky;
-    top: 0;
+    top: 50px;
     background: #fff;
 
     a {
@@ -172,4 +172,12 @@
   background: radial-gradient(20.13% 21.85% at 56.18% 34.16%, rgba(255, 255, 255, 0.6) 4.31%, rgba(255, 255, 255, 0) 100%), url(/images/companyBg.jpg);
   background-repeat: no-repeat;
   background-size: cover;
+}
+@media(min-width: 1100px) {
+  .big-section{
+    height: 300px;
+    .company-section-item-elements{
+      height: 250px;
+    }
+  }
 }

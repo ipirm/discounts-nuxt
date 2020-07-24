@@ -2,15 +2,22 @@
   <div>
     <SearchPanel :cats="cats" :companies="companies" :typesPost="typesPost"/>
     <div  :class="[activeSearch ? 'navigation-search-active' : '' ,'navigation-search']"
-         @click="activeSearch = true">
-      <svg-icon name="mobile/prev" style="width: 52px;height: 90px" v-if="!activeSearch" />
-      <svg-icon name="mobile/next" style="width: 52px;height: 90px" @click.stop="activeSearch = false" v-if="activeSearch" />
+         @click="openModal()">
+      <svg-icon name="mobile/search" style="width: 42px;height: 39px" v-if="!activeSearch" />
+      <div class="navigation-search-header" v-if="activeSearch">
+      <svg-icon name="mobile/backBtn" style="width: 19px;height: 21px" @click.stop="hideModal"  />
+        <span>Настройте фильтр</span>
+      </div>
       <div v-if="activeSearch" class="navigation-search-items">
+        <div class="navigation-search-selectedItems">Живой <span style="margin-left: 3px">поиск</span></div>
         <div class="navigation-search-item">
           <CustomSelect :data="cats" type="cats" :placeHolder="$t('searchPanel.selectCategory')" />
           <CustomSelect :data="companies" type="company" :placeHolder="$t('searchPanel.selectCompany')" />
           <CustomSelect :data="typesPost" type="type" :placeHolder="$t('searchPanel.selectType')" />
         </div>
+        <a class="navigation-search-btn">
+          <span>Искать</span>
+        </a>
       </div>
     </div>
     <div class="container" :style="{marginTop: 50 + 'px'}">
@@ -72,6 +79,12 @@
       ...mapActions('category', ['getCats']),
       ...mapActions('post', ['getPosts']),
       ...mapMutations('post', ['SET_PAGE']),
+      openModal(){
+        this.activeSearch = true;
+      },
+      hideModal(){
+        this.activeSearch = false;
+      },
       infiniteScroll($state) {
         if (this.posts.length < parseInt(this.total)) {
           this.SET_PAGE(this.page + 1)

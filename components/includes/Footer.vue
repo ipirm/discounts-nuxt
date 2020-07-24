@@ -42,10 +42,10 @@
                             <span>{{ $t('footer.workWithUs') }}</span>
                         </div>
                         <div class="footer-links-content">
-                            <nuxt-link to="/a"><span>{{ $t('footer.reklamaHelp') }}</span></nuxt-link>
-                            <nuxt-link to="/b"><span>{{ $t('footer.reklamaPublish') }}</span></nuxt-link>
-                            <nuxt-link to="/c"><span>{{ $t('footer.reklama') }}</span></nuxt-link>
-                            <nuxt-link to="/e"><span>{{ $t('footer.reklamaApi') }}</span></nuxt-link>
+                            <nuxt-link to="/work"><span>{{ $t('footer.reklamaHelp') }}</span></nuxt-link>
+                            <nuxt-link to="/work"><span>{{ $t('footer.reklamaPublish') }}</span></nuxt-link>
+                            <nuxt-link to="/work"><span>{{ $t('footer.reklama') }}</span></nuxt-link>
+                            <nuxt-link to="/api"><span>{{ $t('footer.reklamaApi') }}</span></nuxt-link>
                         </div>
                     </div>
                 </div>
