@@ -5,16 +5,16 @@
         <div class="col-12">
           <ul :class="[isActive ? 'is-active-menu' : '' ,'header-menu']" v-if="$mq === 'mobile'">
             <li>
-              <Clink :to="{name:'index'}"><span>{{ $t('menu.main') }} </span></Clink>
+              <Clink :to="{name:'index'}"><span @click="isActive = !isActive">{{ $t('menu.main') }} </span></Clink>
             </li>
             <li>
-              <Clink :to="{name:'category'}"><span >{{ $t('menu.category') }} </span></Clink>
+              <Clink :to="{name:'category'}"><span @click="isActive = !isActive">{{ $t('menu.category') }} </span></Clink>
             </li>
             <li>
-              <Clink :to="{name:'company'}"><span>{{ $t('menu.company') }} </span></Clink>
+              <Clink :to="{name:'company'}"><span @click="isActive = !isActive">{{ $t('menu.company') }} </span></Clink>
             </li>
             <li>
-              <Clink :to="{name:'favorite'}"><span>{{ $t('menu.popular') }} </span></Clink>
+              <Clink :to="{name:'favorite'}"><span @click="isActive = !isActive">{{ $t('menu.popular') }} </span></Clink>
             </li>
           </ul>
           <ul class="header-menu" v-else>
