@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="overlay-search-select-wrapper">
     <client-only>
       <div
         class="overlay-search-select cat-select"
@@ -9,10 +9,9 @@
       >
         <div class="overlay-search-label"><span>{{ $t('menu.category') }}</span></div>
         <v-select
-          class="basic-single vs--open "
+          class="basic-single select1"
           :placeholder="placeHolder"
           defaultValue="10"
-          id="a1"
           instanceId="1"
           inputId="1"
           :clearable="true"
@@ -20,16 +19,14 @@
           label="name"
           :options="options"
           @input="findPosts"
-          ref="select1"
         />
       </div>
       <div class="overlay-search-select cat-select" v-if="type === 'company' && data" @click="handleClick(2)">
         <div class="overlay-search-label"><span>{{ $t('menu.company') }}</span></div>
         <v-select
-          class="basic-single"
+          class="basic-single select2"
           :placeholder="placeHolder"
           defaultValue="10"
-          id="a2"
           instanceId="2"
           inputId="2"
           :clearable="true"
@@ -37,21 +34,18 @@
           :options="data"
           label="name"
           @input="findPosts"
-          ref="select2"
         />
       </div>
       <div
         class="overlay-search-select"
         v-if="type === 'type' && data"
         @click="handleClick(3)"
-        style="width: 200px;border-top-right-radius: 3px;border-bottom-right-radius: 3px"
       >
         <div class="overlay-search-label"><span>Тип</span></div>
         <v-select
-          class="basic-single"
+          class="basic-single select3"
           :placeholder="placeHolder"
           defaultValue="10"
-          id="a3"
           instanceId="3"
           inputId="3"
           :clearable="true"
@@ -59,7 +53,6 @@
           :options="options"
           label="name"
           @input="findPosts"
-          ref="select2"
         />
       </div>
     </client-only>
@@ -74,16 +67,19 @@
     name: 'CustomSelect',
     data() {
       return {
-        selected: ''
+        selected: '',
+        click: true
       }
     },
     methods: {
       ...mapMutations('post', ['SET_PAGE']),
       handleClick(id) {
-        if (id === 1) {
-          // this.$refs.select1.open = !this.$refs.select1.open
-        } else {
-          // this.$refs.select2.open = !this.$refs.select1.open
+        if (this.click) {
+          this.click = false;
+          setTimeout(() => {
+            document.querySelector(`.overlay-search-select-wrapper .select${id} input`).focus();
+            this.click = true;
+          }, 1)
         }
       },
       findPosts() {

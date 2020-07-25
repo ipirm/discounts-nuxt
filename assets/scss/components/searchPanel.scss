@@ -7,6 +7,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  .overlay-search-select {
+    width: 100%;
+    max-width: 160px;
+  }
 }
 
 .overlaySearch::after {
@@ -37,6 +42,14 @@
     color: #FFFFFF;
   }
 
+  .vs__selected-options {
+    text-align: left;
+
+    input {
+      // position: absolute;
+    }
+  }
+
   .basic-single {
     width: 100%;
     font-size: 12px;
@@ -46,27 +59,33 @@
 
   &-label {
     text-align: left;
-    margin: 14px 0 5px 0;
+    margin-bottom: 5px;
     font-weight: bold;
     font-size: 15px;
     line-height: 14px;
     color: #000000;
   }
 
+  .vs__selected-options {
+    flex-wrap: nowrap;
+  }
+
   .vs__selected {
     margin: 0;
     padding: 0;
     font-weight: bold;
+    color: #224B76;
+  }
+
+  .vs__dropdown-menu {
+    overflow-x: hidden;
+    max-height: 219px;
   }
 
   &-select {
-    width: 250px;
-    background-color: #fff;
-    height: 60px;
-    padding: 0 30px;
     display: flex;
     flex-direction: column;
-    position: relative;
+    width: 100%;
 
     .vs__selected-options {
       padding: 0;
@@ -75,6 +94,24 @@
         padding: 0;
         margin: 0;
       }
+    }
+
+    .vs__search, .vs__search:focus {
+      min-width: 0;
+    }
+
+    .vs__actions {
+      position: absolute;
+      right: -40px;
+    }
+
+    &-wrapper {
+      width: 230px;
+      background-color: #fff;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: center;
+      position: relative;
     }
   }
 
@@ -86,8 +123,10 @@
     position: absolute;
     background: #B3B3B3;
     left: auto;
-    right: 25px;
-    top: 15%;
+    right: 0;
+    top: 50%;
+    border-radius: 500px;
+    transform: translateY(-50%);
   }
 
   .vs__open-indicator {
@@ -111,10 +150,20 @@
     line-height: 35px;
     color: #fff;
 
-    b {
+    b, strong {
       color: #F8C563;
       font-weight: bold;
 
     }
   }
+}
+
+.overlay-search-select-wrapper:first-of-type {
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px
+}
+
+.overlay-search-select-wrapper:last-of-type {
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px
 }
