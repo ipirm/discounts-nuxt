@@ -27,12 +27,13 @@
   text-align: center;
   width: fit-content;
   flex-direction: column;
+  padding: 0 15px;
 
   &-subtitle {
     margin: 10px 0 20px 0;
     font-weight: bold;
     font-size: 18px;
-    line-height: 16px;
+    line-height: 20px;
     color: #FFFFFF;
   }
 
