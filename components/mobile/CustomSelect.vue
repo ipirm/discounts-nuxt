@@ -2,12 +2,12 @@
   <div>
     <select @change="findPosts()" v-model="selectedItem" v-if="type === 'company'">
       <option value="" disabled selected>{{placeHolder }}</option>
-      <option value="empty">Любое</option>
+      <option value="empty">{{$t('mainPage.every')}}</option>
       <option v-for="item in data" :value="item" :key="item.id">{{ item.name}}</option>
     </select>
     <select @change="findPosts()" v-model="selectedItem" v-else>
       <option value="" disabled selected>{{placeHolder }}</option>
-      <option value="empty">Любое</option>
+      <option value="empty">{{$t('mainPage.every')}}</option>
       <option v-for="item in data" :value="item.name[$i18n.locale]" :key="item.id">{{ item.name[$i18n.locale]}}</option>
     </select>
   </div>

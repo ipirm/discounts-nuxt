@@ -13,7 +13,6 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="post-title"><span>{{ activeCompany.name }}</span></div>
-                      {{ parseFloat(activeCompany.address[0].lng) - 0.01 }}
                         <div class="d-flex">
                             <div>
                                 <img v-if="activeTab !== 3" class="post-image" :src="activeCompany.image_url"/>
@@ -28,9 +27,7 @@
                                                     :key="item.id"
                                                     :marker="{ lat: parseFloat(item.lng), lng: parseFloat(item.ltg) }"
                                             >
-                                              <svg width="32" height="31" viewBox="0 0 32 31" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M15.9998 0C9.60952 0 4.41064 5.03641 4.41064 11.227C4.41064 18.9096 14.7818 30.1882 15.2234 30.6646C15.6381 31.1121 16.3623 31.1113 16.7763 30.6646C17.2178 30.1882 27.589 18.9096 27.589 11.227C27.5889 5.03641 22.3901 0 15.9998 0ZM15.9998 16.8756C12.7847 16.8756 10.1691 14.3416 10.1691 11.227C10.1691 8.11231 12.7848 5.57843 15.9998 5.57843C19.2149 5.57843 21.8305 8.11237 21.8305 11.227C21.8305 14.3417 19.2149 16.8756 15.9998 16.8756Z" fill="#F8C563"/>
-                                              </svg>
+                                               <svg-icon name="map/marker" style="width: 32px;height: 31px" />
                                             </gmap-custom-marker>
                                         </GmapMap>
                                     </client-only>
@@ -49,11 +46,11 @@
                             <div class="post-text">
                                 <div class="post-information-tabs">
                                     <a :class="[activeTab === 1 ? 'post-information-tabs-active' : '', 'post-information-tabs-btn']"
-                                       @click="changeTab(1)"><span>Адреса</span></a>
+                                       @click="changeTab(1)"><span>{{ $t('companyPage.address') }}</span></a>
                                     <a :class="[activeTab === 2 ? 'post-information-tabs-active' : '', 'post-information-tabs-btn']"
-                                       @click="changeTab(2)"><span>Телефоны</span></a>
+                                       @click="changeTab(2)"><span>{{ $t('companyPage.numbers') }}</span></a>
                                     <a :class="[activeTab === 3 ? 'post-information-tabs-active' : '', 'post-information-tabs-btn']"
-                                       @click="changeTab(3)"><span>На карте</span></a>
+                                       @click="changeTab(3)"><span>{{ $t('companyPage.onMap') }}</span></a>
                                 </div>
                                 <div class="post-information" v-show="activeTab === 1">
                                     <p style="margin-bottom: 10px">{{ $t('companyInformation.address') }}</p>
@@ -65,9 +62,9 @@
                                         </div>
                                     </div>
                                     <a v-if="addressCount === 4 && activeCompany.address.length >4" class="hide-props"
-                                       @click="sliceAddresCountHandler(100)">Показать все</a>
+                                       @click="sliceAddresCountHandler(100)">{{ $t('companyPage.showAll') }}</a>
                                     <a v-if="addressCount !== 4 && activeCompany.address.length >4" class="hide-props"
-                                       @click="sliceAddresCountHandler(4)">Скрыть</a>
+                                       @click="sliceAddresCountHandler(4)">{{ $t('companyPage.hideAll') }}</a>
                                 </div>
                                 <div class="post-information" v-show="activeTab === 2">
                                     <p style="margin-bottom: 10px">{{ $t('companyInformation.number') }}</p>
@@ -76,14 +73,14 @@
                                          :key="item.id">{{item.number}}
                                     </div>
                                     <a v-if="sliceCount === 6 && activeCompany.numbers.length >6" class="hide-props"
-                                       @click="sliceCountHandler(100)">Показать все</a>
+                                       @click="sliceCountHandler(100)">{{ $t('companyPage.showAll') }}</a>
                                     <a v-if="sliceCount !== 6 && activeCompany.numbers.length >6" class="hide-props"
-                                       @click="sliceCountHandler(6)">Скрыть</a>
+                                       @click="sliceCountHandler(6)">{{ $t('companyPage.hideAll') }}</a>
                                 </div>
                                 <div class="post-information" v-show="activeTab === 3">
-                                    <p style="margin-bottom: 10px">{{activeCompany.name }} на карте</p>
+                                    <p style="margin-bottom: 10px">{{activeCompany.name }} {{ $t('companyPage.onMapSmall') }}</p>
                                     <div class="post-information-time">
-                                        Нажмите на карту для того, чтобы<br> просмотретьв полноэкранном режиме
+                                      {{ $t('companyPage.clickMap') }}<br> {{ $t('companyPage.showMap') }}
                                     </div>
                                 </div>
                             </div>

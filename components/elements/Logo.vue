@@ -25,7 +25,7 @@
         </linearGradient>
       </defs>
     </svg>
-    <div class="text">Loading
+    <div class="text">{{ $t('mainPage.loading') }}
       <span>.</span>
       <span>.</span>
       <span>.</span>

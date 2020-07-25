@@ -4,7 +4,7 @@
             <div class="overlay-search">
                 <div class="overlay-search-title">
                     <span>
-                        Сохраннные вами скидки и акции
+                        {{$t('savedPage.title')}}
                         <b>{{ $t('searchPanel.subtitle') }}</b>
                     </span>
                 </div>

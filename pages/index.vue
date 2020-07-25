@@ -6,17 +6,17 @@
       <svg-icon name="mobile/search" style="width: 42px;height: 39px" v-if="!activeSearch" />
       <div class="navigation-search-header" v-if="activeSearch">
       <svg-icon name="mobile/backBtn" style="width: 19px;height: 21px" @click.stop="hideModal"  />
-        <span>Настройте фильтр</span>
+        <span>{{$t('mainPage.filter')}}</span>
       </div>
       <div v-if="activeSearch" class="navigation-search-items">
-        <div class="navigation-search-selectedItems">Живой <span style="margin-left: 3px">поиск</span></div>
+        <div class="navigation-search-selectedItems">{{$t('mainPage.live')}} <span style="margin-left: 3px">{{$t('mainPage.search')}}</span></div>
         <div class="navigation-search-item">
           <CustomSelect :data="cats" type="cats" :placeHolder="$t('searchPanel.selectCategory')" />
           <CustomSelect :data="companies" type="company" :placeHolder="$t('searchPanel.selectCompany')" />
           <CustomSelect :data="typesPost" type="type" :placeHolder="$t('searchPanel.selectType')" />
         </div>
         <a class="navigation-search-btn">
-          <span>Искать</span>
+          <span>{{$t('mainPage.startSearch')}}</span>
         </a>
       </div>
     </div>

@@ -55,7 +55,7 @@
                                         {{ item.time}}
                                     </div>
                                 </div>
-                                <clink class="hide-props" :to="`/company/${activePostCompany.slug}`">Показать еще
+                                <clink class="hide-props" :to="`/company/${activePostCompany.slug}`">{{$t('companyPage.showAll')}}
                                 </clink>
                             </div>
                             <div>
