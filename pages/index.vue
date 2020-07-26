@@ -15,7 +15,7 @@
           <CustomSelect :data="companies" type="company" :placeHolder="$t('searchPanel.selectCompany')" />
           <CustomSelect :data="typesPost" type="type" :placeHolder="$t('searchPanel.selectType')" />
         </div>
-        <a class="navigation-search-btn">
+        <a @click.stop="hideModal" class="navigation-search-btn">
           <span>{{$t('mainPage.startSearch')}}</span>
         </a>
       </div>

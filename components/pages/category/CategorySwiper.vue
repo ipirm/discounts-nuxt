@@ -32,7 +32,7 @@
                  :key="item.index">
               <Clink :to="{name:'index', query:{cats: item.id}}">
                 <div class="category-element">
-                  <img :src="item.image_url"/>
+                  <img :alt="item.name[$i18n.locale]" :src="item.image_url"/>
                 </div>
                 <p>{{ item.name[$i18n.locale] }}</p>
               </Clink>

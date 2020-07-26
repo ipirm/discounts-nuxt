@@ -3,6 +3,7 @@
     "main": "Главная",
     "category": "Категории",
     "company": "Компании",
+    "companyOne": "Компания",
     "popular": "Сохраненные"
   },
   "searchPanel": {

@@ -40,10 +40,15 @@
   }
 
   .post-title {
-    font-size: 32px;
-    line-height: 35px;
-    color: #434343;
-    margin-bottom: 10px;
+    display: flex;
+
+    h1 {
+      font-size: 32px;
+      line-height: 35px;
+      color: #434343;
+      margin-right: 3px;
+      margin-bottom: 10px;
+    }
   }
 
   .post-tags {
@@ -144,10 +149,12 @@
   align-items: center;
   margin-left: 5px;
   margin-top: 6px;
-  span{
+
+  span {
     margin: 0 2.5px;
     cursor: pointer;
   }
+
   &-text {
     font-weight: 600;
     font-size: 14px;

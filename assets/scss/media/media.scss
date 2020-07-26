@@ -80,7 +80,19 @@
   font-size: 20px;
   line-height: 25px;
 }
-
+.overlay-search-title h1{
+  font-size: 20px !important;
+  line-height: 25px;
+}
+.overlay-search-title h2{
+  font-size: 20px !important;
+  line-height: 25px;
+}
+.overlay-search-title {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 .swiper-fluid {
   padding: 0 15px !important;
 }

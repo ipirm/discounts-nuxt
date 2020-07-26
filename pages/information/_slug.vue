@@ -2,10 +2,10 @@
   <section class="about">
     <div class="overlaySearch overlayAbout">
       <div class="overlay-search">
-        <div class="overlay-search-title" v-html="page.title[$i18n.locale]">
-        </div>
+        <h1 class="overlay-search-title" v-html="page.title[$i18n.locale]">
+        </h1>
         <div class="overlay-search-subtitle">
-          <span>{{ page.subtitle[$i18n.locale]}}</span>
+          <h2>{{ page.subtitle[$i18n.locale]}}</h2>
         </div>
       </div>
     </div>

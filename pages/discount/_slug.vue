@@ -25,8 +25,8 @@
                     <div class="col-12">
                         <div class="d-flex">
                             <div class="post-text">
-                                <div class="post-title">
-                                    <span>{{ postActive.title[$i18n.locale]}}</span>
+                                <div class="post-title"  style="margin-bottom: 10px">
+                                    <h1>{{ postActive.title[$i18n.locale]}}</h1>
                                     <a class="save-button" @click="saveToFavorite">
                                       <svg :class="[saved ? 'heart-icon-active' : '']" height="480pt" viewBox="0 -20 480 480" width="480pt" xmlns="http://www.w3.org/2000/svg">
                                         <path class="heart-icon" d="m348 8c-44.773438.003906-86.066406 24.164062-108 63.199219-21.933594-39.035157-63.226562-63.195313-108-63.199219-68.480469 0-124 63.519531-124 132 0 172 232 292 232 292s232-120 232-292c0-68.480469-55.519531-132-124-132zm0 0" fill="#ff6243"/>
@@ -59,7 +59,7 @@
                                 </clink>
                             </div>
                             <div>
-                                <img class="post-image" :src="postActive.image_url"/>
+                                <img class="post-image" :alt="postActive.title[$i18n.locale]" :src="postActive.image_url"/>
                                 <client-only>
                                     <div class="overlay-social">
                                         <p class="overlay-social-text">{{$t('meta.share') }}</p>

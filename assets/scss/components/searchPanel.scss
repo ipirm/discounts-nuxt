@@ -145,16 +145,23 @@
   }
 
   &-title {
+    display: flex;
+  }
+
+  &-title h1 {
     font-weight: bold;
     font-size: 26px;
     line-height: 35px;
     color: #fff;
+    margin-right: 6px;
 
-    b, strong {
-      color: #F8C563;
-      font-weight: bold;
+  }
 
-    }
+  &-title h2, strong {
+    font-weight: bold;
+    font-size: 26px;
+    line-height: 35px;
+    color: #F8C563;
   }
 }
 
@@ -166,4 +173,21 @@
 .overlay-search-select-wrapper:last-of-type {
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px
+}
+.overlay-search-title{
+  div{
+    font-weight: bold;
+    font-size: 26px;
+    line-height: 35px;
+    color: #fff;
+    margin-right: 6px;
+  }
+}
+.overlay-search-subtitle{
+  h2{
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 20px;
+    color: #FFFFFF;
+  }
 }
