@@ -133,6 +133,10 @@
     justify-content: center;
     cursor: pointer;
     height: 23px;
+    border:none ;
+  }
+  &-btn:focus{
+    outline: none;
   }
 }
 
