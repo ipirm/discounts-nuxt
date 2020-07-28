@@ -80,12 +80,24 @@ export default {
     ],
     '@nuxtjs/svg-sprite',
     'cookie-universal-nuxt',
-    'nuxt-mq'
+    'nuxt-mq',
+    '@nuxtjs/recaptcha',
 
   ],
   /*
   ** Build configuration
   */
+  // Site Key
+  // 6LfFMbcZAAAAAGWFLF4T6WlDGe-s2odj3ABLNJJk
+  // Site Secret
+  // 6LfFMbcZAAAAAEd3hZnBClSQqnof4oatHdXIC3pp
+  recaptcha: {
+    siteKey: '6LfFMbcZAAAAAGWFLF4T6WlDGe-s2odj3ABLNJJk',
+    hideBadge: false, // Hide badge element (v3 & v2 via size=invisible)
+    // language: String,   // Recaptcha language (v2)
+    version: 3,     // Version
+    size: 'invisible'        // Size: 'compact', 'normal', 'invisible' (v2)
+  },
   svgSprite: {
     input: '~/assets/svg/'
   },
