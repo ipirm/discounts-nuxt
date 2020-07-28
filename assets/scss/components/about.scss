@@ -52,7 +52,7 @@
 
 .contact-form {
   width: 332px;
-  height: 371px;
+  height: fit-content;
   background: #FFFFFF;
   border: 0.5px solid #E3E3E3;
   border-radius: 4px;
@@ -146,4 +146,14 @@
     top: 100px;
     position: sticky;
   }
+  .error{
+    font-size: 12px;
+    line-height: 14px;
+    color: red;
+    display: block;
+    margin-top: 3px;
+  }
+}
+.grecaptcha-badge{
+  display: none !important;
 }

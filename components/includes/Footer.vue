@@ -53,13 +53,21 @@
             <div class="footer-contact-text">
               <span>{{ $t('footer.stayUs') }}</span>
             </div>
-            <div class="footer-contact-mail">
+            <form class="footer-contact-mail" @submit.prevent="checkForm">
               <!--                            <div class="footer-contact-mail-social"><span>Мы в соц. сетях</span></div>-->
-              <input type="text" :placeholder="$t('footer.yourMail')">
-              <a class="footer-contact-mail-send">
+              <input type="email" name="name" v-model="body.name" :placeholder="$t('footer.yourMail')">
+              <button type="submit" class="footer-contact-mail-send">
                 <span>{{ $t('footer.send') }}</span>
-              </a>
-            </div>
+              </button>
+              <vue-recaptcha
+                ref="recaptcha"
+                @verify="onCaptchaVerified"
+                @expired="onCaptchaExpired"
+                :loadRecaptchaScript="true"
+                size="invisible"
+                sitekey="6LeGM7cZAAAAACLPSqAzjLIVn5zN3oc0iUslER5r">
+              </vue-recaptcha>
+            </form>
           </div>
         </div>
       </div>
@@ -76,10 +84,42 @@
 <script>
   import Clink from "../elements/Link";
   import {mapState} from 'vuex'
+  import VueRecaptcha from 'vue-recaptcha';
 
   export default {
     name: 'Footer',
-    components: {Clink},
+    components: {Clink,VueRecaptcha},
+    data(){
+      return {
+        errors: [],
+         body:{
+           name: null,
+           reCaptchaToken: null
+         }
+      }
+    },
+    methods: {
+      checkForm(e) {
+        this.errors = [];
+        if (!this.body.name) {
+          this.errors.push('Требуется указать эмейл');
+          this.$toast.error('Требуется указать эмейл')
+        }
+        this.$refs.recaptcha.execute();
+      },
+      onCaptchaVerified(recaptchaToken) {
+        this.body.reCaptchaToken = recaptchaToken
+        this.$refs.recaptcha.reset();
+        if (this.body.name) {
+          this.$store.dispatch('mail/sendMail', this.body).then(() => {
+            this.$toast.success('Спасибо за ваш отклик')
+          })
+        }
+      },
+      onCaptchaExpired() {
+        this.$refs.recaptcha.reset();
+      }
+    },
     computed: {
       ...mapState('pages', ['pages']),
     }

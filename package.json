@@ -16,6 +16,7 @@
   "dependencies": {
     "@nuxtjs/recaptcha": "^0.6.2",
     "@nuxtjs/svg-sprite": "^0.4.11",
+    "@nuxtjs/toast": "^3.3.1",
     "axios": "^0.19.2",
     "bootstrap-vue": "^2.15.0",
     "cookie-universal-nuxt": "^2.1.4",

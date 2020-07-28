@@ -8,15 +8,25 @@ export default {
     meta: [
       {charset: 'utf-8'},
       {name: 'viewport', content: 'width=device-width, initial-scale=1'},
-      {hid: 'description', name: 'description', content: "Акции, скидки, каталоги продуктовых супермаркетов, магазинов электроники и бытовой техники, стройматериалов, одежды и обуви в Баку"},
-      {itemprop:"name", content:"Акции, скидки, каталоги магазинов Баку - Tviser.io"},
-      {itemprop:"description", content:"Акции, скидки, каталоги продуктовых супермаркетов, магазинов электроники и бытовой техники, стройматериалов, одежды и обуви в Баку"},
-      {itemprop:"image", content:'/images/seo-image.jpg'},
-      {property:"og:url", content:"https://discount-nuxt.herokuapp.com"},
-      {property:"og:type", content:"website"},
-      {property:"og:title", content:'Акции, скидки, каталоги магазинов Баку - Tviser.io'},
-      {property:"og:description", content:'Акции, скидки, каталоги продуктовых супермаркетов, магазинов электроники и бытовой техники, стройматериалов, одежды и обуви в Баку'},
-      {property:"og:image", content:'/images/seo-image.jpg'},
+      {
+        hid: 'description',
+        name: 'description',
+        content: "Акции, скидки, каталоги продуктовых супермаркетов, магазинов электроники и бытовой техники, стройматериалов, одежды и обуви в Баку"
+      },
+      {itemprop: "name", content: "Акции, скидки, каталоги магазинов Баку - Tviser.io"},
+      {
+        itemprop: "description",
+        content: "Акции, скидки, каталоги продуктовых супермаркетов, магазинов электроники и бытовой техники, стройматериалов, одежды и обуви в Баку"
+      },
+      {itemprop: "image", content: '/images/seo-image.jpg'},
+      {property: "og:url", content: "https://discount-nuxt.herokuapp.com"},
+      {property: "og:type", content: "website"},
+      {property: "og:title", content: 'Акции, скидки, каталоги магазинов Баку - Tviser.io'},
+      {
+        property: "og:description",
+        content: 'Акции, скидки, каталоги продуктовых супермаркетов, магазинов электроники и бытовой техники, стройматериалов, одежды и обуви в Баку'
+      },
+      {property: "og:image", content: '/images/seo-image.jpg'},
     ],
     link: [
       {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'}
@@ -80,18 +90,16 @@ export default {
     ],
     '@nuxtjs/svg-sprite',
     'cookie-universal-nuxt',
-    'nuxt-mq'
+    'nuxt-mq',
+    '@nuxtjs/toast',
 
   ],
-  /*
-  ** Build configuration
-  */
-  // Site Key
-  // 6LfFMbcZAAAAAGWFLF4T6WlDGe-s2odj3ABLNJJk
-  // Site Secret
-  // 6LfFMbcZAAAAAEd3hZnBClSQqnof4oatHdXIC3pp
   svgSprite: {
     input: '~/assets/svg/'
+  },
+  toast: {
+    position: 'bottom-right',
+    duration: 4000
   },
   mq: {
     defaultBreakpoint: "desktop",

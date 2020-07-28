@@ -1,5 +1,5 @@
 <template>
-    <div class="category-section">
+    <div class="category-section category-margin">
         <div class="container-fluid swiper-fluid">
             <div class="row company-section-title">
                 <div class="col-2">
