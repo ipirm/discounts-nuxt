@@ -102,8 +102,8 @@
       checkForm(e) {
         this.errors = [];
         if (!this.body.name) {
-          this.errors.push('Требуется указать эмейл');
-          this.$toast.error('Требуется указать эмейл')
+          this.errors.push(this.$t('contactForm.validateEmail'));
+          this.$toast.error(this.$t('contactForm.validateEmail'))
         }
         this.$refs.recaptcha.execute();
       },
@@ -112,7 +112,7 @@
         this.$refs.recaptcha.reset();
         if (this.body.name) {
           this.$store.dispatch('mail/sendMail', this.body).then(() => {
-            this.$toast.success('Спасибо за ваш отклик')
+            this.$toast.success(this.$t('contactForm.thankYou'))
           })
         }
       },

@@ -41,7 +41,7 @@
         v-if="type === 'type' && data"
         @click="handleClick(3)"
       >
-        <div class="overlay-search-label"><span>Тип</span></div>
+        <div class="overlay-search-label"><span>{{$t('searchPanel.selectType')}}</span></div>
         <v-select
           class="basic-single select3"
           :placeholder="placeHolder"
