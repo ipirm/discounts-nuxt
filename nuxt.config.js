@@ -3,11 +3,14 @@ export default {
   /*
   ** Headers of the page
   */
-  env:{
-      baseURL: process.env.APP_URL || 'http://localhost:3000'
+  env: {
+    baseURL: process.env.APP_URL || 'http://localhost:3000'
   },
   head: {
-    title: `Акции, скидки, каталоги магазинов Баку - Tviser.io`,
+    meta: [
+      {charset: 'utf-8'},
+      {name: 'viewport', content: 'width=device-width, initial-scale=1'},
+    ],
     link: [
       {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'}
     ]
