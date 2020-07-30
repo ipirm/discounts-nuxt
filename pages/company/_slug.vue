@@ -100,10 +100,10 @@
   import PostSwiper from "../../components/pages/post/PostSwiper";
 
   export default {
+    layout: 'nometa',
     components: {PostSwiper, GmapCustomMarker},
     async fetch({store, route}) {
       await store.dispatch('company/getCompany', route.params.slug).then(async () => {
-        console.log(store.state.company.activeCompany.id);
         await store.dispatch('company/getCompanySane', store.state.company.activeCompany.id)
       })
     },
@@ -133,12 +133,16 @@
         title: this.$t('menu.companyOne') + " " + this.activeCompany.name,
         meta: [
           {property: 'og:title', content: this.activeCompany.name || ''},
-          {property: 'og:description', content: this.activeCompany.description || ''},
-          {name: 'description', content: this.activeCompany.description || ''},
+          {property: 'og:description', content: this.$t('menu.companyOne') + " " + this.activeCompany.name},
+          {name: 'description', content: this.$t('menu.companyOne') + " " + this.activeCompany.name},
           {property: 'og:image', content: this.activeCompany.image_url || ''},
           {property: 'og:url', content: `https://discount-nuxt.herokuapp.com${this.$route.fullPath}` || ''},
+          {property: "og:type", content: "website"},
           {name: 'keywords', content: `${this.$t('keywords')}` || ''},
           {property: 'twitter:card', content: this.activeCompany.image_url || ''},
+          {itemprop: "name", content: this.activeCompany.name || ''},
+          {itemprop: "description", content: this.$t('menu.companyOne') + " " + this.activeCompany.name},
+          {itemprop: "image", content: this.activeCompany.image_url || ''},
         ]
       }
     },

@@ -40,9 +40,29 @@
   import ContactForm from "../../components/elements/ContactForm";
 
   export default {
+    layout: 'nometa',
     components: {ContactForm},
+
     async fetch({store, route}) {
       await store.dispatch('pages/getPageBySlug', route.params.slug)
+    },
+    head() {
+      return {
+        title: this.page.content[0].title[this.$i18n.locale],
+        meta: [
+          {property: 'og:title', content: this.page.content[0].title[this.$i18n.locale] || ''},
+          {property: 'og:description', content: this.page.subtitle[this.$i18n.locale] || ''},
+          {name: 'description', content:  this.page.subtitle[this.$i18n.locale]  || ''},
+          {property: 'og:image', content: '/images/seo-image.jpg'},
+          {property: 'og:url', content: `https://discount-nuxt.herokuapp.com${this.$route.fullPath}` || ''},
+          {property: "og:type", content: "website"},
+          {name: 'keywords', content: `${this.$t('keywords')}` || ''},
+          {property: 'twitter:card', content: '/images/seo-image.jpg'},
+          {itemprop: "name", content: this.page.content[0].title[this.$i18n.locale] || ''},
+          {itemprop: "description", content: this.page.subtitle[this.$i18n.locale] || ''},
+          {itemprop: "image", content: '/images/seo-image.jpg'},
+        ]
+      }
     },
     computed: {
       ...mapState('pages', ['page']),

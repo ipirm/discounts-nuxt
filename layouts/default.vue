@@ -13,23 +13,42 @@
   import Footer from "../components/includes/Footer";
   import Spinner from "../components/elements/Spinner";
   import Logo from "../components/elements/Logo";
+ import {mapMutations,mapState} from 'vuex'
 
   export default {
     components: {Logo, Spinner, Footer, Header},
-    data() {
+    head() {
       return {
-        pageReady: false
+        title: `${this.$t('meta.title')}` || '',
+        meta: [
+          {charset: 'utf-8'},
+          {name: 'viewport', content: 'width=device-width, initial-scale=1'},
+          {hid: 'description', name: 'description', content: `${this.$t('meta.description')}` || ''},
+          {itemprop: "name", content: `${this.$t('meta.title')}` || ''},
+          {itemprop: "description", content: `${this.$t('meta.description')}` || ''},
+          {itemprop: "image", content: '/images/seo-image.jpg'},
+          {property: "og:url", content: "https://discount-nuxt.herokuapp.com"},
+          {property: "og:type", content: "website"},
+          {property: "og:title", content: `${this.$t('meta.title')}` || ''},
+          {property: "og:description", content: `${this.$t('meta.description')}` || ''},
+          {property: "og:image", content: '/images/seo-image.jpg'},
+        ],
       }
     },
-
+    methods: {
+      ...mapMutations('mail', ['SET_PAGE_READY']),
+    },
     mounted() {
       if (process.browser) {
         window.onNuxtReady((app) => {
-          this.pageReady = !this.pageReady;
+          this.SET_PAGE_READY();
           document.body.style.marginTop = 40 + "px"
         })
       }
     },
+    computed: {
+      ...mapState('mail', ['pageReady']),
+    }
   }
 </script>
 <style scoped>

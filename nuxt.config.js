@@ -3,31 +3,11 @@ export default {
   /*
   ** Headers of the page
   */
+  env:{
+      baseURL: process.env.APP_URL || 'http://localhost:3000'
+  },
   head: {
     title: `Акции, скидки, каталоги магазинов Баку - Tviser.io`,
-    meta: [
-      {charset: 'utf-8'},
-      {name: 'viewport', content: 'width=device-width, initial-scale=1'},
-      {
-        hid: 'description',
-        name: 'description',
-        content: "Акции, скидки, каталоги продуктовых супермаркетов, магазинов электроники и бытовой техники, стройматериалов, одежды и обуви в Баку"
-      },
-      {itemprop: "name", content: "Акции, скидки, каталоги магазинов Баку - Tviser.io"},
-      {
-        itemprop: "description",
-        content: "Акции, скидки, каталоги продуктовых супермаркетов, магазинов электроники и бытовой техники, стройматериалов, одежды и обуви в Баку"
-      },
-      {itemprop: "image", content: '/images/seo-image.jpg'},
-      {property: "og:url", content: "https://discount-nuxt.herokuapp.com"},
-      {property: "og:type", content: "website"},
-      {property: "og:title", content: 'Акции, скидки, каталоги магазинов Баку - Tviser.io'},
-      {
-        property: "og:description",
-        content: 'Акции, скидки, каталоги продуктовых супермаркетов, магазинов электроники и бытовой техники, стройматериалов, одежды и обуви в Баку'
-      },
-      {property: "og:image", content: '/images/seo-image.jpg'},
-    ],
     link: [
       {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'}
     ]
@@ -67,7 +47,9 @@ export default {
   /*
   ** Nuxt.js dev-modules
   */
-  buildModules: [],
+  buildModules: [
+    '@nuxtjs/dotenv'
+  ],
   /*
   ** Nuxt.js modules
   */

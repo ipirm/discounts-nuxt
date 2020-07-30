@@ -92,6 +92,7 @@
   import PostSwiper from "../../components/pages/post/PostSwiper";
 
   export default {
+    layout: 'nometa',
     components: {PostSwiper, Clink},
     async fetch({store, route}) {
       await store.dispatch('post/getActivePost', route.params.slug).then(async () => {
@@ -118,6 +119,10 @@
           {property: 'og:description', content: this.postActive.description[this.$i18n.locale] || ''},
           {property: 'og:image', content: this.postActive.image_url || ''},
           {property: 'og:url', content: `https://discount-nuxt.herokuapp.com/${this.$route.fullPath}` || ''},
+          {property: "og:type", content: "website"},
+          {itemprop: "name", content: this.postActive.title[this.$i18n.locale] || ''},
+          {itemprop: "description", content: this.postActive.description[this.$i18n.locale] || ''},
+          {itemprop: "image", content: this.postActive.image_url || ''},
           {name: 'description', content: this.postActive.description[this.$i18n.locale] || ''},
           {name: 'keywords', content: `${this.$t('keywords')}` || ''},
           {property: 'twitter:card', content: this.postActive.image_url || ''},
