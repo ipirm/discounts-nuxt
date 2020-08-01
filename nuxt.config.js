@@ -1,4 +1,4 @@
-import {APP_URI} from 'config/types'
+import {APP_URI} from './config/types'
 
 export default {
   mode: 'universal',
