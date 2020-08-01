@@ -38,6 +38,7 @@
 <script>
   import {mapState} from 'vuex'
   import ContactForm from "../../components/elements/ContactForm";
+  import {APP_URI} from "../../config/types";
 
   export default {
     layout: 'nometa',
@@ -54,7 +55,7 @@
           {property: 'og:description', content: this.page.subtitle[this.$i18n.locale] || ''},
           {name: 'description', content:  this.page.subtitle[this.$i18n.locale]  || ''},
           {property: 'og:image', content: '/images/seo-image.jpg'},
-          {property: 'og:url', content: `https://discount-nuxt.herokuapp.com${this.$route.fullPath}` || ''},
+          {property: 'og:url', content: `${APP_URI}/${this.$route.fullPath}` || ''},
           {property: "og:type", content: "website"},
           {name: 'keywords', content: `${this.$t('keywords')}` || ''},
           {property: 'twitter:card', content: '/images/seo-image.jpg'},

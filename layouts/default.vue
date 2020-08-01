@@ -13,6 +13,7 @@
   import Footer from "../components/includes/Footer";
   import Spinner from "../components/elements/Spinner";
   import Logo from "../components/elements/Logo";
+  import {APP_URI} from "../config/types"
  import {mapMutations,mapState} from 'vuex'
 
   export default {
@@ -25,7 +26,7 @@
           {itemprop: "name", content: `${this.$t('meta.title')}` || ''},
           {itemprop: "description", content: `${this.$t('meta.description')}` || ''},
           {itemprop: "image", content: '/images/seo-image.jpg'},
-          {property: "og:url", content: "https://discount-nuxt.herokuapp.com"},
+          {property: "og:url", content: APP_URI},
           {property: "og:type", content: "website"},
           {property: "og:title", content: `${this.$t('meta.title')}` || ''},
           {property: "og:description", content: `${this.$t('meta.description')}` || ''},

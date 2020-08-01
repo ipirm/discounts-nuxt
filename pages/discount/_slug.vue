@@ -90,6 +90,7 @@
   import {mapState, mapMutations} from 'vuex'
   import Clink from "../../components/elements/Link";
   import PostSwiper from "../../components/pages/post/PostSwiper";
+  import {APP_URI} from "../../config/types";
 
   export default {
     layout: 'nometa',
@@ -118,7 +119,7 @@
           {property: 'og:title', content: this.postActive.title[this.$i18n.locale] || ''},
           {property: 'og:description', content: this.postActive.description[this.$i18n.locale] || ''},
           {property: 'og:image', content: this.postActive.image_url || ''},
-          {property: 'og:url', content: `https://discount-nuxt.herokuapp.com/${this.$route.fullPath}` || ''},
+          {property: 'og:url', content: `${APP_URI}/${this.$route.fullPath}` || ''},
           {property: "og:type", content: "website"},
           {itemprop: "name", content: this.postActive.title[this.$i18n.locale] || ''},
           {itemprop: "description", content: this.postActive.description[this.$i18n.locale] || ''},

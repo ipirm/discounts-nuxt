@@ -98,6 +98,7 @@
   import {mapState} from 'vuex'
   import GmapCustomMarker from "vue2-gmap-custom-marker";
   import PostSwiper from "../../components/pages/post/PostSwiper";
+  import {APP_URI} from "../../config/types";
 
   export default {
     layout: 'nometa',
@@ -125,7 +126,7 @@
         activeTab: 1,
         sliceCount: 6,
         addressCount: 4,
-        url: `https://discount-nuxt.herokuapp.com${this.$route.fullPath}`
+        url: `${APP_URI}/${this.$route.fullPath}`
       }
     },
     head() {
@@ -136,7 +137,7 @@
           {property: 'og:description', content: this.$t('menu.companyOne') + " " + this.activeCompany.name},
           {name: 'description', content: this.$t('menu.companyOne') + " " + this.activeCompany.name},
           {property: 'og:image', content: this.activeCompany.image_url || ''},
-          {property: 'og:url', content: `https://discount-nuxt.herokuapp.com${this.$route.fullPath}` || ''},
+          {property: 'og:url', content: `${APP_URI}/${this.$route.fullPath}` || ''},
           {property: "og:type", content: "website"},
           {name: 'keywords', content: `${this.$t('keywords')}` || ''},
           {property: 'twitter:card', content: this.activeCompany.image_url || ''},
