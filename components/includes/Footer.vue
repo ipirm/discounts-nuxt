@@ -11,14 +11,14 @@
           <div class="footer-social">
             <div class="footer-social-title"><span>{{ $t('footer.writeUs') }}</span></div>
             <div class="footer-social-content">
-              <a href="/">
+              <a href="mailto:info@coupons.az" target="_blank">
                 <svg-icon name="social/mail" style="width: 17px;height: 18px"/>
-                <span>ilham@pirm.com</span>
+                <span>info@coupons.az</span>
               </a>
-              <a href="/">
-                <svg-icon name="social/phone" style="width: 17px;height: 18px"/>
-                <span>+7985 505 50 50</span>
-              </a>
+<!--              <a href="/">-->
+<!--                <svg-icon name="social/phone" style="width: 17px;height: 18px"/>-->
+<!--                <span>+7985 505 50 50</span>-->
+<!--              </a>-->
             </div>
           </div>
         </div>
