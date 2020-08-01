@@ -14,15 +14,14 @@
           <div class="col-12">
             <div class="post-title" style="margin-bottom: 10px"><h1>{{ activeCompany.name }}</h1></div>
             <div class="d-flex">
-              <div>
+              <div class="mobile-width">
                 <img v-if="activeTab !== 3" :alt="activeCompany.name" class="post-image"
                      :src="activeCompany.image_url"/>
-                <div v-else>
-                  <client-only>
+                <div style="width: 100%!important;" v-else>
                     <GmapMap ref="mapRef"
                              :center="{lat: parseFloat(activeCompany.address[0].lng), lng: parseFloat(activeCompany.address[0].ltg)}"
                              :zoom="16" :options="options"
-                             style="width: 360px;height: 330px">
+                             style="width:100%;height: 330px">
                       <gmap-custom-marker
                         v-for="item in activeCompany.address"
                         :key="item.id"
@@ -31,7 +30,6 @@
                         <svg-icon name="map/marker" style="width: 32px;height: 31px"/>
                       </gmap-custom-marker>
                     </GmapMap>
-                  </client-only>
                 </div>
                 <client-only>
                   <div class="overlay-social">

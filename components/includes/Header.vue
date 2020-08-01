@@ -14,10 +14,10 @@
               <Clink :to="{name:'company'}"><span @click="isActive = !isActive">{{ $t('menu.company') }} </span></Clink>
             </li>
             <li>
-              <Clink :to="{name:'favorite'}"><span @click="isActive = !isActive">{{ $t('menu.popular') }} </span></Clink>
+              <Clink to="/information/kontakty"><span @click="isActive = !isActive">{{ $t('menu.contact') }} </span></Clink>
             </li>
             <li>
-              <Clink to="/information/kontakty"><span @click="isActive = !isActive">{{ $t('menu.contact') }} </span></Clink>
+              <Clink :to="{name:'favorite'}"><span @click="isActive = !isActive">{{ $t('menu.popular') }} </span></Clink>
             </li>
           </ul>
           <ul class="header-menu" v-else>
@@ -31,10 +31,10 @@
               <Clink :to="{name:'company'}">{{ $t('menu.company') }}</Clink>
             </li>
             <li>
-              <Clink :to="{name:'favorite'}">{{ $t('menu.popular') }}</Clink>
+              <Clink to="/information/kontakty"><span @click="isActive = !isActive">{{ $t('menu.contact') }} </span></Clink>
             </li>
             <li>
-              <Clink to="/information/kontakty"><span @click="isActive = !isActive">{{ $t('menu.contact') }} </span></Clink>
+              <Clink :to="{name:'favorite'}">{{ $t('menu.popular') }}</Clink>
             </li>
           </ul>
           <div class="header-locales">
