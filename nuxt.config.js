@@ -83,8 +83,8 @@ export default {
     'nuxt-mq',
     '@nuxtjs/toast',
     '@nuxtjs/sitemap',
-    '@nuxtjs/robots'
-
+    '@nuxtjs/robots',
+    '@nuxtjs/google-analytics'
   ],
   sitemap: {
     hostname: APP_URI,
@@ -96,6 +96,7 @@ export default {
   },
   svgSprite: {
     input: '~/assets/svg/'
+
   },
   toast: {
     position: 'bottom-right',
