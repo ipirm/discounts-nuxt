@@ -126,7 +126,7 @@
         activeTab: 1,
         sliceCount: 6,
         addressCount: 4,
-        url: `${APP_URI}/${this.$route.fullPath}`
+        url: `${APP_URI}${this.$route.fullPath}`
       }
     },
     head() {
@@ -137,7 +137,7 @@
           {property: 'og:description', content: this.$t('menu.companyOne') + " " + this.activeCompany.name},
           {name: 'description', content: this.$t('menu.companyOne') + " " + this.activeCompany.name},
           {property: 'og:image', content: this.activeCompany.image_url || ''},
-          {property: 'og:url', content: `${APP_URI}/${this.$route.fullPath}` || ''},
+          {property: 'og:url', content: `${APP_URI}${this.$route.fullPath}` || ''},
           {property: "og:type", content: "website"},
           {name: 'keywords', content: `${this.$t('keywords')}` || ''},
           {property: 'twitter:card', content: this.activeCompany.image_url || ''},

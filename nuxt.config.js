@@ -1,3 +1,5 @@
+import {APP_URI} from 'config/types'
+
 export default {
   mode: 'universal',
   /*
@@ -10,6 +12,9 @@ export default {
     meta: [
       {charset: 'utf-8'},
       {name: 'viewport', content: 'width=device-width, initial-scale=1'},
+      {'http-equiv': 'X-UA-Compatible', content: 'ie=edge'},
+      {name: "robots", content: "index, follow"},
+      {name: "googlebot", content: "index, follow"},
     ],
     link: [
       {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'}
@@ -77,8 +82,18 @@ export default {
     'cookie-universal-nuxt',
     'nuxt-mq',
     '@nuxtjs/toast',
+    '@nuxtjs/sitemap',
+    '@nuxtjs/robots'
 
   ],
+  sitemap: {
+    hostname: APP_URI,
+    gzip: true,
+    exclude: ["/secret", "/admin/**"]
+  },
+  googleAnalytics: {
+    id: "UA-163816416-3"
+  },
   svgSprite: {
     input: '~/assets/svg/'
   },
