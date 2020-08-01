@@ -15,6 +15,8 @@
             </li>
             <li>
               <Clink :to="{name:'favorite'}"><span @click="isActive = !isActive">{{ $t('menu.popular') }} </span></Clink>
+            </li>
+            <li>
               <Clink to="/information/kontakty"><span @click="isActive = !isActive">{{ $t('menu.contact') }} </span></Clink>
             </li>
           </ul>
@@ -30,6 +32,9 @@
             </li>
             <li>
               <Clink :to="{name:'favorite'}">{{ $t('menu.popular') }}</Clink>
+            </li>
+            <li>
+              <Clink to="/information/kontakty"><span @click="isActive = !isActive">{{ $t('menu.contact') }} </span></Clink>
             </li>
           </ul>
           <div class="header-locales">
