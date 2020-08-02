@@ -59,8 +59,8 @@
     "description": "Bakı şəhəri daxilində kampaniyalar, endirimlər, supermarketlərin kataloqu, elektronika və məişət texnikası mağazaları, tikinti materialları mağazaları, geyim və ayaqqabı mağazaları"
   },
   "companyPage": {
-    "address": "Adres",
-    "numbers": "Telefon nömrələri",
+    "address": "Ünvan",
+    "numbers": "Nömrələr",
     "onMap": "Xəritədə",
     "showAll": "Hamısını göstər",
     "hideAll": "Gizlət",

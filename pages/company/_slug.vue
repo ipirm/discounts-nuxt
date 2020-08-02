@@ -34,11 +34,11 @@
                 <client-only>
                   <div class="overlay-social">
                     <p class="overlay-social-text">{{$t('meta.share') }}</p>
-                    <facebook :url="url" scale="1"/>
-                    <twitter :url="url" :title="activeCompany.name" scale="1"/>
-                    <linkedin :url="url" scale="1"/>
-                    <telegram :url="url" scale="1"/>
-                    <whats-app :url="url" :title="activeCompany.name" scale="1"/>
+                    <facebook :url="urlSocial" scale="1"/>
+                    <twitter :url="urlSocial" :title="activeCompany.name" scale="1"/>
+                    <linkedin :url="urlSocial" scale="1"/>
+                    <telegram :url="urlSocial" scale="1"/>
+                    <whats-app :url="urlSocial" :title="activeCompany.name" scale="1"/>
                   </div>
                 </client-only>
               </div>
@@ -124,7 +124,7 @@
         activeTab: 1,
         sliceCount: 6,
         addressCount: 4,
-        url: `${APP_URI}${this.$route.fullPath}`
+        urlSocial: `${APP_URI}${this.$route.fullPath}`
       }
     },
     head() {

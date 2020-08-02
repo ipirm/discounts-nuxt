@@ -69,11 +69,11 @@
                 <client-only>
                   <div class="overlay-social">
                     <p class="overlay-social-text">{{$t('meta.share') }}</p>
-                    <facebook :url="url" scale="1"/>
-                    <twitter :url="url" :title="postActive.title[$i18n.locale]" scale="1"/>
-                    <linkedin :url="url" scale="1"/>
-                    <telegram :url="url" scale="1"/>
-                    <whats-app :url="url" :title="postActive.title[$i18n.locale]" scale="1"/>
+                    <facebook :url="urlSocial" scale="1"/>
+                    <twitter :url="urlSocial" :title="postActive.title[$i18n.locale]" scale="1"/>
+                    <linkedin :url="urlSocial" scale="1"/>
+                    <telegram :url="urlSocial" scale="1"/>
+                    <whats-app :url="urlSocial" :title="postActive.title[$i18n.locale]" scale="1"/>
                   </div>
                 </client-only>
               </div>
@@ -100,6 +100,12 @@
         await store.dispatch('category/getSameCats', route.params.slug)
       })
 
+    },
+    data() {
+      return {
+        saved: false,
+        urlSocial: `${APP_URI}${this.$route.fullPath}`
+      }
     },
     created() {
       if (this.$cookies.get('savedItems')) {
@@ -128,12 +134,6 @@
           {name: 'keywords', content: `${this.$t('keywords')}` || ''},
           {property: 'twitter:card', content: this.postActive.image_url || ''},
         ]
-      }
-    },
-    data() {
-      return {
-        saved: false,
-        url: `${API_URI}${this.$route.fullPath}`
       }
     },
     methods: {
