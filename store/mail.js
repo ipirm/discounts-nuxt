@@ -6,7 +6,6 @@ export const state = () => ({
 })
 export const mutations = {
   SET_PAGE_READY: (state) => {
-    console.log('fafaaf')
     state.pageReady =  !state.pageReady
   },
 }
