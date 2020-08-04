@@ -18,8 +18,8 @@
         />
       </div>
     </div>
-    <client-only>
-      <infinite-loading ref="InfiniteLoading" @infinite="infiniteScroll">
+    <client-only  v-if="postSaved.length">
+      <infinite-loading ref="InfiniteLoading" @infinite="infiniteScroll" >
         <div slot="spinner">
           <Spinner/>
         </div>
@@ -27,6 +27,7 @@
         <div slot="no-results"></div>
       </infinite-loading>
     </client-only>
+    <NotFound :text="$t('notFound.saved')" v-else />
   </div>
 </template>
 
@@ -35,11 +36,12 @@
   import {mapState, mapActions} from 'vuex'
   import Card from "~/components/elements/Card";
   import Spinner from "~/components/elements/Spinner";
+  import NotFound from "../../components/elements/NotFound";
 
 
   export default {
 
-    components: {Spinner, Card},
+    components: {NotFound, Spinner, Card},
     created() {
       if (this.$cookies.get('savedItems')) {
         if (String(this.$cookies.get('savedItems')).includes('a')) {

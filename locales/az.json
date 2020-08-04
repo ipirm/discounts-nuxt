@@ -91,5 +91,10 @@
     "sendBtn": "Göndər",
     "thankYou": "Mesajınız üçün təşəkkür edirik!"
 
+  },
+  "notFound": {
+    "saved": "У вас нет сохраненных постов",
+    "posts": "По вашему запросы ничего не найдено",
+    "not": "404"
   }
 }

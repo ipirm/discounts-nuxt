@@ -30,7 +30,7 @@
         />
       </div>
     </div>
-    <client-only>
+    <client-only v-if="posts.length">
       <infinite-loading ref="InfiniteLoading" @infinite="infiniteScroll" :key="infinityItem">
         <div slot="spinner">
           <Spinner/>
@@ -39,6 +39,7 @@
         <div slot="no-results"></div>
       </infinite-loading>
     </client-only>
+    <NotFound :text="$t('notFound.posts')"  v-else />
   </div>
 </template>
 
@@ -49,11 +50,12 @@
   import Card from "~/components/elements/Card";
   import Spinner from "../components/elements/Spinner";
   import CustomSelect from "../components/mobile/CustomSelect";
+  import NotFound from "../components/elements/NotFound";
 
 
   export default {
 
-    components: {CustomSelect, Spinner, Card, SearchPanel},
+    components: {NotFound, CustomSelect, Spinner, Card, SearchPanel},
     async fetch({store, route}) {
 
       await store.dispatch('post/getPosts', route.fullPath).then(async () => {

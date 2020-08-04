@@ -293,3 +293,23 @@ img {
 .mobile-width{
   width: 360px;
 }
+.not-found{
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  img{
+    height: 200px;
+  }
+  p{
+    margin-top: 25px;
+    background: linear-gradient(90deg, #162F4A 0%, #224B76 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 20px;
+    margin-bottom: 30px;
+    font-weight: bold;
+    text-align: center;
+  }
+}
