@@ -4,8 +4,7 @@ import axios from 'axios'
 function headers() {
   return {
     headers: {
-      'Content-Type': 'application/json',
-      "Access-Control-Allow-Origin": {APP_URI}
+      'Content-Type': 'application/json'
     }
   }
 }
@@ -13,11 +12,12 @@ function headers() {
 function headersFormData() {
   return {
     headers: {
-      'Content-Type': 'multipart/form-data',
-      // "Access-Control-Allow-Origin": "*"
+      'Content-Type': '*',
+      "Access-Control-Allow-Origin": "*"
     }
   }
 }
+
 
 const request = (callback) => {
   return new Promise((resolve, reject) => {
@@ -46,7 +46,7 @@ export default class apiRequest {
   }
 
   static post(path, data) {
-    return request(axios.post(`${API_URI}/${path}`, data, headers()));
+    return request(axios.post(`${API_URI}/${path}`, data, headersFormData()));
   }
 
   static patch(path, data) {
