@@ -13,8 +13,6 @@ function headersFormData() {
   return {
     headers: {
       'Content-Type': '*',
-      "Access-Control-Allow-Origin": "*",
-      // " Access-Control-Allow-Headers": "*"
     }
   }
 }
@@ -47,7 +45,7 @@ export default class apiRequest {
   }
 
   static post(path, data) {
-    return request(axios.post(`${API_URI}/${path}`, data, headersFormData()));
+    return request(axios.post(`${API_URI}/${path}`, data, headers()));
   }
 
   static patch(path, data) {

@@ -58,7 +58,13 @@
         this.$refs.recaptcha.reset();
         if (this.body.name && this.body.mail && this.body.text) {
           this.$store.dispatch('mail/sendMail', this.body).then(() => {
-            this.$toast.success(this.$t('contactForm.thankYou'))
+            this.$toast.success(this.$t('contactForm.thankYou'));
+            this.body = {
+              name: null,
+              mail: null,
+              text: null,
+              reCaptchaToken: null
+            }
           })
         }
       },
