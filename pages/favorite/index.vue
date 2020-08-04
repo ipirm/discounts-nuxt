@@ -8,7 +8,7 @@
         </div>
       </div>
     </div>
-    <div class="container" :style="{marginTop: 50 + 'px'}">
+    <div class="container container-discounts" :style="{marginTop: 50 + 'px'}">
       <div class="row" :style="{margin: 'auto',justifyContent: 'center'}">
         <Card
           v-if="postSaved"
