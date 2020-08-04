@@ -8,8 +8,8 @@
     "contact": "Əlaqə"
   },
   "searchPanel": {
-    "title": "Endirimlər",
-    "subtitle": "Bakıdakı mağazalar",
+    "title": "Bakıdakı mağazalarda olan ",
+    "subtitle": "Endirimlər",
     "selectCompany": "Mağazanı seçin...",
     "selectCategory": "Kateqoriyanı seçin...",
     "selectType": "Növü seçin...",
