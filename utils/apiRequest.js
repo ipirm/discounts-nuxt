@@ -12,8 +12,9 @@ function headers() {
 function headersFormData() {
   return {
     headers: {
-      'Content-Type': '*',
-      "Access-Control-Allow-Origin": "*"
+      'Content-Type': 'application/json',
+      "Access-Control-Allow-Origin": "*",
+      " Access-Control-Allow-Headers": "*"
     }
   }
 }
