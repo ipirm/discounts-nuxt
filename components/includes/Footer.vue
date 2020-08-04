@@ -15,10 +15,10 @@
                 <svg-icon name="social/mail" style="width: 17px;height: 18px"/>
                 <span>info@coupons.az</span>
               </a>
-<!--              <a href="/">-->
-<!--                <svg-icon name="social/phone" style="width: 17px;height: 18px"/>-->
-<!--                <span>+7985 505 50 50</span>-->
-<!--              </a>-->
+              <!--              <a href="/">-->
+              <!--                <svg-icon name="social/phone" style="width: 17px;height: 18px"/>-->
+              <!--                <span>+7985 505 50 50</span>-->
+              <!--              </a>-->
             </div>
           </div>
         </div>
@@ -41,7 +41,8 @@
               <span>{{ $t('footer.workWithUs') }}</span>
             </div>
             <div class="footer-links-content">
-              <nuxt-link v-for="item in pages" :key="item.id" :to="`/information/${item.slug}`"><span>{{ item.menu_name[$i18n.locale] }}</span></nuxt-link>
+              <Clink v-for="item in pages" :key="item.id" :to="`/information/${item.slug}`"><span>{{ item.menu_name[$i18n.locale] }}</span>
+              </Clink>
             </div>
           </div>
         </div>
@@ -88,14 +89,14 @@
 
   export default {
     name: 'Footer',
-    components: {Clink,VueRecaptcha},
-    data(){
+    components: {Clink, VueRecaptcha},
+    data() {
       return {
         errors: [],
-         body:{
-           name: null,
-           reCaptchaToken: null
-         }
+        body: {
+          name: null,
+          reCaptchaToken: null
+        }
       }
     },
     methods: {
@@ -112,7 +113,11 @@
         this.$refs.recaptcha.reset();
         if (this.body.name) {
           this.$store.dispatch('mail/sendMail', this.body).then(() => {
-            this.$toast.success(this.$t('contactForm.thankYou'))
+            this.$toast.success(this.$t('contactForm.thankYou'));
+            this.body = {
+              name: null,
+              reCaptchaToken: null
+            }
           })
         }
       },
