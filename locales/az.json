@@ -93,8 +93,8 @@
 
   },
   "notFound": {
-    "saved": "У вас нет сохраненных постов",
-    "posts": "По вашему запросы ничего не найдено",
+    "saved": "Sizin heç bir yadda saxlanılmış paylaşımınız yoxdur",
+    "posts": "Axtarışa uyğun heç bir nəticə tapılmadı",
     "not": "404"
   }
 }
