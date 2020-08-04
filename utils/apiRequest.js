@@ -1,11 +1,11 @@
-import {API_URI} from "../config/types"
+import {API_URI, APP_URI} from "../config/types"
 import axios from 'axios'
 
 function headers() {
   return {
     headers: {
       'Content-Type': 'application/json',
-      // "Access-Control-Allow-Origin": "*"
+      "Access-Control-Allow-Origin": {APP_URI}
     }
   }
 }
