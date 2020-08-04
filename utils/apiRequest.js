@@ -5,7 +5,7 @@ function headers() {
   return {
     headers: {
       'Content-Type': 'application/json',
-      "Access-Control-Allow-Origin": "*"
+      // "Access-Control-Allow-Origin": "*"
     }
   }
 }
@@ -14,7 +14,7 @@ function headersFormData() {
   return {
     headers: {
       'Content-Type': 'multipart/form-data',
-      "Access-Control-Allow-Origin": "*"
+      // "Access-Control-Allow-Origin": "*"
     }
   }
 }
