@@ -15,6 +15,7 @@ export default {
       {'http-equiv': 'X-UA-Compatible', content: 'ie=edge'},
       {name: "robots", content: "index, follow"},
       {name: "googlebot", content: "index, follow"},
+      {name: "yandex-verification", content: "bfe8590f91f9e884"},
     ],
     link: [
       {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'}
@@ -94,10 +95,10 @@ export default {
       '@nuxtjs/yandex-metrika',
       {
         id: '66190426',
-        clickmap:true,
-        trackLinks:true,
-        accurateTrackBounce:true,
-        webvisor:true
+        clickmap: true,
+        trackLinks: true,
+        accurateTrackBounce: true,
+        webvisor: true
       }
     ],
   ],
@@ -117,7 +118,7 @@ export default {
     position: 'bottom-right',
     duration: 4000
   },
-   serverMiddleware: ['redirect-ssl'],
+  serverMiddleware: ['redirect-ssl'],
   mq: {
     defaultBreakpoint: "desktop",
     breakpoints: {
