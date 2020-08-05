@@ -89,7 +89,18 @@ export default {
     '@nuxtjs/toast',
     '@nuxtjs/sitemap',
     '@nuxtjs/robots',
-    '@nuxtjs/google-analytics'
+    '@nuxtjs/google-analytics',
+    [
+      '@nuxtjs/yandex-metrika',
+      {
+        id: '66190426',
+        webvisor: true,
+        // clickmap:true,
+        // useCDN:false,
+        // trackLinks:true,
+        // accurateTrackBounce:true,
+      }
+    ],
   ],
   sitemap: {
     hostname: APP_URI,
