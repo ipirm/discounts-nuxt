@@ -89,6 +89,7 @@ img {
 .navigation-search {
   z-index: 9999;
   position: relative;
+  display: none;
 
   &-bg {
     position: fixed;
