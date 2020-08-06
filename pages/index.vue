@@ -4,9 +4,9 @@
     <SearchPanel :cats="cats" :companies="companies" :typesPost="typesPost"/>
     <div  :class="[activeSearch ? 'navigation-search-active' : '' ,'navigation-search']"
          @click="openModal()">
-      <svg-icon name="mobile/search" v-if="!activeSearch" class="bottom-search-button" />
+      <div class="bottom-search-button" v-if="!activeSearch"><svg-icon name="mobile/search" /></div>
       <div class="navigation-search-header" v-if="activeSearch">
-      <svg-icon name="mobile/backBtn" style="width: 19px;height: 21px" @click.stop="hideModal"  />
+      <svg-icon name="mobile/backBtn" @click.stop="hideModal" class="search-go-back" />
         <span>{{$t('mainPage.filter')}}</span>
       </div>
       <div v-if="activeSearch" class="navigation-search-items">
