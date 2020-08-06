@@ -118,7 +118,7 @@ export default {
     position: 'bottom-right',
     duration: 4000
   },
-  // serverMiddleware: ['redirect-ssl'],
+  serverMiddleware: ['redirect-ssl'],
   mq: {
     defaultBreakpoint: "desktop",
     breakpoints: {
