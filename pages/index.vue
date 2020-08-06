@@ -1,24 +1,26 @@
 <template>
-  <div>
+  <div class="index-page">
     <div v-show="false">{{ $route.query.cats && !($route.query.company || $route.query.type) ? (cats.find(v => v.id == $route.query.cats) && cats.find(v => v.id == $route.query.cats).meta_description ? cats.find(v => v.id == $route.query.cats).meta_description[this.$i18n.locale] : '') : '' }}</div>
     <SearchPanel :cats="cats" :companies="companies" :typesPost="typesPost"/>
-    <div  :class="[activeSearch ? 'navigation-search-active' : '' ,'navigation-search']"
-         @click="openModal()">
-      <svg-icon name="mobile/search" v-if="!activeSearch" class="bottom-search-button" />
-      <div class="navigation-search-header" v-if="activeSearch">
-      <svg-icon name="mobile/backBtn" style="width: 19px;height: 21px" @click.stop="hideModal"  />
-        <span>{{$t('mainPage.filter')}}</span>
-      </div>
-      <div v-if="activeSearch" class="navigation-search-items">
-        <div class="navigation-search-selectedItems">{{$t('mainPage.live')}} <span style="margin-left: 3px">{{$t('mainPage.search')}}</span></div>
-        <div class="navigation-search-item">
-          <CustomSelect :data="cats" type="cats" :placeHolder="$t('searchPanel.selectCategory')" />
-          <CustomSelect :data="companies" type="company" :placeHolder="$t('searchPanel.selectCompany')" />
-          <CustomSelect :data="typesPost" type="type" :placeHolder="$t('searchPanel.selectType')" />
+    <div class="navigation-search">
+      <div class="navigation-search-bg" :style="{width: `${navigationSearchBgSize}px`, height: `${navigationSearchBgSize}px`,transform: `scale3d(${navigationSearchBgScale}, ${navigationSearchBgScale}, 1) translate3d(50%, 50%, 0)`}"></div>
+      <div class="bottom-search-button" @click="openModal()"><svg-icon name="mobile/search" /></div>
+      <div class="navigation-search-content" :class="{active: searchActive, visible: searchVisible}">
+        <div class="navigation-search-header">
+          <svg-icon name="mobile/backBtn" @click.stop="hideModal" class="search-go-back" />
+          <span>{{$t('mainPage.filter')}}</span>
         </div>
-        <a @click.stop="hideModal" class="navigation-search-btn">
-          <span>{{$t('mainPage.startSearch')}}</span>
-        </a>
+        <div class="navigation-search-items">
+          <div class="navigation-search-selectedItems">{{$t('mainPage.live')}} <span style="margin-left: 3px">{{$t('mainPage.search')}}</span></div>
+          <div class="navigation-search-item">
+            <CustomSelect :data="cats" type="cats" :placeHolder="$t('searchPanel.selectCategory')" />
+            <CustomSelect :data="companies" type="company" :placeHolder="$t('searchPanel.selectCompany')" />
+            <CustomSelect :data="typesPost" type="type" :placeHolder="$t('searchPanel.selectType')" />
+          </div>
+          <a @click.stop="hideModal" class="navigation-search-btn">
+            <span>{{$t('mainPage.startSearch')}}</span>
+          </a>
+        </div>
       </div>
     </div>
     <div class="container container-discounts" :style="{marginTop: 50 + 'px'}">
@@ -97,8 +99,17 @@ export default {
   data() {
     return {
       infinityItem: 0,
-      activeSearch: false
+      searchActive: false,
+      searchVisible: false,
+      searchBgActive: false,
+      navigationSearchBgScale: 0,
+      navigationSearchBgSize: 0
     }
+  },
+
+  mounted() {
+    window.addEventListener('resize', this.onResize, false);
+    this.onResize();
   },
 
   computed: {
@@ -124,12 +135,36 @@ export default {
     ...mapActions('post', ['getPosts']),
     ...mapMutations('post', ['SET_PAGE']),
 
+    onResize() {
+      if (!document.querySelector('.index-page')) {
+        window.removeEventListener('resize', this.onResize, false);
+        console.log('what');
+        return;
+      }
+
+      this.navigationSearchBgSize = (window.innerWidth + window.innerHeight + 30) * 2;
+    },
+
     openModal(){
-      this.activeSearch = true;
+      this.navigationSearchBgScale = 1;
+      setTimeout(() => {
+        if (this.navigationSearchBgScale > 0) {
+          this.searchActive = true;
+          setTimeout(() => {
+            this.searchVisible = true;
+          }, 1);
+        }
+      }, 500);
     },
 
     hideModal(){
-      this.activeSearch = false;
+      this.searchVisible = false;
+      setTimeout(() => {
+        if (!this.searchVisible) {
+          this.searchActive = false;
+          this.navigationSearchBgScale = 0;
+        }
+      }, 500);
     },
 
     infiniteScroll($state) {

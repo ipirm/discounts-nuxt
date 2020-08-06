@@ -142,10 +142,10 @@
         if (this.activeCat.length !== null) {
           let postIndex = this.activeCat.findIndex(i => i.id === this.postActive.id)
           if (postIndex + 1 !== this.activeCat.length) {
-            this.$router.push(`/discount/${this.activeCat[postIndex + 1].slug}`)
+            this.$router.push(`/discount/${this.activeCat[postIndex + 1].slug ? this.activeCat[postIndex + 1].slug[this.$i18n.locale] : '/'}`)
           } else {
             postIndex = 0;
-            this.$router.push(`/discount/${this.activeCat[postIndex].slug}`)
+            this.$router.push(`/discount/${this.activeCat[postIndex].slug ? this.activeCat[postIndex].slug[this.$i18n.locale] : '/'}`)
           }
         }
       },
