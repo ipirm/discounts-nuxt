@@ -89,19 +89,27 @@ img {
 
 .navigation-search {
   display: none;
-  z-index: 999999;
-  position: fixed;
-  top: 90%;
-  left: auto;
-  right: 7px;
-  width: fit-content;
 
   .bottom-search-button {
+    position: fixed;
+    z-index: 2222;
+    bottom: 30px;
+    right: 10px;
     width: 42px;
-    height: 39px;
+    height: 42px;
     box-shadow: 0 3px 4px rgba(0,0,0,.25);
     border-radius: 50%;
     cursor: pointer;
+
+    svg {
+      width: 42px;
+      height: 42px;
+    }
+  }
+
+  &-active {
+    z-index: 999999;
+    position: fixed;
   }
 
   &-header {
@@ -120,6 +128,12 @@ img {
     svg {
       margin-left: 15px !important;
       margin-right: 0 !important;
+    }
+
+    .search-go-back {
+      width: 19px;
+      height: 21px;
+      cursor: pointer;
     }
   }
 
