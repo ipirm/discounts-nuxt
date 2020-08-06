@@ -1,5 +1,5 @@
 <template>
-  <Clink :to="{name:'discount-slug',params:{slug: post.slug}}" class="overlay-card">
+  <Clink :to="{name:'discount-slug',params:{slug: post.slug ? post.slug[$i18n.locale] : '/'}}" class="overlay-card">
     <div v-if="parseInt(post.ended) === 1" class="overlay-card-item" :style="{backgroundColor: 'rgb(255, 0, 0)'}">
       <span>{{ $t('card.overdue') }}</span>
     </div>

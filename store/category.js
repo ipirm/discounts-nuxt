@@ -37,7 +37,6 @@ export const mutations = {
 
 
 export const actions = {
-
     async getCats({commit}) {
         const data = await apiRequest.get('posts-cats');
         commit('SET_CAT', data.data.posts.data);

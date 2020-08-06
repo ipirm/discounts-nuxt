@@ -1,4 +1,5 @@
 import {APP_URI} from './config/types'
+import apiRequest from "./utils/apiRequest";
 
 export default {
   mode: 'universal',
@@ -112,13 +113,12 @@ export default {
   },
   svgSprite: {
     input: '~/assets/svg/'
-
   },
   toast: {
     position: 'bottom-right',
     duration: 4000
   },
-  serverMiddleware: ['redirect-ssl'],
+  // serverMiddleware: ['redirect-ssl'],
   mq: {
     defaultBreakpoint: "desktop",
     breakpoints: {
@@ -129,6 +129,27 @@ export default {
       desktopUltraWide: Infinity
     }
   },
+
+  // router: {
+  //   async extendRoutes(routes, resolve) {
+  //     const companies = await apiRequest.get('posts-company'),
+  //           cats = await apiRequest.get('posts-cats'),
+  //           types = await apiRequest.get(`posts-type`);
+
+  //     if (companies.data && cats.data && types.data) {
+  //       const selects = [...companies.data.data, ...cats.data.data, ...types.data.data];
+
+  //       selects.forEach(s => {
+  //         // routes.push({
+  //         //   path: '',
+  //         //   component: resolve(__dirname, 'pages/index.vue')
+  //         // })
+
+  //       });
+  //     }
+  //   }
+  // },
+
   build: {
     extend(config, {isDev, isClient}) {
       if (isDev && isClient) {
