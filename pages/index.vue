@@ -138,7 +138,6 @@ export default {
     onResize() {
       if (!document.querySelector('.index-page')) {
         window.removeEventListener('resize', this.onResize, false);
-        console.log('what');
         return;
       }
 

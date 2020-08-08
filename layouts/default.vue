@@ -41,7 +41,6 @@
       if (process.browser) {
         window.onNuxtReady((app) => {
           this.SET_PAGE_READY();
-          document.body.style.marginTop = 40 + "px"
         })
       }
     },
