@@ -1,52 +1,137 @@
 <template>
-  <div class="overlayHeader">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-12">
-          <ul :class="[isActive ? 'is-active-menu' : '' ,'header-menu']" v-if="$mq === 'mobile'">
-            <li>
-              <Clink :to="{name:'index'}"><span @click="isActive = !isActive">{{ $t('menu.main') }} </span></Clink>
-            </li>
-            <li>
-              <Clink :to="{name:'category'}"><span @click="isActive = !isActive">{{ $t('menu.category') }} </span></Clink>
-            </li>
-            <li>
-              <Clink :to="{name:'company'}"><span @click="isActive = !isActive">{{ $t('menu.company') }} </span></Clink>
-            </li>
-            <li>
-              <Clink to="/information/kontakty"><span @click="isActive = !isActive">{{ $t('menu.contact') }} </span></Clink>
-            </li>
-            <li>
-              <Clink :to="{name:'favorite'}"><span @click="isActive = !isActive">{{ $t('menu.popular') }} </span></Clink>
-            </li>
-          </ul>
-          <ul class="header-menu" v-else>
-            <li>
-              <Clink :to="{name:'index'}">{{ $t('menu.main') }}</Clink>
-            </li>
-            <li>
-              <Clink :to="{name:'category'}">{{ $t('menu.category') }}</Clink>
-            </li>
-            <li>
-              <Clink :to="{name:'company'}">{{ $t('menu.company') }}</Clink>
-            </li>
-            <li>
-              <Clink to="/information/kontakty"><span @click="isActive = !isActive">{{ $t('menu.contact') }} </span></Clink>
-            </li>
-            <li>
-              <Clink :to="{name:'favorite'}">{{ $t('menu.popular') }}</Clink>
-            </li>
-          </ul>
-          <div class="header-locales">
-            <nuxt-link :to="switchLocalePath('az')">AZ</nuxt-link>
-            <nuxt-link :to="switchLocalePath('ru')">RU</nuxt-link>
-          </div>
-          <button :class="[isActive ? 'is-active' : '' , 'hamburger hamburger--3dxy']" type="button"
-                  @click="isActive = !isActive">
-                         <span class="hamburger-box">
-                               <span class="hamburger-inner"></span>
-                        </span>
+  <div class="header">
+    <div class="header__content">
+      <div class="header__container container">
+        <div class="full-bg" @click="onBgClick()" :class="{active: menuActive}"></div>
+        <div class="header__center">
+          <clink to="/" class="header__center__item">
+            <span>{{ $t('menu.main') }}</span>
+          </clink>
+          <clink to="/category" class="header__center__item">
+            <span>{{ $t('menu.category') }}</span>
+          </clink>
+          <clink to="/" class="header__center__item header__logo">
+            <img src="/logo.svg">
+          </clink>
+          <clink to="/company" class="header__center__item">
+            <span>{{ $t('menu.company') }}</span>
+          </clink>
+          <clink to="/information/kontakty" class="header__center__item">
+            <span>{{ $t('menu.contact') }}</span>
+          </clink>
+        </div>
+        <div class="header__right">
+          <clink to="/favorite" class="header__right__heart">
+            <img src="/images/heart.svg">
+          </clink>
+          <div class="header__right__line"></div>
+          <button class="hamburger hamburger--spin header__right__menu-button" @click="toggleMenu()" :class="{ 'is-active': menuActive }">
+            <span class="hamburger-box">
+              <span class="hamburger-inner"></span>
+            </span>
           </button>
+        </div>
+        <div class="header__menu__wrapper" :class="{active: menuActive}">
+          <div class="header__menu__slider">
+            <div class="header__menu">
+              <div class="header__menu__langs">
+                <button class="header__menu__langs__item" :class="{active: $i18n.locale == 'ru'}">Ru</button>
+                <button class="header__menu__langs__item" :class="{active: $i18n.locale == 'az'}">Az</button>
+              </div>
+              <div class="header__menu__content">
+                <h2 class="header__menu__title--big">{{ $t('menu.navigation') }}</h2>
+                <ul>
+                  <li>
+                    <clink to="/">{{ $t('menu.main') }}</clink>
+                  </li>
+                  <li>
+                    <clink to="/category">{{ $t('menu.category') }}</clink>
+                  </li>
+                  <li>
+                    <clink to="/company">{{ $t('menu.company') }}</clink>
+                  </li>
+                  <li>
+                    <clink to="/favorite">{{ $t('menu.popular') }}</clink>
+                  </li>
+                  <li>
+                    <clink to="/blog">{{ $t('menu.blog') }}</clink>
+                  </li>
+                </ul>
+                <h3 class="header__menu__title--medium">{{ $t('menu.who-we-are') }}</h3>
+                <ul>
+                  <li>
+                    <clink to="/information/haqqimizda">{{ $t('footer.aboutUs') }}</clink>
+                  </li>
+                  <li>
+                    <clink to="/information/partnerstvo">{{ $t('footer.workWithUs') }}</clink>
+                  </li>
+                  <li>
+                    <clink to="/information/kontakty">{{ $t('menu.contact') }}</clink>
+                  </li>
+                  <li>
+                    <clink to="/information/gizlilik-siyas-ti">{{ $t('menu.policy') }}</clink>
+                  </li>
+                </ul>
+                <h3 class="header__menu__title--medium">{{ $t('menu.read-in-blog') }}</h3>
+                <div class="header__menu__blog">
+                  <clink to="#" class="header__menu__blog__left">
+                    <img src="/temp/menu-blog.png">
+                  </clink>
+                  <div class="header__menu__blog__right">
+                    <h4 class="header__menu__blog__right__title">{{ $t('menu.todays-topic') }}</h4>
+                    <div class="header__menu__blog__right__topics">
+                      <div class="header__menu__blog__right__topics__item">
+                        <clink to="/">мода</clink>
+                      </div>
+                      <div class="header__menu__blog__right__topics__item">
+                        <clink to="/">покупки</clink>
+                      </div>
+                      <div class="header__menu__blog__right__topics__item">
+                        <clink to="/">шоппинг</clink>
+                      </div>
+                      <div class="header__menu__blog__right__topics__item">
+                        <clink to="/">скидки и акции</clink>
+                      </div>
+                      <div class="header__menu__blog__right__topics__item">
+                        <clink to="/">вазы</clink>
+                      </div>
+                      <div class="header__menu__blog__right__topics__item">
+                        <clink to="/">взгляд со стороны</clink>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <h3 class="header__menu__title--medium">{{ $t('menu.social') }}</h3>
+                <div class="header__menu__socials">
+                  <a href="#" class="header__menu__socials__item">
+                    <img class="nohover" src="/images/menu/fb.svg">
+                    <img class="hover" src="/images/menu/fb-orange.svg">
+                  </a>
+                  <a href="#" class="header__menu__socials__item">
+                    <img class="nohover" src="/images/menu/wp.svg">
+                    <img class="hover" src="/images/menu/wp-orange.svg">
+                  </a>
+                  <a href="#" class="header__menu__socials__item">
+                    <img class="nohover" src="/images/menu/msg.svg">
+                    <img class="hover" src="/images/menu/msg-orange.svg">
+                  </a>
+                  <a href="#" class="header__menu__socials__item">
+                    <img class="nohover" src="/images/menu/mail.svg">
+                    <img class="hover" src="/images/menu/mail-orange.svg">
+                  </a>
+                  <a href="#" class="header__menu__socials__item">
+                    <img class="nohover" src="/images/menu/ig.svg">
+                    <img class="hover" src="/images/menu/ig-orange.svg">
+                  </a>
+                  <a href="#" class="header__menu__socials__item">
+                    <img class="nohover" src="/images/menu/phone.svg">
+                    <img class="hover" src="/images/menu/phone-orange.svg">
+                  </a>
+                </div>
+                <span class="header__menu__bottom-text">{{ $t('menu.bottom-text') }}</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -54,28 +139,34 @@
 </template>
 
 <script>
-  import Clink from "../elements/Link";
-
   export default {
     name: 'Header',
-    components: {Clink},
+
+    components: {clink: () => import('../elements/Link')},
+
     data() {
       return {
-        isActive: false
+        menuActive: false
       }
     },
+
     methods: {
-    },
-    computed: {
-      mobile() {
-        let mobile = false
-        if (process.client) {
-          let width = window.innerWidth;
-          if (width < 500) {
-            mobile = true
-          }
-        }
-        return mobile
+      toggleMenu() {
+        if(this.menuActive)
+          this.closeMenu();
+        else this.openMenu();
+      },
+
+      openMenu() {
+        this.menuActive = true;
+      },
+
+      closeMenu() {
+        this.menuActive = false;
+      },
+
+      onBgClick() {
+        this.closeMenu();
       }
     }
   }

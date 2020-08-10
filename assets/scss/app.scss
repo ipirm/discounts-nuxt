@@ -1,4 +1,3 @@
-
 ul, ol {
   list-style: none;
   padding: 0;
@@ -14,7 +13,7 @@ a {
 }
 
 a:hover {
-  text-decoration: none !important
+  text-decoration: none
 }
 
 img {
@@ -22,9 +21,19 @@ img {
   width: 100%;
 }
 
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+
+  &:focus {
+    outline: none;
+  }
+}
 
 .nuxt-link-exact-active {
-  color: #F8C563 !important;
+  color: #F8C563;
 }
 
 .hamburger {
@@ -35,7 +44,18 @@ img {
   display: none;
 }
 
+.full-bg {
+  background: rgba(115, 115, 115, 0.09);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+}
+
 @import "global/swiper";
+@import "media/burger";
 @import "components/header";
 @import "components/card";
 @import "components/category";
@@ -334,7 +354,7 @@ img {
   }
 }
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6{
-  margin-bottom: 0 !important;
+  margin-bottom: 0;
 }
 @keyframes saveIcon {
   from {
@@ -367,4 +387,13 @@ img {
     font-weight: bold;
     text-align: center;
   }
+}
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
 }
