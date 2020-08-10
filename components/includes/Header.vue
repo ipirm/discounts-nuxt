@@ -10,7 +10,7 @@
           <clink to="/category" class="header__center__item">
             <span>{{ $t('menu.category') }}</span>
           </clink>
-          <clink to="/" class="header__center__item">
+          <clink to="/" class="header__center__item header__logo">
             <img src="/logo.svg">
           </clink>
           <clink to="/company" class="header__center__item">
@@ -25,8 +25,10 @@
             <img src="/images/heart.svg">
           </clink>
           <div class="header__right__line"></div>
-          <button class="header__right__menu-button" @click="toggleMenu()">
-            <img src="/images/menu-button.svg">
+          <button class="hamburger hamburger--spin header__right__menu-button" @click="toggleMenu()" :class="{ 'is-active': menuActive }">
+            <span class="hamburger-box">
+              <span class="hamburger-inner"></span>
+            </span>
           </button>
         </div>
         <div class="header__menu__wrapper" :class="{active: menuActive}">
@@ -102,22 +104,28 @@
                 <h3 class="header__menu__title--medium">{{ $t('menu.social') }}</h3>
                 <div class="header__menu__socials">
                   <a href="#" class="header__menu__socials__item">
-                    <img src="/images/menu/fb.svg">
+                    <img class="nohover" src="/images/menu/fb.svg">
+                    <img class="hover" src="/images/menu/fb-orange.svg">
                   </a>
                   <a href="#" class="header__menu__socials__item">
-                    <img src="/images/menu/wp.svg">
+                    <img class="nohover" src="/images/menu/wp.svg">
+                    <img class="hover" src="/images/menu/wp-orange.svg">
                   </a>
                   <a href="#" class="header__menu__socials__item">
-                    <img src="/images/menu/msg.svg">
+                    <img class="nohover" src="/images/menu/msg.svg">
+                    <img class="hover" src="/images/menu/msg-orange.svg">
                   </a>
                   <a href="#" class="header__menu__socials__item">
-                    <img src="/images/menu/mail.svg">
+                    <img class="nohover" src="/images/menu/mail.svg">
+                    <img class="hover" src="/images/menu/mail-orange.svg">
                   </a>
                   <a href="#" class="header__menu__socials__item">
-                    <img src="/images/menu/ig.svg">
+                    <img class="nohover" src="/images/menu/ig.svg">
+                    <img class="hover" src="/images/menu/ig-orange.svg">
                   </a>
                   <a href="#" class="header__menu__socials__item">
-                    <img src="/images/menu/phone.svg">
+                    <img class="nohover" src="/images/menu/phone.svg">
+                    <img class="hover" src="/images/menu/phone-orange.svg">
                   </a>
                 </div>
                 <span class="header__menu__bottom-text">{{ $t('menu.bottom-text') }}</span>
