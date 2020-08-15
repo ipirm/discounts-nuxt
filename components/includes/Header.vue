@@ -22,7 +22,8 @@
         </div>
         <div class="header__right">
           <clink to="/favorite" class="header__right__heart">
-            <img src="/images/heart.svg">
+            <img src="/images/heart-golden.svg" class="hover">
+            <img src="/images/heart.svg" class="nohover">
           </clink>
           <div class="header__right__line"></div>
           <button class="hamburger hamburger--spin header__right__menu-button" @click="toggleMenu()" :class="{ 'is-active': menuActive }">
@@ -35,8 +36,8 @@
           <div class="header__menu__slider">
             <div class="header__menu">
               <div class="header__menu__langs">
-                <button class="header__menu__langs__item" :class="{active: $i18n.locale == 'ru'}">Ru</button>
-                <button class="header__menu__langs__item" :class="{active: $i18n.locale == 'az'}">Az</button>
+                <button class="header__menu__langs__item" :class="{active: $i18n.locale == 'ru'}" @click="chooseLang('ru')">Ru</button>
+                <button class="header__menu__langs__item" :class="{active: $i18n.locale == 'az'}" @click="chooseLang('az')">Az</button>
               </div>
               <div class="header__menu__content">
                 <h2 class="header__menu__title--big">{{ $t('menu.navigation') }}</h2>
@@ -74,30 +75,19 @@
                 </ul>
                 <h3 class="header__menu__title--medium">{{ $t('menu.read-in-blog') }}</h3>
                 <div class="header__menu__blog">
-                  <clink to="#" class="header__menu__blog__left">
-                    <img src="/temp/menu-blog.png">
-                  </clink>
+                  <div class="header__menu__blog__left">
+                    <div v-swiper:mySwiper="swiperOption">
+                      <div class="swiper-wrapper">
+                        <div class="swiper-slide" v-for="i in 3" :key="i">
+                          <img src="/temp/menu-blog.png">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                   <div class="header__menu__blog__right">
                     <h4 class="header__menu__blog__right__title">{{ $t('menu.todays-topic') }}</h4>
                     <div class="header__menu__blog__right__topics">
-                      <div class="header__menu__blog__right__topics__item">
-                        <clink to="/">мода</clink>
-                      </div>
-                      <div class="header__menu__blog__right__topics__item">
-                        <clink to="/">покупки</clink>
-                      </div>
-                      <div class="header__menu__blog__right__topics__item">
-                        <clink to="/">шоппинг</clink>
-                      </div>
-                      <div class="header__menu__blog__right__topics__item">
-                        <clink to="/">скидки и акции</clink>
-                      </div>
-                      <div class="header__menu__blog__right__topics__item">
-                        <clink to="/">вазы</clink>
-                      </div>
-                      <div class="header__menu__blog__right__topics__item">
-                        <clink to="/">взгляд со стороны</clink>
-                      </div>
+                      <clink to="/xz" :class="{active: activeMenuSlide == i-1}" v-for="i in 3" :key="i">Ссылка</clink>
                     </div>
                   </div>
                 </div>
@@ -146,7 +136,35 @@
 
     data() {
       return {
-        menuActive: false
+        menuActive: false,
+        activeMenuSlide: 1,
+        swiperOption: {
+          slidesPerView: 1,
+          spaceBetween: 10,
+          observer: true,
+          observeParents: true,
+          autoplay: {
+            disableOnInteraction: false
+          },
+          init: false
+        }
+      }
+    },
+
+    mounted() {
+      const links = this.$el.querySelectorAll('a');
+      if (links) {
+        links.forEach(a => {
+          a.addEventListener('click', () => {this.closeMenu()});
+        });
+      }
+
+      if (this.mySwiper) {
+        this.mySwiper.on('slideChange', () => {
+          this.activeMenuSlide = this.mySwiper.activeIndex;
+        });
+
+        this.mySwiper.init(this.swiperOption);
       }
     },
 
@@ -167,6 +185,10 @@
 
       onBgClick() {
         this.closeMenu();
+      },
+
+      chooseLang(lang) {
+        this.$router.push(this.switchLocalePath(lang));
       }
     }
   }
