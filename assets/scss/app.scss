@@ -32,8 +32,8 @@ button {
   }
 }
 
-.nuxt-link-exact-active {
-  color: #F8C563;
+.nuxt-link-exact-active, .gold {
+  color: #F8C563 !important;
 }
 
 .hamburger {
@@ -52,6 +52,12 @@ button {
   width: 100%;
   height: 100%;
   z-index: 100;
+}
+
+.container-discounts {
+  .row {
+    justify-content: center;
+  }
 }
 
 @import "global/swiper";
@@ -396,4 +402,31 @@ button {
   padding-right: 15px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.page {
+  &__go-back {
+    margin-top: 50px;
+    width: fit-content;
+    cursor: pointer;
+
+    svg {
+      transform: scaleX(-1);
+    }
+  }
+}
+
+.isLoading {
+    background-image: linear-gradient(90deg, #ddd 0px, #e8e8e8 40px, #ddd 80px);
+    animation: shine 1.6s infinite linear;
+}
+
+@keyframes shine {
+  0% {
+    background-position: -100px;
+  }
+  40%,
+  100% {
+    background-position: 200px;
+  }
 }
