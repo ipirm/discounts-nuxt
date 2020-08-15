@@ -24,6 +24,8 @@
     "axios": "^0.19.2",
     "bootstrap-vue": "^2.15.0",
     "cookie-universal-nuxt": "^2.1.4",
+    "imagesloaded": "^4.1.4",
+    "masonry-layout": "^4.2.2",
     "nuxt": "^2.0.0",
     "nuxt-i18n": "^6.13.1",
     "nuxt-lazy-load": "^1.2.4",
