@@ -5,7 +5,7 @@
                       <h1>{{ $t('searchPanel.title') }}</h1>
                         <h2>{{ $t('searchPanel.subtitle') }}</h2>
                 </div>
-                <div class="overlay-search-subtitle" v-if="!isCatPage">>
+                <div class="overlay-search-subtitle" v-if="!isCatPage">
                     <span>{{ $t('searchPanel.aboutUS') }}</span>
                 </div>
               <div class="overlay-search-title" v-if="isCatPage">>
