@@ -1,7 +1,7 @@
 <template>
   <div class="index-page">
     <div v-show="false">{{ $route.query.cats && !($route.query.company || $route.query.type) ? (cats.find(v => v.id == $route.query.cats) && cats.find(v => v.id == $route.query.cats).meta_description ? cats.find(v => v.id == $route.query.cats).meta_description[this.$i18n.locale] : '') : '' }}</div>
-    <SearchPanel :cats="cats" :companies="companies" :typesPost="typesPost"/>
+    <SearchPanel :isCatPage="false"  :cats="cats" :companies="companies" :typesPost="typesPost"/>
     <div class="navigation-search">
       <div class="navigation-search-bg" :style="{width: `${navigationSearchBgSize}px`, height: `${navigationSearchBgSize}px`,transform: `scale3d(${navigationSearchBgScale}, ${navigationSearchBgScale}, 1) translate3d(50%, 50%, 0)`}"></div>
       <div class="bottom-search-button" @click="openModal()"><svg-icon name="mobile/search" /></div>
@@ -56,27 +56,10 @@ import NotFound from "../components/elements/NotFound";
 import {APP_URI} from "../config/types"
 
 export default {
-  layout: 'nometa',
 
-  head() {
-    return {
-      title: `${this.$t('meta.title')}` || '',
-      meta: [
-        {hid: 'description', name: 'description', content: this.$route.query.cats && !(this.$route.query.company || this.$route.query.type) ? (this.cats.find(v => v.id == this.$route.query.cats) && this.cats.find(v => v.id == this.$route.query.cats).meta_description ? this.cats.find(v => v.id == this.$route.query.cats).meta_description[this.$i18n.locale] : '') : '' },
-        {itemprop: "name", content: this.$route.query.cats && !(this.$route.query.company || this.$route.query.type) ? (this.cats.find(v => v.id == this.$route.query.cats) && this.cats.find(v => v.id == this.$route.query.cats).meta_title ? this.cats.find(v => v.id == this.$route.query.cats).meta_title[this.$i18n.locale] : '') : ''},
-        {itemprop: "description", content: this.$route.query.cats && !(this.$route.query.company || this.$route.query.type) ? (this.cats.find(v => v.id == this.$route.query.cats) && this.cats.find(v => v.id == this.$route.query.cats).meta_description ? this.cats.find(v => v.id == this.$route.query.cats).meta_description[this.$i18n.locale] : '') : ''},
-        {itemprop: "image", content: `${APP_URI}/images/seo-image.webp`},
-        {property: "og:url", content: APP_URI},
-        {property: "og:type", content: "website"},
-        {property: "og:title", content: this.$route.query.cats && !(this.$route.query.company || this.$route.query.type) ? (this.cats.find(v => v.id == this.$route.query.cats) && this.cats.find(v => v.id == this.$route.query.cats).meta_title ? this.cats.find(v => v.id == this.$route.query.cats).meta_title[this.$i18n.locale] : '') : ''},
-        {property: "og:description", content: this.$route.query.cats && !(this.$route.query.company || this.$route.query.type) ? (this.cats.find(v => v.id == this.$route.query.cats) && this.cats.find(v => v.id == this.$route.query.cats).meta_description ? this.cats.find(v => v.id == this.$route.query.cats).meta_description[this.$i18n.locale] : '') : ''},
-        {property: "og:image", content: `${APP_URI}/images/seo-image.webp`},
-      ],
-    }
-  },
 
   components: {NotFound, CustomSelect, Spinner, Card, SearchPanel},
-  
+
   watchQuery(newQuery, oldQuery) {
     return newQuery && oldQuery
   },

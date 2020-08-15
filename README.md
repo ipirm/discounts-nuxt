@@ -1,5 +1,6 @@
 # Discounts
-
+deploy master = https://www.coupons.az/
+deploy staging = https://staging-discounts.herokuapp.com/
 > Discounts
 
 ## Build Setup
