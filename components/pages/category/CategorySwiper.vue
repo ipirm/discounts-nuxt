@@ -30,7 +30,7 @@
           <div class="swiper-wrapper">
             <div class="swiper-slide slide-width" style="display: flex" v-for="item in slides"
                  :key="item.index">
-              <Clink :to="{name:'index', query:{cats: item.id}}">
+              <Clink :to="{name:'category-slug', params:{slug: item.slug}}">
                 <div class="category-element">
                   <img :alt="item.name[$i18n.locale]" :src="item.image_url"/>
                 </div>
