@@ -137,7 +137,7 @@
     data() {
       return {
         menuActive: false,
-        activeMenuSlide: 1,
+        activeMenuSlide: 0,
         swiperOption: {
           slidesPerView: 1,
           spaceBetween: 10,
