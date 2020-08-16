@@ -54,9 +54,9 @@
                   <li>
                     <clink to="/favorite">{{ $t('menu.popular') }}</clink>
                   </li>
-                  <li>
+                  <!-- <li>
                     <clink to="/blog">{{ $t('menu.blog') }}</clink>
-                  </li>
+                  </li> -->
                 </ul>
                 <h3 class="header__menu__title--medium">{{ $t('menu.who-we-are') }}</h3>
                 <ul>
@@ -73,8 +73,8 @@
                     <clink to="/information/gizlilik-siyas-ti">{{ $t('menu.policy') }}</clink>
                   </li>
                 </ul>
-                <h3 class="header__menu__title--medium">{{ $t('menu.read-in-blog') }}</h3>
-                <div class="header__menu__blog">
+                <!-- <h3 class="header__menu__title--medium">{{ $t('menu.read-in-blog') }}</h3> -->
+                <!-- <div class="header__menu__blog">
                   <div class="header__menu__blog__left">
                     <div v-swiper:mySwiper="swiperOption">
                       <div class="swiper-wrapper">
@@ -90,7 +90,7 @@
                       <clink to="/xz" :class="{active: activeMenuSlide == i-1}" v-for="i in 3" :key="i">Ссылка</clink>
                     </div>
                   </div>
-                </div>
+                </div> -->
                 <h3 class="header__menu__title--medium">{{ $t('menu.social') }}</h3>
                 <div class="header__menu__socials">
                   <a href="#" class="header__menu__socials__item">
@@ -164,7 +164,7 @@
           this.activeMenuSlide = this.mySwiper.activeIndex;
         });
 
-        this.mySwiper.init(this.swiperOption);
+        // this.mySwiper.init(this.swiperOption);
       }
     },
 
