@@ -19,6 +19,7 @@
           label="name"
           :options="options"
           @input="findPosts"
+          search="true"
         />
       </div>
       <div class="overlay-search-select cat-select" v-if="type === 'company' && data" @click="handleClick(2)">

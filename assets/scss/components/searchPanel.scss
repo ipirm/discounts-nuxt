@@ -12,6 +12,12 @@
     width: 100%;
     max-width: 160px;
   }
+
+  .vs__dropdown-option {
+    &:hover {
+      background: linear-gradient(90deg, #162F4A 0%, #224B76 100%);
+    }
+  }
 }
 
 .overlaySearch::after {

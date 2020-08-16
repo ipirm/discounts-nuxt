@@ -1,8 +1,11 @@
 <template>
 	<div class="blog-page">
 		<div class="container">
-			<div class="page__go-back" @click="$router.go(-1)">
-				<svg-icon name="slider/prev" style="width: 50px;height: 34px"/>
+			<div class="page__go-back">
+				<a @click="$router.go(-1)" class="post-back-button">
+          <svg-icon name="navigation/prev" style="width: 26px;height: 30px; transform: scaleX(1)"/>
+          <span>{{$t('navigation.prev')}}</span>
+        </a>
 			</div>
 			<h1 class="blog-page__title">{{ $t('blog.title') }}</h1>
 			<p class="blog-page__text">Эта веб-страница является прекрасным местом для жизни в любых ее конев а проявлениях. Реалистичные истории очеловечивают бренд, предоставляя контекст. Эта веб-страница является прекрасным местом для жизни в любых ее конев а проявлениях. Реалистичные истории очеловечивают бренд, предоставляя контекст.</p>
@@ -23,13 +26,13 @@
 			</div>
 			<div class="blog-page__masonry">
 				<div class="viewer">
-					<div v-for="(post, index) in 10" :data-index="index" :key="index" :class="`box-${index}`" class="item">
+					<clink v-for="(post, i) in 10" :data-index="i" :key="i" to="/xz" class="item" :class="[wideClass(i) ? 'wide' : '', `box-${i}`]">
 						<img class="work-thumb" src="/temp/blog-post.png">
-						<div class="working-desc small">
+						<div class="blog-page__masonry__info">
 							<h2 class="blog-page__post__title">Она сделала губы</h2>
 							<p class="blog-page__post__text">Меная пециоа всстом для жизни в любых ее конев а проявлениях...</p>
 						</div>
-					</div>
+					</clink>
 					<div class="grid-sizer"></div>
 				</div>
 			</div>
@@ -75,6 +78,12 @@ export default {
 				let masonry = new Masonry(this.selector, this.options);
 				this.$emit('masonry-loaded', masonry);
 			});
+		},
+		wideClass(i) {
+			if ((i+1) % 10 < 5 && (i+1) % 5 == 1)
+				return true;
+			else if ((i+1) % 10 >= 5 && (i+1) % 5 == 2) return true;
+			return false;
 		}
 	}
 }
