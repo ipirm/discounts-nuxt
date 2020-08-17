@@ -31,18 +31,16 @@
     transform: translate(-50%, -50%);
 
     a {
-      font-family: Nunito,sans-serif!important;
       display: flex;
       align-items: center;
       height: 100%;
       margin-right: 65px;
-      color: #424242;
-      font-style: normal;
-      font-weight: normal;
+      color: #737373;
+      font-weight: 400;
       font-size: 15px;
       line-height: 16px;
       transition: color .2s ease;
-
+      letter-spacing: 0.5px;
       &:hover {
         color: #F8C563;
       }

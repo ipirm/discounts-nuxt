@@ -91,11 +91,17 @@
     "validateText": "Mətn sahəsi boş saxlana bilməz",
     "sendBtn": "Göndər",
     "thankYou": "Mesajınız üçün təşəkkür edirik!"
-
   },
   "notFound": {
     "saved": "Sizin heç bir yadda saxlanılmış paylaşımınız yoxdur",
     "posts": "Axtarışa uyğun heç bir nəticə tapılmadı",
     "not": "404"
+  },
+  "burgerMenu": {
+    "navigation": "Sayt naviqasiyası",
+    "AnotherLinks": "Biz kimik",
+    "withUs": "Bizimlə qalın",
+    "createdWith": "Sayt Tviser veb studiyası tərəfindən tərtib edilmişdir. Bütün hüquqlar qorunur. Bakı, 2020",
+    "karantin": "Karantinlə əlaqədar, mövcud vəziyyətdəki dəyişiklikləri nəzərə alaraq, xahiş edirik şirkətinizin işinin təfərrüatlarını daha da dəqiqləşdirəsiniz."
   }
 }

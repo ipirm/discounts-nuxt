@@ -40,7 +40,7 @@
                 <button class="header__menu__langs__item" :class="{active: $i18n.locale == 'az'}" @click="chooseLang('az')">Az</button>
               </div>
               <div class="header__menu__content">
-                <h2 class="header__menu__title--big">{{ $t('menu.navigation') }}</h2>
+                <h2 class="header__menu__title--big">{{ $t('burgerMenu.navigation') }}</h2>
                 <ul>
                   <li>
                     <clink to="/">{{ $t('menu.main') }}</clink>
@@ -54,71 +54,62 @@
                   <li>
                     <clink to="/favorite">{{ $t('menu.popular') }}</clink>
                   </li>
-                  <li>
-                    <clink to="/blog">{{ $t('menu.blog') }}</clink>
-                  </li>
+<!--                  <li>-->
+<!--                    <clink to="/blog">{{ $t('menu.blog') }}</clink>-->
+<!--                  </li>-->
                 </ul>
-                <h3 class="header__menu__title--medium">{{ $t('menu.who-we-are') }}</h3>
+                <h3 class="header__menu__title--medium">{{ $t('burgerMenu.AnotherLinks') }}</h3>
                 <ul>
-                  <li>
-                    <clink to="/information/haqqimizda">{{ $t('footer.aboutUs') }}</clink>
-                  </li>
-                  <li>
-                    <clink to="/information/partnerstvo">{{ $t('footer.workWithUs') }}</clink>
-                  </li>
-                  <li>
-                    <clink to="/information/kontakty">{{ $t('menu.contact') }}</clink>
-                  </li>
-                  <li>
-                    <clink to="/information/gizlilik-siyas-ti">{{ $t('menu.policy') }}</clink>
-                  </li>
+           <li v-for="item in pages" :key="item.id">
+             <clink  :to="`/information/${item.slug}`">{{ item.menu_name[$i18n.locale] }}</clink>
+           </li>
                 </ul>
-                <h3 class="header__menu__title--medium">{{ $t('menu.read-in-blog') }}</h3>
-                <div class="header__menu__blog">
-                  <div class="header__menu__blog__left">
+                <h3 class="header__menu__title--medium"></h3>
+                <div class="header__menu__blog" >
+                  <div class="header__menu__blog__left" >
                     <div v-swiper:mySwiper="swiperOption">
                       <div class="swiper-wrapper">
-                        <div class="swiper-slide" v-for="i in 3" :key="i">
+                        <div class="swiper-slide " v-if="false" v-for="i in 3" :key="i">
                           <img src="/temp/menu-blog.png">
                         </div>
                       </div>
                     </div>
                   </div>
                   <div class="header__menu__blog__right">
-                    <h4 class="header__menu__blog__right__title">{{ $t('menu.todays-topic') }}</h4>
+                    <h4 class="header__menu__blog__right__title"></h4>
                     <div class="header__menu__blog__right__topics">
-                      <clink to="/xz" :class="{active: activeMenuSlide == i-1}" v-for="i in 3" :key="i">Ссылка</clink>
+                      <clink v-if="false" to="/xz" :class="{active: activeMenuSlide == i-1}" v-for="i in 3" :key="i">Ссылка</clink>
                     </div>
                   </div>
                 </div>
-                <h3 class="header__menu__title--medium">{{ $t('menu.social') }}</h3>
+                <h3 class="header__menu__title--medium">{{ $t('burgerMenu.withUs') }}</h3>
                 <div class="header__menu__socials">
-                  <a href="#" class="header__menu__socials__item">
+                  <a href="https://www.facebook.com/coupons.baku/" target="_blank" class="header__menu__socials__item">
                     <img class="nohover" src="/images/menu/fb.svg">
                     <img class="hover" src="/images/menu/fb-orange.svg">
                   </a>
-                  <a href="#" class="header__menu__socials__item">
+                  <a href="https://web.whatsapp.com/" target="_blank"  class="header__menu__socials__item">
                     <img class="nohover" src="/images/menu/wp.svg">
                     <img class="hover" src="/images/menu/wp-orange.svg">
                   </a>
-                  <a href="#" class="header__menu__socials__item">
+                  <a href="http://m.me/coupons.baku" target="_blank"  class="header__menu__socials__item">
                     <img class="nohover" src="/images/menu/msg.svg">
                     <img class="hover" src="/images/menu/msg-orange.svg">
                   </a>
-                  <a href="#" class="header__menu__socials__item">
+                  <a href="mailto:info@coupons.az" target="_blank" class="header__menu__socials__item">
                     <img class="nohover" src="/images/menu/mail.svg">
                     <img class="hover" src="/images/menu/mail-orange.svg">
                   </a>
-                  <a href="#" class="header__menu__socials__item">
+                  <a href="https://www.instagram.com/coupons.az/" target="_blank"  class="header__menu__socials__item">
                     <img class="nohover" src="/images/menu/ig.svg">
                     <img class="hover" src="/images/menu/ig-orange.svg">
                   </a>
-                  <a href="#" class="header__menu__socials__item">
+                  <a href="tel:+994503190044" class="header__menu__socials__item">
                     <img class="nohover" src="/images/menu/phone.svg">
                     <img class="hover" src="/images/menu/phone-orange.svg">
                   </a>
                 </div>
-                <span class="header__menu__bottom-text">{{ $t('menu.bottom-text') }}</span>
+                <span class="header__menu__bottom-text">{{ $t('burgerMenu.createdWith') }}</span>
               </div>
             </div>
           </div>
@@ -129,6 +120,8 @@
 </template>
 
 <script>
+  import {mapState} from "vuex";
+
   export default {
     name: 'Header',
 
@@ -190,6 +183,9 @@
       chooseLang(lang) {
         this.$router.push(this.switchLocalePath(lang));
       }
+    },
+    computed: {
+      ...mapState('pages', ['pages']),
     }
   }
 </script>

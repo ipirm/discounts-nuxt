@@ -41,6 +41,9 @@
                     <whats-app :url="urlSocial" :title="activeCompany.name" scale="1"/>
                   </div>
                 </client-only>
+                <div class="overlay-social">
+                  <p class="overlay-social-text">{{$t('burgerMenu.karantin') }}</p>
+                </div>
               </div>
               <div class="post-text">
                 <div class="post-information-tabs">

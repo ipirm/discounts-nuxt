@@ -54,14 +54,14 @@
           {property: 'og:title', content: this.page.content[0].title[this.$i18n.locale] || ''},
           {property: 'og:description', content: this.page.subtitle[this.$i18n.locale] || ''},
           {name: 'description', content:  this.page.subtitle[this.$i18n.locale]  || ''},
-          {property: 'og:image', content: '/images/seo-image.webp'},
+          {property: 'og:image', content: '/images/seo-image.jpg'},
           {property: 'og:url', content: `${APP_URI}${this.$route.fullPath}` || ''},
           {property: "og:type", content: "website"},
           {name: 'keywords', content: `${this.$t('keywords')}` || ''},
-          {property: 'twitter:card', content: '/images/seo-image.webp'},
+          {property: 'twitter:card', content: '/images/seo-image.jpg'},
           {itemprop: "name", content: this.page.content[0].title[this.$i18n.locale] || ''},
           {itemprop: "description", content: this.page.subtitle[this.$i18n.locale] || ''},
-          {itemprop: "image", content: '/images/seo-image.webp'},
+          {itemprop: "image", content: '/images/seo-image.jpg'},
         ]
       }
     },

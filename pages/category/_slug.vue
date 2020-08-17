@@ -2,7 +2,7 @@
   <div class="index-page">
     <SearchPanel :catText="catPost" :isCatPage="true"/>
     <div class="container container-discounts" :style="{marginTop: 50 + 'px'}">
-      <a @click="$router.go(-1)" class="post-back-button">
+      <a @click="$router.go(-1)" class="post-back-button" style="margin: 20px 0">
         <svg-icon name="navigation/prev" style="width: 26px;height: 30px"/>
         <span>{{$t('navigation.prev')}}</span>
       </a>
@@ -47,12 +47,12 @@
           {hid: 'description', name: 'description', content: this.catPost.meta_description[this.$i18n.locale] || ''},
           {itemprop: "name", content: this.catPost.meta_title[this.$i18n.locale]},
           {itemprop: "description", content: this.catPost.meta_description[this.$i18n.locale]},
-          {itemprop: "image", content: `${APP_URI}/images/seo-image.webp`},
+          {itemprop: "image", content: `${APP_URI}/images/seo-image.jpg`},
           {property: "og:url", content: APP_URI},
           {property: "og:type", content: "website"},
           {property: "og:title", content: this.catPost.meta_title[this.$i18n.locale]},
           {property: "og:description", content: this.catPost.meta_description[this.$i18n.locale]},
-          {property: "og:image", content: `${APP_URI}/images/seo-image.webp`},
+          {property: "og:image", content: `${APP_URI}/images/seo-image.jpg`},
         ],
       }
     },
