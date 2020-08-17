@@ -1,7 +1,7 @@
 <template>
         <div class="overlaySearch">
             <div class="overlay-search">
-                <div class="overlay-search-title" v-if="!isCatPage">>
+                <div class="overlay-search-title" v-if="!isCatPage">
                       <h1>{{ $t('searchPanel.title') }}</h1>
                         <h2>{{ $t('searchPanel.subtitle') }}</h2>
                 </div>
