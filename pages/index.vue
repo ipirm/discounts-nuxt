@@ -129,6 +129,9 @@ export default {
 
     openModal(){
       this.navigationSearchBgScale = 1;
+      if (process.client) {
+        document.querySelector('.navigation-search').style.zIndex = "9999";
+      }
       setTimeout(() => {
         if (this.navigationSearchBgScale > 0) {
           this.searchActive = true;
@@ -140,6 +143,9 @@ export default {
     },
 
     hideModal(){
+      if (process.client) {
+        document.querySelector('.navigation-search').style.zIndex = "99";
+      }
       this.searchVisible = false;
       setTimeout(() => {
         if (!this.searchVisible) {
