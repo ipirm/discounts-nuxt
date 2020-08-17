@@ -13,6 +13,7 @@
     "selectCompany": "Mağazanı seçin...",
     "selectCategory": "Kateqoriyanı seçin...",
     "selectType": "Növü seçin...",
+    "type": "Növ",
     "aboutUS": "Bakı şəhərində bütün kampaniyaları və endirimləri bir yerdə toplayan, unikal bir layihə!"
   },
   "card": {
@@ -35,7 +36,7 @@
   },
   "footer": {
     "aboutUs": "Haqqımızda",
-    "aboutText": "Biz - Bakı şəhəri daxilində keçirilən endirimləri, kampaniyaları və promo-kodları bir yerə toplayan onlayn vasitəçiyik. Məqsədimiz doğma xalqımıza kömək etməkdir!",
+    "aboutText": "Bakı şəhərində keçirilən müxtəlif kampaniyaları, eləcə də mağazalarda olan endirimləri sizlərə təqdim edirik. Rəsmi endirimlər olan veb saytımıza xoş gəldiniz!",
     "writeUs": "Bizə yazın",
     "fastLinks": "Sürətli keçid linki",
     "workWithUs": "Bizimlə əməkdaşlıq",
@@ -44,7 +45,7 @@
     "reklama": "Reklam",
     "reklamaApi": "APİ sənədi",
     "contactUs": "Bizimlə əlaqə saxlayın",
-    "stayUs": "Bizimlə əlaqə saxlayın, bizə yazın və məktublar göndərin",
+    "stayUs": "Saytdakı elanlar Bakıdakı bütün endirim olan mağazalara şamil olunur. Endirim axtarışındasınız? Bizə yazın!",
     "send": "GÖndər",
     "rightReserved": "Bütün hüquqlar qorunur, Bakı, 2020.",
     "rightStudio": "Sayt Tviser.agency web studiyası tərəfindən tərtib edilmişdir",
@@ -55,8 +56,8 @@
   "meta": {
     "keywords": "",
     "share": "Paylaşın:",
-    "title": "Kampaniyalar, endirimlər, Bakı şəhərində yerləşən mağazaların kataloqu - Tviser.agency",
-    "description": "Bakı şəhəri daxilində kampaniyalar, endirimlər, supermarketlərin kataloqu, elektronika və məişət texnikası mağazaları, tikinti materialları mağazaları, geyim və ayaqqabı mağazaları"
+    "title": "Bakıdakı mağazalarda olan endirimlər",
+    "description": "Bakıdakı bütün mağazalarda olan bütün aktiv endirim və kampaniyaları özündə birləşdirən unikal layihə"
   },
   "companyPage": {
     "address": "Ünvan",
@@ -90,11 +91,17 @@
     "validateText": "Mətn sahəsi boş saxlana bilməz",
     "sendBtn": "Göndər",
     "thankYou": "Mesajınız üçün təşəkkür edirik!"
-
   },
   "notFound": {
     "saved": "Sizin heç bir yadda saxlanılmış paylaşımınız yoxdur",
     "posts": "Axtarışa uyğun heç bir nəticə tapılmadı",
     "not": "404"
+  },
+  "burgerMenu": {
+    "navigation": "Sayt naviqasiyası",
+    "AnotherLinks": "Biz kimik",
+    "withUs": "Bizimlə qalın",
+    "createdWith": "Sayt Tviser veb studiyası tərəfindən tərtib edilmişdir. Bütün hüquqlar qorunur. Bakı, 2020",
+    "karantin": "Karantinlə əlaqədar, mövcud vəziyyətdəki dəyişiklikləri nəzərə alaraq, xahiş edirik şirkətinizin işinin təfərrüatlarını daha da dəqiqləşdirəsiniz."
   }
 }

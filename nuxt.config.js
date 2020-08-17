@@ -58,6 +58,7 @@ export default {
     {src: '~plugins/vue-scrollto'},
     {src: '~plugins/social.js', ssr: false},
     {src: '~plugins/event-bus'},
+    {src: '~plugins/components'}
   ],
   /*
   ** Nuxt.js dev-modules
@@ -92,6 +93,7 @@ export default {
     '@nuxtjs/sitemap',
     '@nuxtjs/robots',
     '@nuxtjs/google-analytics',
+    'nuxt-lazy-load',
     [
       '@nuxtjs/yandex-metrika',
       {

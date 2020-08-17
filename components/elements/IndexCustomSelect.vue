@@ -19,6 +19,7 @@
           label="name"
           :options="options"
           @input="findPosts"
+          search="true"
         />
       </div>
       <div class="overlay-search-select cat-select" v-if="type === 'company' && data" @click="handleClick(2)">
@@ -41,7 +42,7 @@
         v-if="type === 'type' && data"
         @click="handleClick(3)"
       >
-        <div class="overlay-search-label"><span>{{$t('searchPanel.selectType')}}</span></div>
+        <div class="overlay-search-label"><span>{{$t('searchPanel.type')}}</span></div>
         <v-select
           class="basic-single select3"
           :placeholder="placeHolder"

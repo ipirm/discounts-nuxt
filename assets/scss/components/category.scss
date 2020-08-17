@@ -1,5 +1,5 @@
 .category-section {
-  margin-top: 90px;
+  margin-top: 60px;
   margin-bottom: 150px;
   .swiper-fluid{
     margin-top: 25px !important;
@@ -15,7 +15,7 @@
 }
 
 .swiper-fluid {
-  margin-top: 45px;
+  margin-top: 30px;
   padding: 0 84px !important;
 
   .swiper-slide a .category-element {
@@ -27,7 +27,6 @@
       transform: scale(1);
       -webkit-transition: .3s ease-in-out;
       transition: .3s ease-in-out;
-      width: 100%;
       height: 214.3px !important;
       object-fit: cover;
     }

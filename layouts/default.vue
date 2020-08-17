@@ -25,12 +25,12 @@
           {hid: 'description', name: 'description', content: `${this.$t('meta.description')}` || ''},
           {itemprop: "name", content: `${this.$t('meta.title')}` || ''},
           {itemprop: "description", content: `${this.$t('meta.description')}` || ''},
-          {itemprop: "image", content: `${APP_URI}/images/seo-image.webp`},
+          {itemprop: "image", content: `${APP_URI}/images/banner.png`},
           {property: "og:url", content: APP_URI},
           {property: "og:type", content: "website"},
           {property: "og:title", content: `${this.$t('meta.title')}` || ''},
           {property: "og:description", content: `${this.$t('meta.description')}` || ''},
-          {property: "og:image", content: `${APP_URI}/images/seo-image.webp`},
+          {property: "og:image", content: `${APP_URI}/images/banner.png`},
         ],
       }
     },
@@ -41,7 +41,6 @@
       if (process.browser) {
         window.onNuxtReady((app) => {
           this.SET_PAGE_READY();
-          document.body.style.marginTop = 40 + "px"
         })
       }
     },
