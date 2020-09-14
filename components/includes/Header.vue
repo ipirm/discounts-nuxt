@@ -109,7 +109,7 @@
                     <img class="hover" src="/images/menu/phone-orange.svg">
                   </a>
                 </div>
-                <span class="header__menu__bottom-text">{{ $t('burgerMenu.createdWith') }}</span>
+                <a href="https://tviser.agency/" target="_blank" class="header__menu__bottom-text">{{ $t('burgerMenu.createdWith') }}</a>
               </div>
             </div>
           </div>

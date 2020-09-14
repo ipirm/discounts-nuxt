@@ -76,7 +76,7 @@
         <div class="footer-subcol"><span>{{ $t('footer.changedLang') }} {{ $t('footer.lang') }}</span>
         </div>
         <div class="footer-subcol"><span>{{ $t('footer.rightReserved') }}</span></div>
-        <div class="footer-subcol"><span>{{ $t('footer.rightStudio') }}</span></div>
+        <div class="footer-subcol"><a href="https://tviser.agency/" target="_blank">{{ $t('footer.rightStudio') }}</a></div>
       </div>
     </div>
   </footer>
